@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Selecao COPIN</title>
+        <title>Sele√ß√£o COPIN</title>
         <meta name="layout" content="main" />
         
         <style type="text/css" media="screen">
@@ -52,7 +52,6 @@
         </style>
     </head>
     <body>
-    „
         <div id="nav">
             <div class="homePagePanel">
                 <div class="panelTop"></div>
@@ -60,8 +59,8 @@
                 	<h1>Dados:</h1>
                 	<ul>
             			<li><strong>Cliente:</strong> Hyggo Almeida</li>
-            			<li><strong>Equipe de </br>desenvolvimento/testes</br>/gerÍncia:</strong> Delano Oliveira, Izabela Melo e Savyo NÛbrega</li>
-            			<li><strong>Professora:</strong> Francilene ProcÛpio Garcia</li>
+            			<li><strong>Equipe de </br>desenvolvimento/testes</br>/ger√™ncia:</strong> Delano Oliveira, Izabela Melo e Savyo N√≥brega</li>
+            			<li><strong>Professora:</strong> Francilene Proc√≥pio Garcia</li>
             			<li><strong>Monitores:</strong> David Anderson e Renato Miceli</li>
             		</ul>
                 </div>
@@ -69,8 +68,8 @@
             </div>
         </div>
         <div id="pageBody">
-            <h1>SelecaoCOPIN: um sistema para automatizar o processo de selecao da COPIN</h1>
-            <p>O projeto visa o desenvolvimento de um software para gerenciar o processo de seleÁ„o da COPIN (Programa de PÛs-GraduaÁ„o em ComputaÁ„o), desde o processo de submiss„o da documentaÁ„o on-line pelos candidatos, atÈ a definiÁ„o do resultado da seleÁ„o de acordo com dados inseridos por professores durante a avaliaÁ„o dos candidatos. O software È importante para agilizar o processo de divulgaÁ„o de resultados, assim como facilita o acesso ‡ informaÁ„o por parte dos docentes da instituiÁ„o.</p>
+            <h1>Sele√ß√£oCOPIN: um sistema para automatizar o processo de sele√ß√£o da COPIN</h1>
+            <p>O projeto visa o desenvolvimento de um software para gerenciar o processo de sele√ß√£o da COPIN (Programa de P√≥s-Gradua√ß√£o em Computa√ß√£o), desde o processo de submiss√£o da documenta√ß√£o on-line pelos candidatos, at√© a defini√ß√£o do resultado da sele√ß√£o de acordo com dados inseridos por professores durante a avalia√ß√£o dos candidatos. O software √© importante para agilizar o processo de divulga√ß√£o de resultados, assim como facilita o acesso √† informa√ß√£o por parte dos docentes da institui√ß√£o.</p>
 
             <div id="controllerList" class="dialog">
                 <h2>Exemplos:</h2>
