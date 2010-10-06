@@ -6,7 +6,7 @@ class Usuario {
 	String senha
 	String nome
 	String email
-	String CPF
+	String CPF 
 
     static constraints = {
 		login(blank:false, unique:true)
