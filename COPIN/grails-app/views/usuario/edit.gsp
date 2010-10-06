@@ -24,7 +24,7 @@
                 <g:renderErrors bean="${usuarioInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form method="post" id="editarUsuario">
+            <g:form method="post" >
                 <g:hiddenField name="id" value="${usuarioInstance?.id}" />
                 <g:hiddenField name="version" value="${usuarioInstance?.version}" />
                 <div class="dialog">
@@ -33,10 +33,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="nome"><g:message code="usuario.nome.label" default="Nome" /></label>
+                                  <label for="login"><g:message code="usuario.login.label" default="Login" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'nome', 'errors')}">
-                                    <g:textField name="nome" value="${usuarioInstance?.nome}" />
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'login', 'errors')}">
+                                    <g:textField name="login" value="${usuarioInstance?.login}" />
                                 </td>
                             </tr>
                         
@@ -51,10 +51,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="login"><g:message code="usuario.login.label" default="Login" /></label>
+                                  <label for="nome"><g:message code="usuario.nome.label" default="Nome" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'login', 'errors')}">
-                                    <g:textField name="login" value="${usuarioInstance?.login}" />
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'nome', 'errors')}">
+                                    <g:textField name="nome" value="${usuarioInstance?.nome}" />
                                 </td>
                             </tr>
                         
