@@ -6,7 +6,7 @@ class HelloWorldController {
 		render "Hello World!"
 		sendMail {
 			   from "nome@gmail.com"
-			   to "delanohelio@gmail.com"
+			   to "savyoins@gmail.com"
 			   subject "Enviando e-mails com Grails"
 			   body """
 				  E ai pessoal,
