@@ -22,24 +22,8 @@ class UsuarioController {
     def save = {
         def usuarioInstance = new Usuario(params)
         if (usuarioInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
-            redirect(action: "show", id: usuarioInstance.id)
-			
-			sendMail {
-				from "nome@gmail.com"
-				to usuarioInstance.email
-				subject "E-mail de confirmacao"
-				body """
-				   Ola, bem-vindo(a) ao sistema SelecaoCOPIN. 
-				   Para confirmar seu cadastro, clique aqui.
-				   Voce tem 72 horas para confirmar seu cadastro.
-				   Caso contrario, ele sera apagado no banco de dados.
-				   
-				   Atenciosamente,
-				   opa
-			  
-				   """
-			 }
+            flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.nome])}"
+            render(view: "confirmacao", model: [usuarioInstance: usuarioInstance])
 			
         }
         else {
