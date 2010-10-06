@@ -23,7 +23,7 @@
                 <g:renderErrors bean="${usuarioInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form action="save" >
+            <g:form action="save" id="criarUsuario">
                 <div class="dialog">
                     <table>
                         <tbody>
