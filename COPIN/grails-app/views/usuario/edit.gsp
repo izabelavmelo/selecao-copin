@@ -24,7 +24,7 @@
                 <g:renderErrors bean="${usuarioInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form method="post" >
+            <g:form method="post" id="editarUsuario">
                 <g:hiddenField name="id" value="${usuarioInstance?.id}" />
                 <g:hiddenField name="version" value="${usuarioInstance?.version}" />
                 <div class="dialog">
