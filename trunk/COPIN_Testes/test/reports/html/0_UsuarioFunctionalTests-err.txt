@@ -1,0 +1,12 @@
+--Output from testAnonymousAccess--
+--Output from testCadastroEmailInvalido--
+--Output from testCadastroCPFInvalido--
+--Output from testCadastroSenhaPequena--
+--Output from testCadastroSenhaGrande--
+--Output from testCadastroNomeBranco--
+--Output from testCadastroSenhaBranco--
+--Output from testCadastroLoginBranco--
+--Output from testCadastroEmailBranco--
+--Output from testCadastroLoginEmailCPFSenha--
+--Output from testCadastroLoginJaExiste--
+
