@@ -52,6 +52,7 @@ grails {
 		  password = "250791dd"
 		  props    = ["mail.smtp.auth": "true",
                   "mail.smtp.socketFactory.port": "465",
+				  "mail.smtp.socketFactory.ssl": "true",
                   "mail.smtp.socketFactory.class": "javax.net.ssl.SSLSocketFactory",
                   "mail.smtp.socketFactory.fallback": "false"]
 	   }
