@@ -30,9 +30,9 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.nome.label" default="Nome" /></td>
+                            <td valign="top" class="name"><g:message code="usuario.login.label" default="Login" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nome")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "login")}</td>
                             
                         </tr>
                     
@@ -44,9 +44,9 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.login.label" default="Login" /></td>
+                            <td valign="top" class="name"><g:message code="usuario.nome.label" default="Nome" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "login")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nome")}</td>
                             
                         </tr>
                     

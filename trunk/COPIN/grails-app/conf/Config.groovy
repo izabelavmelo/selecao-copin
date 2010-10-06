@@ -44,6 +44,20 @@ grails.logging.jul.usebridge = true
 // packages to include in Spring bean scanning
 grails.spring.bean.packages = []
 
+grails {
+	   mail {
+		  host     = "smtp.gmail.com"
+		  port     = 465
+		  username = "eissuae@gmail.com"
+		  password = "250791dd"
+		  props    = ["mail.smtp.auth": "true",
+                  "mail.smtp.socketFactory.port": "465",
+                  "mail.smtp.socketFactory.class": "javax.net.ssl.SSLSocketFactory",
+                  "mail.smtp.socketFactory.fallback": "false"]
+	   }
+	}
+	
+
 // set per-environment serverURL stem for creating absolute links
 environments {
     production {
