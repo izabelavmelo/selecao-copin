@@ -1,0 +1,2653 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="1" hostname="personal-45e4c6" id="0" name="UsuarioFunctionalTests" package="" tests="11" time="5.234" timestamp="2010-10-06T14:46:18">
+      <properties />
+
+      <testcase classname="UsuarioFunctionalTests" name="testAnonymousAccess" time="2.469" />
+
+      <testcase classname="UsuarioFunctionalTests" name="testCadastroEmailInvalido" time="0.406" />
+
+      <testcase classname="UsuarioFunctionalTests" name="testCadastroCPFInvalido" time="0.203" />
+
+      <testcase classname="UsuarioFunctionalTests" name="testCadastroSenhaPequena" time="0.188" />
+
+      <testcase classname="UsuarioFunctionalTests" name="testCadastroSenhaGrande" time="0.234" />
+
+      <testcase classname="UsuarioFunctionalTests" name="testCadastroNomeBranco" time="0.172" />
+
+      <testcase classname="UsuarioFunctionalTests" name="testCadastroSenhaBranco" time="0.187" />
+
+      <testcase classname="UsuarioFunctionalTests" name="testCadastroLoginBranco" time="0.204" />
+
+      <testcase classname="UsuarioFunctionalTests" name="testCadastroEmailBranco" time="0.343" />
+
+      <testcase classname="UsuarioFunctionalTests" name="testCadastroLoginEmailCPFSenha" time="0.469">
+          <failure message="Expected content to loosely contain [Usuario 1 created] but it didn&apos;t" type="functionaltestplugin.FunctionalTestException">URL Stack that resulted in junit.framework.AssertionFailedError: Expected content to loosely contain [Usuario 1 created] but it didn&apos;t
+---------------
+http://localhost:9090/COPIN/usuario/save (webWindowContentChange event)
+http://localhost:9090/COPIN/usuario/create (webWindowContentChange event)
+---------------
+junit.framework.AssertionFailedError: Expected content to loosely contain [Usuario 1 created] but it didn&apos;t
+	at functionaltestplugin.FunctionalTestCase.invokeMethod(FunctionalTestCase.groovy:191)
+	at functionaltestplugin.FunctionalTestCase.assertContentContains(FunctionalTestCase.groovy:569)
+	at functionaltestplugin.FunctionalTestCase.invokeMethod(FunctionalTestCase.groovy:191)
+	at UsuarioFunctionalTests.testCadastroLoginEmailCPFSenha(UsuarioFunctionalTests.groovy:144)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</failure>
+
+      </testcase>
+
+      <testcase classname="UsuarioFunctionalTests" name="testCadastroLoginJaExiste" time="0.359" />
+
+      <system-out><![CDATA[--Output from testAnonymousAccess--
+
+
+>>>>>>>>>>>>>>>>>>>> Making request to http://localhost:9090/COPIN/usuario/create using method GET >>>>>>>>>>>>>>>>>>>>
+Initializing web request settings for http://localhost:9090/COPIN/usuario/create
+Request parameters:
+========================================
+========================================
+Request headers:
+========================================
+Accept-Language: en
+Accept: */*
+========================================
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from GET http://localhost:9090/COPIN/usuario/create <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=UTF-8
+Content-Language: en
+Content-Length: 3972
+Date: Wed, 06 Oct 2010 14:46:18 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="login" value="" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="CPF" value="" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#--Output from testCadastroEmailInvalido--
+
+
+>>>>>>>>>>>>>>>>>>>> Making request to http://localhost:9090/COPIN/usuario/create using method GET >>>>>>>>>>>>>>>>>>>>
+Initializing web request settings for http://localhost:9090/COPIN/usuario/create
+Request parameters:
+========================================
+========================================
+Request headers:
+========================================
+Accept-Language: en
+Accept: */*
+========================================
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from GET http://localhost:9090/COPIN/usuario/create <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=UTF-8
+Content-Language: en
+Content-Length: 3972
+Date: Wed, 06 Oct 2010 14:46:20 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="login" value="" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="CPF" value="" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#Setting value to [Izabela Vanessa] on field [name:nome id:nome] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=nome] / name: DomAttr[name=name value=nome])
+Setting value to [iza1234] on field [name:senha id:senha] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=senha] / name: DomAttr[name=name value=senha])
+Setting value to [izabela] on field [name:login id:login] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=login] / name: DomAttr[name=name value=login])
+Setting value to [izabela.vmelo] on field [name:email id:email] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=email] / name: DomAttr[name=name value=email])
+Setting value to [08580911435] on field [name:CPF id:CPF] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=CPF] / name: DomAttr[name=name value=CPF])
+Clicked [Create] which resolved to a [class com.gargoylesoftware.htmlunit.html.HtmlSubmitInput]
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from POST http://localhost:9090/COPIN/usuario/save <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=utf-8
+Content-Language: en
+Content-Length: 4361
+Date: Wed, 06 Oct 2010 14:46:20 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <div class="errors">
+                <ul><li>O campo [CPF] da classe [class copin.Usuario] com o valor [08580911435] deve ser ?nico</li><li>Endereco de email invalido</li><li>O campo [login] da classe [class copin.Usuario] com o valor [izabela] deve ser ?nico</li></ul>
+            </div>
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="Izabela Vanessa" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="iza1234" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="login" value="izabela" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="email" value="izabela.vmelo" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="CPF" value="08580911435" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#--Output from testCadastroCPFInvalido--
+
+
+>>>>>>>>>>>>>>>>>>>> Making request to http://localhost:9090/COPIN/usuario/create using method GET >>>>>>>>>>>>>>>>>>>>
+Initializing web request settings for http://localhost:9090/COPIN/usuario/create
+Request parameters:
+========================================
+========================================
+Request headers:
+========================================
+Accept-Language: en
+Accept: */*
+========================================
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from GET http://localhost:9090/COPIN/usuario/create <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=UTF-8
+Content-Language: en
+Content-Length: 3972
+Date: Wed, 06 Oct 2010 14:46:20 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="login" value="" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="CPF" value="" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#Setting value to [12434jh233324] on field [name:CPF id:CPF] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=CPF] / name: DomAttr[name=name value=CPF])
+Setting value to [izabela.vmelo@gmail.com] on field [name:email id:email] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=email] / name: DomAttr[name=name value=email])
+Setting value to [izabela] on field [name:login id:login] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=login] / name: DomAttr[name=name value=login])
+Setting value to [Izabela Vanessa] on field [name:nome id:nome] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=nome] / name: DomAttr[name=name value=nome])
+Setting value to [iza1234] on field [name:senha id:senha] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=senha] / name: DomAttr[name=name value=senha])
+Clicked [Create] which resolved to a [class com.gargoylesoftware.htmlunit.html.HtmlSubmitInput]
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from POST http://localhost:9090/COPIN/usuario/save <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=utf-8
+Content-Language: en
+Content-Length: 4257
+Date: Wed, 06 Oct 2010 14:46:20 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <div class="errors">
+                <ul><li>CPF invalido.</li><li>O campo [login] da classe [class copin.Usuario] com o valor [izabela] deve ser ?nico</li></ul>
+            </div>
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="Izabela Vanessa" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="iza1234" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="login" value="izabela" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="izabela.vmelo@gmail.com" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="CPF" value="12434jh233324" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#--Output from testCadastroSenhaPequena--
+
+
+>>>>>>>>>>>>>>>>>>>> Making request to http://localhost:9090/COPIN/usuario/create using method GET >>>>>>>>>>>>>>>>>>>>
+Initializing web request settings for http://localhost:9090/COPIN/usuario/create
+Request parameters:
+========================================
+========================================
+Request headers:
+========================================
+Accept-Language: en
+Accept: */*
+========================================
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from GET http://localhost:9090/COPIN/usuario/create <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=UTF-8
+Content-Language: en
+Content-Length: 3972
+Date: Wed, 06 Oct 2010 14:46:20 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="login" value="" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="CPF" value="" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#Setting value to [08580911435] on field [name:CPF id:CPF] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=CPF] / name: DomAttr[name=name value=CPF])
+Setting value to [izabela.vmelo@gmail.com] on field [name:email id:email] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=email] / name: DomAttr[name=name value=email])
+Setting value to [izabela] on field [name:login id:login] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=login] / name: DomAttr[name=name value=login])
+Setting value to [Izabela Vanessa] on field [name:nome id:nome] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=nome] / name: DomAttr[name=name value=nome])
+Setting value to [iz] on field [name:senha id:senha] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=senha] / name: DomAttr[name=name value=senha])
+Clicked [Create] which resolved to a [class com.gargoylesoftware.htmlunit.html.HtmlSubmitInput]
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from POST http://localhost:9090/COPIN/usuario/save <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=utf-8
+Content-Language: en
+Content-Length: 4434
+Date: Wed, 06 Oct 2010 14:46:20 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <div class="errors">
+                <ul><li>O campo [CPF] da classe [class copin.Usuario] com o valor [08580911435] deve ser ?nico</li><li>O campo [login] da classe [class copin.Usuario] com o valor [izabela] deve ser ?nico</li><li>O campo [senha] da classe [class copin.Usuario] com o valor [iz] nao atinge o valor minimo [6]</li></ul>
+            </div>
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="Izabela Vanessa" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="senha" maxlength="20" value="iz" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="login" value="izabela" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="izabela.vmelo@gmail.com" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="CPF" value="08580911435" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#--Output from testCadastroSenhaGrande--
+
+
+>>>>>>>>>>>>>>>>>>>> Making request to http://localhost:9090/COPIN/usuario/create using method GET >>>>>>>>>>>>>>>>>>>>
+Initializing web request settings for http://localhost:9090/COPIN/usuario/create
+Request parameters:
+========================================
+========================================
+Request headers:
+========================================
+Accept-Language: en
+Accept: */*
+========================================
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from GET http://localhost:9090/COPIN/usuario/create <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=UTF-8
+Content-Language: en
+Content-Length: 3972
+Date: Wed, 06 Oct 2010 14:46:21 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="login" value="" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="CPF" value="" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#Setting value to [08580911435] on field [name:CPF id:CPF] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=CPF] / name: DomAttr[name=name value=CPF])
+Setting value to [izabela.vmelo@gmail.com] on field [name:email id:email] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=email] / name: DomAttr[name=name value=email])
+Setting value to [izabela] on field [name:login id:login] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=login] / name: DomAttr[name=name value=login])
+Setting value to [Izabela Vanessa] on field [name:nome id:nome] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=nome] / name: DomAttr[name=name value=nome])
+Setting value to [izajdgfgsfguechernthriutgvrhgbfvdfghdfkjhgkjfhgkjdfhg] on field [name:senha id:senha] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=senha] / name: DomAttr[name=name value=senha])
+Clicked [Create] which resolved to a [class com.gargoylesoftware.htmlunit.html.HtmlSubmitInput]
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from POST http://localhost:9090/COPIN/usuario/save <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=utf-8
+Content-Language: en
+Content-Length: 4537
+Date: Wed, 06 Oct 2010 14:46:21 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <div class="errors">
+                <ul><li>O campo [CPF] da classe [class copin.Usuario] com o valor [08580911435] deve ser ?nico</li><li>O campo [login] da classe [class copin.Usuario] com o valor [izabela] deve ser ?nico</li><li>O campo [senha] da classe [class copin.Usuario] com o valor [izajdgfgsfguechernthriutgvrhgbfvdfghdfkjhgkjfhgkjdfhg] ultrapassa o valor maximo [20]</li></ul>
+            </div>
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="Izabela Vanessa" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="senha" maxlength="20" value="izajdgfgsfguechernthriutgvrhgbfvdfghdfkjhgkjfhgkjdfhg" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="login" value="izabela" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="izabela.vmelo@gmail.com" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="CPF" value="08580911435" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#--Output from testCadastroNomeBranco--
+
+
+>>>>>>>>>>>>>>>>>>>> Making request to http://localhost:9090/COPIN/usuario/create using method GET >>>>>>>>>>>>>>>>>>>>
+Initializing web request settings for http://localhost:9090/COPIN/usuario/create
+Request parameters:
+========================================
+========================================
+Request headers:
+========================================
+Accept-Language: en
+Accept: */*
+========================================
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from GET http://localhost:9090/COPIN/usuario/create <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=UTF-8
+Content-Language: en
+Content-Length: 3972
+Date: Wed, 06 Oct 2010 14:46:21 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="login" value="" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="CPF" value="" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#Setting value to [08580911435] on field [name:CPF id:CPF] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=CPF] / name: DomAttr[name=name value=CPF])
+Setting value to [izabela.vmelo@gmail.com] on field [name:email id:email] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=email] / name: DomAttr[name=name value=email])
+Setting value to [izabela] on field [name:login id:login] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=login] / name: DomAttr[name=name value=login])
+Setting value to [] on field [name:nome id:nome] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=nome] / name: DomAttr[name=name value=nome])
+Setting value to [1234567] on field [name:senha id:senha] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=senha] / name: DomAttr[name=name value=senha])
+Clicked [Create] which resolved to a [class com.gargoylesoftware.htmlunit.html.HtmlSubmitInput]
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from POST http://localhost:9090/COPIN/usuario/save <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=utf-8
+Content-Language: en
+Content-Length: 4403
+Date: Wed, 06 Oct 2010 14:46:21 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <div class="errors">
+                <ul><li>O campo [CPF] da classe [class copin.Usuario] com o valor [08580911435] deve ser ?nico</li><li>O campo [login] da classe [class copin.Usuario] com o valor [izabela] deve ser ?nico</li><li>O campo [nome] da classe [class copin.Usuario] n?o pode ficar em branco</li></ul>
+            </div>
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="nome" value="" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="1234567" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="login" value="izabela" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="izabela.vmelo@gmail.com" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="CPF" value="08580911435" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#--Output from testCadastroSenhaBranco--
+
+
+>>>>>>>>>>>>>>>>>>>> Making request to http://localhost:9090/COPIN/usuario/create using method GET >>>>>>>>>>>>>>>>>>>>
+Initializing web request settings for http://localhost:9090/COPIN/usuario/create
+Request parameters:
+========================================
+========================================
+Request headers:
+========================================
+Accept-Language: en
+Accept: */*
+========================================
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from GET http://localhost:9090/COPIN/usuario/create <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=UTF-8
+Content-Language: en
+Content-Length: 3972
+Date: Wed, 06 Oct 2010 14:46:21 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="login" value="" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="CPF" value="" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#Setting value to [08580911435] on field [name:CPF id:CPF] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=CPF] / name: DomAttr[name=name value=CPF])
+Setting value to [izabela.vmelo@gmail.com] on field [name:email id:email] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=email] / name: DomAttr[name=name value=email])
+Setting value to [izabela] on field [name:login id:login] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=login] / name: DomAttr[name=name value=login])
+Setting value to [Vanessa] on field [name:nome id:nome] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=nome] / name: DomAttr[name=name value=nome])
+Setting value to [] on field [name:senha id:senha] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=senha] / name: DomAttr[name=name value=senha])
+Clicked [Create] which resolved to a [class com.gargoylesoftware.htmlunit.html.HtmlSubmitInput]
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from POST http://localhost:9090/COPIN/usuario/save <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=utf-8
+Content-Language: en
+Content-Length: 4404
+Date: Wed, 06 Oct 2010 14:46:21 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <div class="errors">
+                <ul><li>O campo [CPF] da classe [class copin.Usuario] com o valor [08580911435] deve ser ?nico</li><li>O campo [login] da classe [class copin.Usuario] com o valor [izabela] deve ser ?nico</li><li>O campo [senha] da classe [class copin.Usuario] n?o pode ficar em branco</li></ul>
+            </div>
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="Vanessa" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="senha" maxlength="20" value="" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="login" value="izabela" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="izabela.vmelo@gmail.com" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="CPF" value="08580911435" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#--Output from testCadastroLoginBranco--
+
+
+>>>>>>>>>>>>>>>>>>>> Making request to http://localhost:9090/COPIN/usuario/create using method GET >>>>>>>>>>>>>>>>>>>>
+Initializing web request settings for http://localhost:9090/COPIN/usuario/create
+Request parameters:
+========================================
+========================================
+Request headers:
+========================================
+Accept-Language: en
+Accept: */*
+========================================
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from GET http://localhost:9090/COPIN/usuario/create <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=UTF-8
+Content-Language: en
+Content-Length: 3972
+Date: Wed, 06 Oct 2010 14:46:21 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="login" value="" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="CPF" value="" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#Setting value to [08580911435] on field [name:CPF id:CPF] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=CPF] / name: DomAttr[name=name value=CPF])
+Setting value to [izabela.vmelo@gmail.com] on field [name:email id:email] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=email] / name: DomAttr[name=name value=email])
+Setting value to [] on field [name:login id:login] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=login] / name: DomAttr[name=name value=login])
+Setting value to [Vanessa] on field [name:nome id:nome] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=nome] / name: DomAttr[name=name value=nome])
+Setting value to [12344577] on field [name:senha id:senha] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=senha] / name: DomAttr[name=name value=senha])
+Clicked [Create] which resolved to a [class com.gargoylesoftware.htmlunit.html.HtmlSubmitInput]
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from POST http://localhost:9090/COPIN/usuario/save <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=utf-8
+Content-Language: en
+Content-Length: 4304
+Date: Wed, 06 Oct 2010 14:46:21 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <div class="errors">
+                <ul><li>O campo [CPF] da classe [class copin.Usuario] com o valor [08580911435] deve ser ?nico</li><li>O campo [login] da classe [class copin.Usuario] n?o pode ficar em branco</li></ul>
+            </div>
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="Vanessa" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="12344577" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="login" value="" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="izabela.vmelo@gmail.com" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="CPF" value="08580911435" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#--Output from testCadastroEmailBranco--
+
+
+>>>>>>>>>>>>>>>>>>>> Making request to http://localhost:9090/COPIN/usuario/create using method GET >>>>>>>>>>>>>>>>>>>>
+Initializing web request settings for http://localhost:9090/COPIN/usuario/create
+Request parameters:
+========================================
+========================================
+Request headers:
+========================================
+Accept-Language: en
+Accept: */*
+========================================
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from GET http://localhost:9090/COPIN/usuario/create <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=UTF-8
+Content-Language: en
+Content-Length: 3972
+Date: Wed, 06 Oct 2010 14:46:21 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="login" value="" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="CPF" value="" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#Setting value to [08580911435] on field [name:CPF id:CPF] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=CPF] / name: DomAttr[name=name value=CPF])
+Setting value to [] on field [name:email id:email] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=email] / name: DomAttr[name=name value=email])
+Setting value to [izabela] on field [name:login id:login] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=login] / name: DomAttr[name=name value=login])
+Setting value to [Vanessa] on field [name:nome id:nome] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=nome] / name: DomAttr[name=name value=nome])
+Setting value to [12344577] on field [name:senha id:senha] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=senha] / name: DomAttr[name=name value=senha])
+Clicked [Create] which resolved to a [class com.gargoylesoftware.htmlunit.html.HtmlSubmitInput]
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from POST http://localhost:9090/COPIN/usuario/save <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=utf-8
+Content-Language: en
+Content-Length: 4389
+Date: Wed, 06 Oct 2010 14:46:22 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <div class="errors">
+                <ul><li>O campo [CPF] da classe [class copin.Usuario] com o valor [08580911435] deve ser ?nico</li><li>O campo [email] da classe [class copin.Usuario] n?o pode ficar em branco</li><li>O campo [login] da classe [class copin.Usuario] com o valor [izabela] deve ser ?nico</li></ul>
+            </div>
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="Vanessa" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="12344577" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="login" value="izabela" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="email" value="" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="CPF" value="08580911435" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#--Output from testCadastroLoginEmailCPFSenha--
+
+
+>>>>>>>>>>>>>>>>>>>> Making request to http://localhost:9090/COPIN/usuario/create using method GET >>>>>>>>>>>>>>>>>>>>
+Initializing web request settings for http://localhost:9090/COPIN/usuario/create
+Request parameters:
+========================================
+========================================
+Request headers:
+========================================
+Accept-Language: en
+Accept: */*
+========================================
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from GET http://localhost:9090/COPIN/usuario/create <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=UTF-8
+Content-Language: en
+Content-Length: 3972
+Date: Wed, 06 Oct 2010 14:46:22 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="login" value="" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="CPF" value="" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#Setting value to [08580911435] on field [name:CPF id:CPF] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=CPF] / name: DomAttr[name=name value=CPF])
+Setting value to [izabela.vmelo@gmail.com] on field [name:email id:email] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=email] / name: DomAttr[name=name value=email])
+Setting value to [izabela] on field [name:login id:login] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=login] / name: DomAttr[name=name value=login])
+Setting value to [Izabela Vanessa] on field [name:nome id:nome] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=nome] / name: DomAttr[name=name value=nome])
+Setting value to [iza1234] on field [name:senha id:senha] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=senha] / name: DomAttr[name=name value=senha])
+Clicked [Create] which resolved to a [class com.gargoylesoftware.htmlunit.html.HtmlSubmitInput]
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from POST http://localhost:9090/COPIN/usuario/save <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=utf-8
+Content-Language: en
+Content-Length: 4330
+Date: Wed, 06 Oct 2010 14:46:22 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <div class="errors">
+                <ul><li>O campo [CPF] da classe [class copin.Usuario] com o valor [08580911435] deve ser ?nico</li><li>O campo [login] da classe [class copin.Usuario] com o valor [izabela] deve ser ?nico</li></ul>
+            </div>
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="Izabela Vanessa" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="iza1234" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="login" value="izabela" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="izabela.vmelo@gmail.com" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="CPF" value="08580911435" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#
+Failed: Expected content to loosely contain [Usuario 1 created] but it didn't
+
+Failed: Expected content to loosely contain [Usuario 1 created] but it didn't
+URL: http://localhost:9090/COPIN/usuario/save
+
+--Output from testCadastroLoginJaExiste--
+
+
+>>>>>>>>>>>>>>>>>>>> Making request to http://localhost:9090/COPIN/usuario/create using method GET >>>>>>>>>>>>>>>>>>>>
+Initializing web request settings for http://localhost:9090/COPIN/usuario/create
+Request parameters:
+========================================
+========================================
+Request headers:
+========================================
+Accept-Language: en
+Accept: */*
+========================================
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from GET http://localhost:9090/COPIN/usuario/create <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=UTF-8
+Content-Language: en
+Content-Length: 3972
+Date: Wed, 06 Oct 2010 14:46:22 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="login" value="" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="CPF" value="" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#Setting value to [08580911435] on field [name:CPF id:CPF] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=CPF] / name: DomAttr[name=name value=CPF])
+Setting value to [izabela.vmelo@gmail.com] on field [name:email id:email] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=email] / name: DomAttr[name=name value=email])
+Setting value to [izabela] on field [name:login id:login] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=login] / name: DomAttr[name=name value=login])
+Setting value to [Izabela Vanessa] on field [name:nome id:nome] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=nome] / name: DomAttr[name=name value=nome])
+Setting value to [iza1234] on field [name:senha id:senha] of form [criarUsuario]
+Changed attribute value to  on tag [input] (id: DomAttr[name=id value=senha] / name: DomAttr[name=name value=senha])
+Clicked [Create] which resolved to a [class com.gargoylesoftware.htmlunit.html.HtmlSubmitInput]
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from POST http://localhost:9090/COPIN/usuario/save <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=utf-8
+Content-Language: en
+Content-Length: 4330
+Date: Wed, 06 Oct 2010 14:46:22 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <div class="errors">
+                <ul><li>O campo [CPF] da classe [class copin.Usuario] com o valor [08580911435] deve ser ?nico</li><li>O campo [login] da classe [class copin.Usuario] com o valor [izabela] deve ser ?nico</li></ul>
+            </div>
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="Izabela Vanessa" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="iza1234" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="login" value="izabela" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="izabela.vmelo@gmail.com" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="CPF" value="08580911435" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#Setting value to [12345678909] on field [name:CPF id:CPF] of form [criarUsuario]
+Changed attribute value to 08580911435 on tag [input] (id: DomAttr[name=id value=CPF] / name: DomAttr[name=name value=CPF])
+Setting value to [izabela.velo@gmail.com] on field [name:email id:email] of form [criarUsuario]
+Changed attribute value to izabela.vmelo@gmail.com on tag [input] (id: DomAttr[name=id value=email] / name: DomAttr[name=name value=email])
+Setting value to [izabela] on field [name:login id:login] of form [criarUsuario]
+Changed attribute value to izabela on tag [input] (id: DomAttr[name=id value=login] / name: DomAttr[name=name value=login])
+Setting value to [Vanessa] on field [name:nome id:nome] of form [criarUsuario]
+Changed attribute value to Izabela Vanessa on tag [input] (id: DomAttr[name=id value=nome] / name: DomAttr[name=name value=nome])
+Setting value to [iza1234] on field [name:senha id:senha] of form [criarUsuario]
+Changed attribute value to iza1234 on tag [input] (id: DomAttr[name=id value=senha] / name: DomAttr[name=name value=senha])
+Clicked [Create] which resolved to a [class com.gargoylesoftware.htmlunit.html.HtmlSubmitInput]
+Content of web window [TopLevelWindow[name=""]] changed
+<<<<<<<<<<<<<<<<<<<< Received response from POST http://localhost:9090/COPIN/usuario/save <<<<<<<<<<<<<<<<<<<<
+Response was 200 'OK', headers:
+========================================
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=utf-8
+Content-Language: en
+Content-Length: 4218
+Date: Wed, 06 Oct 2010 14:46:22 GMT
+========================================
+Content
+========================================
+<html>
+    <head>
+        <title>Create Usuario</title>
+        <link rel="stylesheet" href="/COPIN/css/main.css" />
+        <link rel="shortcut icon" href="/COPIN/images/favicon.ico" type="image/x-icon" />
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="layout" content="main"/>
+        
+        
+    
+        <script type="text/javascript" src="/COPIN/js/application.js"></script>
+
+    </head>
+    <body>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="/COPIN/images/spinner.gif" alt="Loading..." />
+        </div>
+        <div id="grailsLogo"><a href="http://grails.org"><img src="/COPIN/images/logo.gif" alt="Grails" border="0" /></a></div>
+        
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="/COPIN/">Home</a></span>
+            <span class="menuButton"><a href="/COPIN/usuario/list" class="list">Usuario List</a></span>
+        </div>
+        <div class="body">
+            <h1>Create Usuario</h1>
+            
+            
+            <div class="errors">
+                <ul><li>O campo [login] da classe [class copin.Usuario] com o valor [izabela] deve ser ?nico</li></ul>
+            </div>
+            
+            <form action="/COPIN/usuario/save" method="post" name="criarUsuario" id="criarUsuario" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome">Nome</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="nome" value="Vanessa" id="nome" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha">Senha</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="senha" maxlength="20" value="iza1234" id="senha" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login">Login</label>
+                                </td>
+                                <td valign="top" class="value errors">
+                                    <input type="text" name="login" value="izabela" id="login" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="email">Email</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="email" value="izabela.velo@gmail.com" id="email" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="CPF">CPF</label>
+                                </td>
+                                <td valign="top" class="value ">
+                                    <input type="text" name="CPF" value="12345678909" id="CPF" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><input type="submit" name="create" class="save" value="Create" id="create" /></span>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>
+========================================
+
+#]]></system-out>
+
+      <system-err><![CDATA[--Output from testAnonymousAccess--
+--Output from testCadastroEmailInvalido--
+--Output from testCadastroCPFInvalido--
+--Output from testCadastroSenhaPequena--
+--Output from testCadastroSenhaGrande--
+--Output from testCadastroNomeBranco--
+--Output from testCadastroSenhaBranco--
+--Output from testCadastroLoginBranco--
+--Output from testCadastroEmailBranco--
+--Output from testCadastroLoginEmailCPFSenha--
+--Output from testCadastroLoginJaExiste--
+]]></system-err>
+
+  </testsuite>
+</testsuites>
