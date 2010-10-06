@@ -3,10 +3,28 @@ package copin
 class Usuario {
 
 	String login
+	String hashSenha
+	String hashCPF
 	String senha
 	String nome
 	String email
 	String CPF 
+	
+	void setSenha(String valor){
+		this.senha = valor
+		if (valor != null){
+			this.hashSenha = valor.encodeAsPassword()
+		}	
+	}
+	
+	void setCPF(String valor){
+		this.CPF = valor
+		if (valor != null){
+			this.hashCPF = valor.encodeAsPassword()
+		}
+	}
+	
+	static transisents = ['senha','CPF']
 
     static constraints = {
 		login(blank:false, unique:true)
