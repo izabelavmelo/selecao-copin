@@ -24,7 +24,7 @@ class Usuario {
 		}
 	}
 	
-	static transisents = ['senha','CPF']
+	static transisents = ['senha']
 
     static constraints = {
 		login(blank:false, unique:true)
