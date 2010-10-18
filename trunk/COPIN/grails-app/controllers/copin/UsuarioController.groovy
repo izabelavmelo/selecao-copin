@@ -12,6 +12,24 @@ class UsuarioController {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [usuarioInstanceList: Usuario.list(params), usuarioInstanceTotal: Usuario.count()]
     }
+	
+	def login = {
+		
+		def loginUsuario = params["login"]
+		def senhaUsuario = params.senha
+		
+		def usuario = Usuario.findByLoginAndHashSenha(loginUsuario, senhaUsuario.encodeAsPassword())
+		
+		if(usuario){
+			session["usuario"] = usuario
+			redirect(action:"list")	
+		}
+		else{
+			render("Usuario nao cadastrado no sistema!!!")		
+		}
+		
+	}
+	
 
     def create = {
         def usuarioInstance = new Usuario()
