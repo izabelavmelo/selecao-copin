@@ -46,34 +46,31 @@
             font-size:1.2em;
         }
         #pageBody {
-            margin-left:280px;
+            margin-left:20px;
             margin-right:20px;
         }
         </style>
     </head>
     <body>
-        <div id="nav">
-            <div class="homePagePanel">
-                <div class="panelTop"></div>
-                <div class="panelBody">
-                	<h1>Dados:</h1>
-                	<ul>
-            			<li><strong>Cliente:</strong> Hyggo Almeida</li>
-            			<li><strong>Equipe de </br>desenvolvimento/testes</br>/gerência:</strong> Delano Oliveira, Izabela Melo e Savyo Nóbrega</li>
-            			<li><strong>Professora:</strong> Francilene Procópio Garcia</li>
-            			<li><strong>Monitores:</strong> David Anderson e Renato Miceli</li>
-            		</ul>
-                </div>
-                <div class="panelBtm"></div>
-            </div>
-        </div>
+        
         <div id="pageBody">
             <h1>SeleçãoCOPIN: um sistema para automatizar o processo de seleção da COPIN</h1>
             <p>O projeto visa o desenvolvimento de um software para gerenciar o processo de seleção da COPIN (Programa de Pós-Graduação em Computação), desde o processo de submissão da documentação on-line pelos candidatos, até a definição do resultado da seleção de acordo com dados inseridos por professores durante a avaliação dos candidatos. O software é importante para agilizar o processo de divulgação de resultados, assim como facilita o acesso à informação por parte dos docentes da instituição.</p>
 
+			<h1>LOGIN</h1>
+			
+			<g:form name="formLogin" url="[controller:'usuario',action:'login']">
+        	Login: <input type="text" name="login"/><br/>
+        	Senha: <input type="password" name="senha"/><br/>
+        	<input type="submit" value="Entrar"/>
+        	</g:form>
+
             <div id="controllerList" class="dialog">
-                <h2><g:link controller="usuario" action="create">Cadastrar</g:link></h2>
+                <h2>Para se cadastrar no sistema, clique <g:link controller="usuario" action="create">aqui</g:link></h2>
              </div>
         </div>
+        
+        
+        
     </body>
 </html>
