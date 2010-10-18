@@ -7,6 +7,8 @@ class Chamada {
 	String texto
 	Date DataInicialInscricoes
 	Date DataFinalInscricoes
+	String formula
+	int camposExtras
 
 	static hasMany = [usuarios:Usuario]
 	
