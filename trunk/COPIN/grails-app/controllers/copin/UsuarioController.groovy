@@ -22,11 +22,18 @@ class UsuarioController {
 		
 		if(usuario){
 			session["usuario"] = usuario
-			redirect(action:"list")	
+			redirect(action:"perfil")	
 		}
 		else{
-			render("Usuario nao cadastrado no sistema!!!")		
+			redirect(url:"http://localhost:8080/COPIN")		
 		}
+		
+	}
+	
+	def logout = {
+		
+		session["usuario"] = null
+		redirect(url:"http://localhost:8080/COPIN")
 		
 	}
 	
