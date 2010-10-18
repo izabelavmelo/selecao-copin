@@ -9,12 +9,8 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-        </div>
         <div class="body">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+           <h1><g:message code="Criar chamada"/></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -27,51 +23,71 @@
                 <div class="dialog">
                     <table>
                         <tbody>
-                        
+                            
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="dataFinalInscricoes"><g:message code="chamada.dataFinalInscricoes.label" default="Data Final Inscricoes" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'dataFinalInscricoes', 'errors')}">
-                                    <g:datePicker name="dataFinalInscricoes" precision="day" value="${chamadaInstance?.dataFinalInscricoes}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="dataInicialInscricoes"><g:message code="chamada.dataInicialInscricoes.label" default="Data Inicial Inscricoes" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'dataInicialInscricoes', 'errors')}">
-                                    <g:datePicker name="dataInicialInscricoes" precision="day" value="${chamadaInstance?.dataInicialInscricoes}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="texto"><g:message code="chamada.texto.label" default="Texto" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'texto', 'errors')}">
-                                    <g:textField name="texto" value="${chamadaInstance?.texto}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="tipoDeChamada"><g:message code="chamada.tipoDeChamada.label" default="Tipo De Chamada" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'tipoDeChamada', 'errors')}">
-                                    <g:textField name="tipoDeChamada" value="${chamadaInstance?.tipoDeChamada}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="tituloDaChamada"><g:message code="chamada.tituloDaChamada.label" default="Titulo Da Chamada" /></label>
+                                    <label for="tituloDaChamada"><g:message code="chamada.tituloDaChamada.label" default="Titulo da chamada:" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'tituloDaChamada', 'errors')}">
                                     <g:textField name="tituloDaChamada" value="${chamadaInstance?.tituloDaChamada}" />
                                 </td>
                             </tr>
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="tipoDeChamada"><g:message code="chamada.tipoDeChamada.label" default="Tipo de chamada:" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'tipoDeChamada', 'errors')}">
+                                    <g:textField name="tipoDeChamada" value="${chamadaInstance?.tipoDeChamada}" />
+                                </td>
+                            </tr>
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="dataInicialInscricoes"><g:message code="chamada.dataInicialInscricoes.label" default="Data inicial:" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'dataInicialInscricoes', 'errors')}">
+                                    <g:datePicker name="dataInicialInscricoes" precision="day" value="${chamadaInstance?.dataInicialInscricoes}"  />
+                                </td>
+                            </tr>
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="dataFinalInscricoes"><g:message code="chamada.dataFinalInscricoes.label" default="Data final:" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'dataFinalInscricoes', 'errors')}">
+                                    <g:datePicker name="dataFinalInscricoes" precision="day" value="${chamadaInstance?.dataFinalInscricoes}"  />
+                                </td>
+                            </tr>
+                            
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="texto"><g:message code="chamada.texto.label" default="Texto:" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'texto', 'errors')}">
+                                    <g:textArea name="texto" value="${chamadaInstance?.texto}" rows="7" cols="60"/>
+                                </td>
+                            </tr>
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="formula"><g:message code="chamada.formula.label" default="Formula:" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'formula', 'errors')}">
+                                    <g:textField name="formula" value="${chamadaInstance?.formula}"/>
+                                </td>
+                            </tr>
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="camposExtras"><g:message code="chamada.camposExtras.label" default="Quantos criterios?" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'camposExtras', 'errors')}">
+                                    <g:textField name="camposExtras" value="${chamadaInstance?.camposExtras}"/>
+                                </td>
+                            </tr>
+                            
                         
                         </tbody>
                     </table>
