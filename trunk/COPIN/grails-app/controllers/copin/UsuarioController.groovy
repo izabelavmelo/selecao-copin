@@ -61,6 +61,11 @@ class UsuarioController {
         }
     }
 
+	def perfil = {
+		
+		
+	}
+	
     def edit = {
         def usuarioInstance = Usuario.get(params.id)
         if (!usuarioInstance) {
