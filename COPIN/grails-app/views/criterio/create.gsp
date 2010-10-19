@@ -45,16 +45,6 @@
                                 </td>
                             </tr>
                         
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="peso"><g:message code="criterio.peso.label" default="Peso" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: criterioInstance, field: 'peso', 'errors')}">
-                                    <g:textField name="peso" value="${fieldValue(bean: criterioInstance, field: 'peso')}" />
-                                </td>
-                            </tr>
-                        
                         </tbody>
                     </table>
                 </div>

@@ -42,14 +42,6 @@
                             
                         </tr>
                     
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="criterio.peso.label" default="Peso" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: criterioInstance, field: "peso")}</td>
-                            
-                        </tr>
-                    
                     </tbody>
                 </table>
             </div>
