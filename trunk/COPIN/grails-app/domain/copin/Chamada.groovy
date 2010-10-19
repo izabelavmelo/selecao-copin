@@ -8,10 +8,12 @@ class Chamada {
 	Date DataInicialInscricoes
 	Date DataFinalInscricoes
 	String formula
-	int camposExtras
-
-	static hasMany = [usuarios:Usuario]
+	
+	static hasMany = [usuarios:Usuario, criterios: Criterio]
 	
     static constraints = {
+		tipoDeChamada(blank:false, nullable:false)
+		tituloDaChamada(blank:false, unique:true, nullable:false)
+		formula(blank:false, nullable:false)
     }
 }
