@@ -21,11 +21,15 @@
         	<h1> Ola, ${session.getAt("usuario").nome}, com id ${session.getAt("usuario").id}. O que voce deseja fazer no sistema?</h1><br/>
 			
 			<g:form controller="usuario">
-                    <g:hiddenField name="id" value="${session.getAt("usuario").id}" />
+                    <g:hiddenField name="id" value="${session.getAt("usuario").nome}" />
                     <span class="button"><g:actionSubmit class="edit" action="show" value="Visualizar meus dados" /></span></br>
                     <span class="button"><g:actionSubmit class="edit" action="edit" value="Editar meus dados" /></span></br>                    
-                    <span class="button"><g:actionSubmit class="edit" action="list" value="Listar criterios ja criados" /></span></br>
+            </g:form>
+            
+            <g:form controller="criterio">
+             		<span class="button"><g:actionSubmit class="edit" action="list" value="Listar criterios ja criados" /></span></br>
                     <span class="button"><g:actionSubmit class="edit" action="create" value="Crie um criterio" /></span></br>
+           
             </g:form>
             
             <g:form controller="chamada">
