@@ -8,6 +8,5 @@ class PasswordCodec {
 		MessageDigest digest = MessageDigest.getInstance("SHA")
 		digest.update(str.getBytes("UTF-8"))
 		return new BASE64Encoder().encode(digest.digest())
-	}
-	
+	}	
 }
