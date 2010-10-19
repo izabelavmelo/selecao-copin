@@ -3,7 +3,8 @@ package copin
 class ChamadaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	def criterios = Criterio.executeQuery("select nome from Criterio")
+	
     def index = {
         redirect(action: "list", params: params)
     }
@@ -16,7 +17,7 @@ class ChamadaController {
     def create = {
         def chamadaInstance = new Chamada()
         chamadaInstance.properties = params
-        return [chamadaInstance: chamadaInstance]
+        return [chamadaInstance: chamadaInstance, criterios:criterios]
     }
 
     def save = {
