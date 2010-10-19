@@ -28,6 +28,8 @@
         	
         	<g:link controller="chamada" action="create">Criar uma chamada</g:link><br/><br/>
         	
+        	<g:link controller="chamada" action="list">Listar chamadas criadas</g:link><br/><br/>
+        	
         	<g:link controller="usuario" action="logout">Logout</g:link>
             
         </div>
