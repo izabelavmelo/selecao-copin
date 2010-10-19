@@ -22,8 +22,8 @@ class CriterioController {
     def save = {
         def criterioInstance = new Criterio(params)
         if (criterioInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'criterio.label', default: 'Criterio'), criterioInstance.id])}"
-            redirect(action: "show", id: criterioInstance.id)
+            flash.message = "${message(code: 'default.button.create.criterio', args: [message(code: 'criterio.label', default: 'Criterio'), criterioInstance.id])}"
+            redirect(action: "list", controller:"criterio")
         }
         else {
             render(view: "create", model: [criterioInstance: criterioInstance])

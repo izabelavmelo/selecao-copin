@@ -23,7 +23,7 @@ class ChamadaController {
         def chamadaInstance = new Chamada(params)
         if (chamadaInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.message.chamada', args: [message(code: 'chamada.label', default: 'Chamada'), chamadaInstance.id])}"
-            redirect(action: "show", id: chamadaInstance.id)
+            redirect(action: "perfil", controller: "usuario")
         }
         else {
             render(view: "create", model: [chamadaInstance: chamadaInstance])
