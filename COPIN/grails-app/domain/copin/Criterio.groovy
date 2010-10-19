@@ -4,8 +4,9 @@ class Criterio {
 
 	String nome
 	String descricao
-	float peso
 	
     static constraints = {
+		nome(blank:false, unique:true, nullable:false)
+		descricao(blank: true, nullable:false)
     }
 }
