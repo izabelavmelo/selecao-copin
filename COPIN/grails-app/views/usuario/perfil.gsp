@@ -20,6 +20,8 @@
         	
         	<h1> Ola, ${session.getAt("usuario").nome}. O que voce deseja fazer no sistema?</h1><br/>
         	
+        	<g:link controller="usuario" action="show">Visualizar meus dados</g:link><br/><br/>
+        	
         	<g:link controller="usuario" action="edit">Editar meus dados</g:link><br/><br/>
         	
         	<g:link controller="criterio" action="list">Listar criterios ja criados</g:link><br/><br/>
