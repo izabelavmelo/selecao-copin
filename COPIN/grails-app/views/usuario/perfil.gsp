@@ -22,6 +22,10 @@
         	
         	<g:link controller="usuario" action="edit">Editar meus dados</g:link><br/><br/>
         	
+        	<g:link controller="criterio" action="list">Listar criterios ja criados</g:link><br/><br/>
+        	
+        	<g:link controller="criterio" action="create">Crie um criterio</g:link><br/><br/>
+        	
         	<g:link controller="chamada" action="create">Criar uma chamada</g:link><br/><br/>
         	
         	<g:link controller="usuario" action="logout">Logout</g:link>
