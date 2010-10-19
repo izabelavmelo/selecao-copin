@@ -84,6 +84,8 @@ class UsuarioController {
 
 	def perfil = {
 		
+		def usuarioInstance = session["usuario"]
+		[usuarioInstance: usuarioInstance]
 		
 	}
 	
