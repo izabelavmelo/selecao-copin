@@ -69,8 +69,6 @@
                 <h2>Para se cadastrar no sistema, clique <g:link controller="usuario" action="create">aqui</g:link></h2>
              </div>
         </div>
-        
-        
-        
+                
     </body>
 </html>

@@ -49,7 +49,7 @@ class UsuarioController {
     }
 
     def save = {
-        def usuarioInstance = session.getAt("usuario")
+        def usuarioInstance = new Usuario(params)
         if (usuarioInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.nome])}"
 			
@@ -72,10 +72,10 @@ class UsuarioController {
     }
 
     def show = {
-        def usuarioInstance = session.getAt("usuario")
+        def usuarioInstance = Usuario.get(params.id)
         if (!usuarioInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
-			redirect(action: "perfil")
+			redirect(action: "list")
         }
         else {
             [usuarioInstance: usuarioInstance]
@@ -88,7 +88,8 @@ class UsuarioController {
 	}
 	
     def edit = {
-        def usuarioInstance = session.getAt("usuario")
+        def usuarioInstance = Usuario.get(params.id)
+		System.out.println(params.id);
         if (usuarioInstance) {
 			return [usuarioInstance: usuarioInstance]
         }
@@ -99,7 +100,7 @@ class UsuarioController {
     }
 
     def update = {
-        def usuarioInstance = session.getAt("usuario")
+        def usuarioInstance = Usuario.get(params.id)
         if (usuarioInstance) {
             if (params.version) {
                 def version = params.version.toLong()
@@ -126,7 +127,7 @@ class UsuarioController {
     }
 
     def delete = {
-        def usuarioInstance = session.getAt("usuario")
+        def usuarioInstance = Usuario.get(params.id)
         if (usuarioInstance) {
             try {
                 usuarioInstance.delete(flush: true)

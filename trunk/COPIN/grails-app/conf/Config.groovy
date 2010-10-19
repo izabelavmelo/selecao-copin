@@ -46,14 +46,12 @@ grails.spring.bean.packages = []
 
 grails {
 	   mail {
-		  host     = "smtp.gmail.com"
-		  port     = 465
-		  username = "eissuae@gmail.com"
-		  password = "250791dd"
+		  host     = "anjinho"
+		  port     = 25
+		  username = "pet"
+		  password = "petano14"
 		  props    = ["mail.smtp.auth": "true",
-                  "mail.smtp.socketFactory.port": "465",
-				  "mail.smtp.socketFactory.ssl": "true",
-                  "mail.smtp.socketFactory.class": "javax.net.ssl.SSLSocketFactory",
+                  "mail.smtp.socketFactory.port": "25",
                   "mail.smtp.socketFactory.fallback": "false"]
 	   }
 	}
