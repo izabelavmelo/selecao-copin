@@ -8,7 +8,7 @@ class Usuario {
 	String senha
 	String nome
 	String email
-	String CPF 
+	String CPF
 	
 	void setSenha(String valor){
 		this.senha = valor
@@ -23,6 +23,7 @@ class Usuario {
 			this.hashCPF = valor.encodeAsPassword()
 		}
 	}
+	
 	
 	static transisents = ['senha']
 

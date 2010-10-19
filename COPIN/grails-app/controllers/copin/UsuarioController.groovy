@@ -18,6 +18,10 @@ class UsuarioController {
 		def loginUsuario = params["login"]
 		def senhaUsuario = params.senha
 		
+		if(!senhaUsuario){
+			senhaUsuario = ""
+		}
+		
 		def usuario = Usuario.findByLoginAndHashSenha(loginUsuario, senhaUsuario.encodeAsPassword())
 		
 		if(usuario){
@@ -48,6 +52,16 @@ class UsuarioController {
         def usuarioInstance = session.getAt("usuario")
         if (usuarioInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.nome])}"
+			
+			sendMail {
+				from "copin@gmail.com"
+				to usuarioInstance.email
+				subject "Confirmação de cadastro COPIN"
+				body """
+ Para confirmar o cadastro clique no link abaixo.
+ http://localhost:8080/COPIN/usuario/confirmar?code=""" + usuarioInstance.hashCPF.replace('+', '%2B')
+ }
+			
             render(view: "confirmacao", model: [usuarioInstance: usuarioInstance])
 			
         }
@@ -129,4 +143,18 @@ class UsuarioController {
             redirect(action: "list")
         }
     }
+	
+	def confirmar = {
+		
+		def code = params["code"]
+		if(!code){
+			code = ""
+		}
+		def usuario = Usuario.findByHashCPF(code)
+		if(usuario){
+			render(usuario.nome + " ativo")
+		}else{
+			render("nao existe o codigo")
+		}		
+	}
 }

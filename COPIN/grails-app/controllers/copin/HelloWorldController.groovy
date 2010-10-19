@@ -3,7 +3,7 @@ package copin
 class HelloWorldController {
 
     def index = {
-		render "Hello World!"
+		/*render "Hello World!"
 		sendMail {
 			   from "nome@gmail.com"
 			   to "savyoins@gmail.com"
@@ -14,7 +14,7 @@ class HelloWorldController {
 				  aplicação Grails usando o Mail Plugin.
 			 
 				  Até mais."""
-			}
+			}*/
 			
 		}
 }
