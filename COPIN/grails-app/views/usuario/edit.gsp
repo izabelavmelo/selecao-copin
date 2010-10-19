@@ -1,5 +1,3 @@
-
-
 <%@ page import="copin.Usuario" %>
 <html>
     <head>

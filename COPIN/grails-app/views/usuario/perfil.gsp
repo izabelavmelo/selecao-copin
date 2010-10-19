@@ -18,22 +18,24 @@
             </div>
             </g:hasErrors>
         	
-        	<h1> Ola, ${session.getAt("usuario").nome}. O que voce deseja fazer no sistema?</h1><br/>
-        	
-        	<g:link controller="usuario" action="show">Visualizar meus dados</g:link><br/><br/>
-        	
-        	<g:link controller="usuario" action="edit">Editar meus dados</g:link><br/><br/>
-        	
-        	<g:link controller="criterio" action="list">Listar criterios ja criados</g:link><br/><br/>
-        	
-        	<g:link controller="criterio" action="create">Crie um criterio</g:link><br/><br/>
-        	
-        	<g:link controller="chamada" action="create">Criar uma chamada</g:link><br/><br/>
-        	
-        	<g:link controller="chamada" action="list">Listar chamadas criadas</g:link><br/><br/>
-        	
-        	<g:link controller="usuario" action="logout">Logout</g:link>
+        	<h1> Ola, ${session.getAt("usuario").nome}, com id ${session.getAt("usuario").id}. O que voce deseja fazer no sistema?</h1><br/>
+			
+			<g:form controller="usuario">
+                    <g:hiddenField name="id" value="${session.getAt("usuario").id}" />
+                    <span class="button"><g:actionSubmit class="edit" action="show" value="Visualizar meus dados" /></span></br>
+                    <span class="button"><g:actionSubmit class="edit" action="edit" value="Editar meus dados" /></span></br>                    
+                    <span class="button"><g:actionSubmit class="edit" action="list" value="Listar criterios ja criados" /></span></br>
+                    <span class="button"><g:actionSubmit class="edit" action="create" value="Crie um criterio" /></span></br>
+            </g:form>
             
+            <g:form controller="chamada">
+            		<span class="button"><g:actionSubmit class="edit" action="create" value="Criar uma chamada" /></span></br>
+                    <span class="button"><g:actionSubmit class="edit" action="list" value="Listar chamadas criadas" /></span></br>
+            </g:form>
+            <g:form controller="usuario">
+                    <g:hiddenField name="id" value="${session.getAt("usuario").id}" />
+					<span class="button"><g:actionSubmit controller="usuario" class="edit" action="logout" value="Logout" /></span></br>
+            </g:form>
         </div>
 
     </body>
