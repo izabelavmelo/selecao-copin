@@ -84,14 +84,14 @@
                             
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="camposExtras"><g:message code="chamada.camposExtras.label" default="Quantos criterios?" /></label>
+                                    <label for="criterios"><g:message code="chamada.criterios.label" default="Criterios:" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'camposExtras', 'errors')}">
-                                    <g:textField name="camposExtras" value="${chamadaInstance?.camposExtras}"/>
+                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'criterios', 'errors')}">
+                                    <g:checkBox name="criterios" value="${chamadaInstance?.criterios}" from="${criterios}"/>
                                 </td>
                             </tr>
                             
-                        
+                
                         </tbody>
                     </table>
                 </div>
