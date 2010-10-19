@@ -45,7 +45,7 @@ class UsuarioController {
     }
 
     def save = {
-        def usuarioInstance = new Usuario(params)
+        def usuarioInstance = session.getAt("usuario")
         if (usuarioInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.nome])}"
             render(view: "confirmacao", model: [usuarioInstance: usuarioInstance])
@@ -58,10 +58,10 @@ class UsuarioController {
     }
 
     def show = {
-        def usuarioInstance = Usuario.get(params.id)
+        def usuarioInstance = session.getAt("usuario")
         if (!usuarioInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
-			redirect(action: "list")
+			redirect(action: "perfil")
         }
         else {
             [usuarioInstance: usuarioInstance]
@@ -74,18 +74,18 @@ class UsuarioController {
 	}
 	
     def edit = {
-        def usuarioInstance = Usuario.get(params.id)
-        if (!usuarioInstance) {
-            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
-            redirect(action: "list")
+        def usuarioInstance = session.getAt("usuario")
+        if (usuarioInstance) {
+			return [usuarioInstance: usuarioInstance]
         }
         else {
-            return [usuarioInstance: usuarioInstance]
+			flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
+			redirect(action: "perfil")
         }
     }
 
     def update = {
-        def usuarioInstance = Usuario.get(params.id)
+        def usuarioInstance = session.getAt("usuario")
         if (usuarioInstance) {
             if (params.version) {
                 def version = params.version.toLong()
@@ -107,12 +107,12 @@ class UsuarioController {
         }
         else {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
-            redirect(action: "list")
+            redirect(action: "perfil")
         }
     }
 
     def delete = {
-        def usuarioInstance = Usuario.get(params.id)
+        def usuarioInstance = session.getAt("usuario")
         if (usuarioInstance) {
             try {
                 usuarioInstance.delete(flush: true)
