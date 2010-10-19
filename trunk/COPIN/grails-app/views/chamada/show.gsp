@@ -5,24 +5,74 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'chamada.label', default: 'Chamada')}" />
-        <title><g:message code="default.show.label" args="[entityName]" /></title>
+        <title><g:message code="Criterio" args="[entityName]" /></title>
     </head>
     <body>
+    	<div class="nav">
+            <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
+            <span class="menuButton"><a class="home" href="${createLink(uri: '/chamada/list')}"><g:message code="Lista de chamada"/></a></span>
+        </div>
         <div class="body">
-            <h1><g:message code="Criterios" /></h1>
+            <h1><g:message code="Criterio" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="dialog">
                 <table>
                     <tbody>
+                    
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="chamada.camposExtras.label" default="camposExtras" /></td>
+                            <td valign="top" class="name"><g:message code="chamada.id.label" default="Id" /></td>
                             
-                            <td valign="top" class="value"><g:fieldValue date="${chamadaInstance?.camposExtras}" /></td>
-                        </tr>  
+                            <td valign="top" class="value">${fieldValue(bean: chamadaInstance, field: "id")}</td>
+                            
+                        </tr>
+                    
+                    	<tr class="prop">
+                            <td valign="top" class="name"><g:message code="chamada.tituloDaChamada.label" default="Titulo da chamada:" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: chamadaInstance, field: "tituloDaChamada")}</td>
+                            
+                        </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="chamada.tipoDeChamada.label" default="Tipo de chamada:" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: chamadaInstance, field: "tipoDeChamada")}</td>
+                            
+                        </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="chamada.texto.label" default="Texto:" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: chamadaInstance, field: "texto")}</td>
+                            
+                        </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="chamada.DataInicialInscricoes.label" default="Data inicial das inscricoes:" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: chamadaInstance, field: "DataInicialInscricoes")}</td>
+                            
+                        </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="chamada.DataFinalInscricoes.label" default="Data final das inscricoes:" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: chamadaInstance, field: "DataFinalInscricoes")}</td>
+                            
+                        </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="chamada.formula.label" default="Formula:" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: chamadaInstance, field: "formula")}</td>
+                            
+                        </tr>
+                                     
                     </tbody>
                 </table>
+       
             </div>
             <div class="buttons">
                 <g:form>
