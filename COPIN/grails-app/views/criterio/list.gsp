@@ -9,11 +9,10 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+            <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
         </div>
         <div class="body">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+            <h1><g:message code="Lista de criterios" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -24,9 +23,9 @@
                         
                             <g:sortableColumn property="id" title="${message(code: 'criterio.id.label', default: 'Id')}" />
                         
-                            <g:sortableColumn property="descricao" title="${message(code: 'criterio.descricao.label', default: 'Descricao')}" />
+                        	<g:sortableColumn property="nome" title="${message(code: 'criterio.nome.label', default: 'Nome')}" />
                         
-                            <g:sortableColumn property="nome" title="${message(code: 'criterio.nome.label', default: 'Nome')}" />
+                            <g:sortableColumn property="descricao" title="${message(code: 'criterio.descricao.label', default: 'Descricao')}" />
                         
                             <g:sortableColumn property="peso" title="${message(code: 'criterio.peso.label', default: 'Peso')}" />
                         
@@ -38,9 +37,9 @@
                         
                             <td><g:link action="show" id="${criterioInstance.id}">${fieldValue(bean: criterioInstance, field: "id")}</g:link></td>
                         
-                            <td>${fieldValue(bean: criterioInstance, field: "descricao")}</td>
-                        
                             <td>${fieldValue(bean: criterioInstance, field: "nome")}</td>
+                        
+                            <td>${fieldValue(bean: criterioInstance, field: "descricao")}</td>
                         
                             <td>${fieldValue(bean: criterioInstance, field: "peso")}</td>
                         

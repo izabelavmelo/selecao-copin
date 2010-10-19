@@ -10,11 +10,10 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
+            <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
         </div>
         <div class="body">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+            <h1><g:message code="Criar criterio" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -30,21 +29,22 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="descricao"><g:message code="criterio.descricao.label" default="Descricao" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: criterioInstance, field: 'descricao', 'errors')}">
-                                    <g:textField name="descricao" value="${criterioInstance?.descricao}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                     <label for="nome"><g:message code="criterio.nome.label" default="Nome" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: criterioInstance, field: 'nome', 'errors')}">
                                     <g:textField name="nome" value="${criterioInstance?.nome}" />
                                 </td>
                             </tr>
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="descricao"><g:message code="criterio.descricao.label" default="Descricao" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: criterioInstance, field: 'descricao', 'errors')}">
+                                    <g:textArea name="descricao" value="${criterioInstance?.descricao}" />
+                                </td>
+                            </tr>
+                        
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
