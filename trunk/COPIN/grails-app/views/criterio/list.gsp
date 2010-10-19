@@ -27,8 +27,6 @@
                         
                             <g:sortableColumn property="descricao" title="${message(code: 'criterio.descricao.label', default: 'Descricao')}" />
                         
-                            <g:sortableColumn property="peso" title="${message(code: 'criterio.peso.label', default: 'Peso')}" />
-                        
                         </tr>
                     </thead>
                     <tbody>
@@ -40,8 +38,6 @@
                             <td>${fieldValue(bean: criterioInstance, field: "nome")}</td>
                         
                             <td>${fieldValue(bean: criterioInstance, field: "descricao")}</td>
-                        
-                            <td>${fieldValue(bean: criterioInstance, field: "peso")}</td>
                         
                         </tr>
                     </g:each>
