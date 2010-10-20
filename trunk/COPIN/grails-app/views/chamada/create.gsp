@@ -88,7 +88,7 @@
                                   <label for="criterios"><g:message code="chamada.criterios.label" default="Criterios" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'criterios', 'errors')}">
-                                    <g:select name="criterios" from="${criterios}" multiple="yes" value="${chamadaInstance?.criterios*.nome}" />
+                                    <g:select name="criterios" from="${copin.Criterio.list()}" multiple="yes" optionKey="id" size="5" value="${chamadaInstance?.criterios*.id}" />
                                 </td>
                             </tr>
 
