@@ -1,8 +1,11 @@
 package copin
 
+import java.util.Calendar;
+
 class UsuarioController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+	static horasPraConfirmar = 2
 
     def index = {
         redirect(action: "list", params: params)
@@ -25,13 +28,13 @@ class UsuarioController {
 		def usuario = Usuario.findByLoginAndHashSenha(loginUsuario, senhaUsuario.encodeAsPassword())
 		
 		if(usuario){
-			session["usuario"] = usuario
-			redirect(action:"perfil")	
+			if(usuario.ativo){
+				session["usuario"] = usuario
+				redirect(action:"perfil")
+			}	
 		}
-		else{
-			redirect(url:"http://localhost:8080/COPIN")		
-		}
-		
+		redirect(url:"http://localhost:8080/COPIN")		
+				
 	}
 	
 	def logout = {
@@ -50,9 +53,26 @@ class UsuarioController {
 
     def save = {
         def usuarioInstance = new Usuario(params)
+		usuarioInstance.ativo = false
+		usuarioInstance.dataCadastro = Calendar.getInstance()
+		
+		
+		def usuario = Usuario.findByLoginOrCPF(usuarioInstance.login, usuarioInstance.CPF)
+		if(usuario){
+			if(!usuario.ativo){
+				usuario.dataCadastro.add(Calendar.HOUR_OF_DAY, horasPraConfirmar)
+				if(Calendar.getInstance().before(usuario.dataCadastro)){
+					usuario.dataCadastro.add(Calendar.HOUR_OF_DAY, horasPraConfirmar * -1)
+				}else{
+				usuario.delete(flush: true)
+				}
+			}
+		}
+		
+		
         if (usuarioInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.nome])}"
-			
+			try{
 			sendMail {
 				from "copin@gmail.com"
 				to usuarioInstance.email
@@ -61,6 +81,9 @@ class UsuarioController {
  Para confirmar o cadastro clique no link abaixo.
  http://localhost:8080/COPIN/usuario/confirmar?code=""" + usuarioInstance.hashCPF.replace('+', '%2B')
  }
+			}catch (Exception e) {
+				
+			}
 			
             render(view: "confirmacao", model: [usuarioInstance: usuarioInstance])
 			
@@ -91,7 +114,6 @@ class UsuarioController {
 	
     def edit = {
         def usuarioInstance = Usuario.get(params.id)
-		System.out.println(params.id);
         if (usuarioInstance) {
 			return [usuarioInstance: usuarioInstance]
         }
@@ -134,7 +156,7 @@ class UsuarioController {
             try {
                 usuarioInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
-                redirect(action: "list")
+                redirect(action: "logout")
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
@@ -155,9 +177,22 @@ class UsuarioController {
 		}
 		def usuario = Usuario.findByHashCPF(code)
 		if(usuario){
-			render(usuario.nome + " ativo")
+			if(!usuario.ativo){
+				usuario.dataCadastro.add(Calendar.HOUR_OF_DAY, horasPraConfirmar)
+				if(Calendar.getInstance().before(usuario.dataCadastro)){
+					usuario.ativo = true
+					flash.message = "${message(code: 'usuario.confirmacao.ativado', args: [message(code: 'usuario.label', default: 'Usuario'), usuario.nome])}"
+				}else{
+					usuario.delete(flush: true)
+					flash.message = "${message(code: 'usuario.confirmacao.expirou', args: [message(code: 'usuario.label', default: 'Usuario'), usuario.nome])}"
+				}
+			}else{
+			flash.message = "${message(code: 'usuario.confirmacao.ativo', args: [message(code: 'usuario.label', default: 'Usuario'), usuario.nome])}"
+			}
+			render(view: "confirmacao", model: [usuarioInstance: usuario])
 		}else{
-			render("nao existe o codigo")
+			flash.message = "${message(code: 'usuario.confirmacao.error')}"
+			render(view: "confirmacao", model: [usuarioInstance: usuario])
 		}		
 	}
 }

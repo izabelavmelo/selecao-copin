@@ -9,6 +9,8 @@ class Usuario {
 	String nome
 	String email
 	String CPF
+	Boolean ativo
+	Calendar dataCadastro
 	
 	void setSenha(String valor){
 		this.senha = valor
