@@ -17,16 +17,19 @@ class ChamadaController {
     def create = {
         def chamadaInstance = new Chamada()
         chamadaInstance.properties = params
-        return [chamadaInstance: chamadaInstance, criterios:criterios]
+		return [chamadaInstance: chamadaInstance, criterios:criterios]
     }
 
     def save = {
         def chamadaInstance = new Chamada(params)
-        if (chamadaInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.message.chamada', args: [message(code: 'chamada.label', default: 'Chamada'), chamadaInstance.id])}"
-            redirect(action: "perfil", controller: "usuario")
+        if (chamadaInstance.save(flush: true) && chamadaInstance.getDataInicialInscricoes().compareTo(chamadaInstance.getDataFinalInscricoes()) < 0) {
+				print chamadaInstance.getDataInicialInscricoes().compareTo(chamadaInstance.getDataFinalInscricoes()) < 0
+				flash.message = "${message(code: 'default.message.chamada', args: [message(code: 'chamada.label', default: 'Chamada'), chamadaInstance.id])}"
+				redirect(action: "perfil", controller: "usuario")
         }
         else {
+			chamadaInstance.delete(flush: true)
+			flash.message = "${message(code: 'default.invalid.chamada.naoCriada.message', args: [message(code: 'chamada.label', default: 'Chamada'), chamadaInstance.id])}"
             render(view: "create", model: [chamadaInstance: chamadaInstance])
         }
     }
