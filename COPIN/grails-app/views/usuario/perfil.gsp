@@ -24,11 +24,15 @@
                     <g:hiddenField name="id" value="${usuarioInstance?.id}" />
                     <span class="button"><g:actionSubmit class="edit" action="show" value="Visualizar meus dados" /></span></br>
                     <span class="button"><g:actionSubmit class="edit" action="edit" value="Editar meus dados" /></span></br>                    
-                    <span class="button"><g:actionSubmit class="edit" action="list" value="Listar criterios ja criados" /></span></br>
+                    
+            </g:form>
+            
+            <g:form controller="criterio" method="post">
+            	<span class="button"><g:actionSubmit class="edit" action="list" value="Listar criterios ja criados" /></span></br>
+            	<span class="button"><g:actionSubmit class="edit" action="create" value="Crie um criterio" /></span></br>
             </g:form>
             
             <g:form controller="chamada">
-            		<span class="button"><g:actionSubmit class="edit" action="create" value="Crie um criterio" /></span></br>
             		<span class="button"><g:actionSubmit class="edit" action="create" value="Criar uma chamada" /></span></br>
                     <span class="button"><g:actionSubmit class="edit" action="list" value="Listar chamadas criadas" /></span></br>
             </g:form>

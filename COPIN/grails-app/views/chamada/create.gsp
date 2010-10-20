@@ -8,6 +8,7 @@
         <g:set var="entityName" value="${message(code: 'chamada.label', default: 'Chamada')}" />
         <title><g:message code="Criar chamada" args="[entityName]" /></title>
     </head>
+
     <body>
     	<div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
@@ -82,12 +83,18 @@
                                 </td>
                             </tr>
                             
+                           <script type="text/javascript">
+    							enable('criterios');
+    							alert(selectedCount('criterios'));
+							</script>
+                            
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="criterios"><g:message code="chamada.criterios.label" default="Criterios:" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'criterios', 'errors')}">
-                                    <g:checkBox name="criterios" value="${chamadaInstance?.criterios}" from="${criterios}"/>
+                                
+                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'criterios', 'errors')}">   
+                                    <ui:multiSelect name="criterios" multiple="yes" from="${criterios}" value="${chamadaInstance?.criterios}" noSelection="['':'Select One']"/>
                                 </td>
                             </tr>
                             
