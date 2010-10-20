@@ -34,6 +34,7 @@
                         
                             <g:sortableColumn property="dataFinalInscricoes" title="${message(code: 'chamada.dataFinalInscricoes.label', default: 'Data Final Inscricoes')}" />
                         
+              				<g:sortableColumn property="criterios" title="${message(code: 'chamada.criterios.label', default: 'Criterios')}" />
                            
                            
                            
@@ -55,6 +56,8 @@
                         	<td><g:formatDate date="${chamadaInstance.dataInicialInscricoes}" /></td>
                         
                             <td><g:formatDate date="${chamadaInstance.dataFinalInscricoes}" /></td>
+                            
+                            <td>${fieldValue(bean: chamadaInstance, field: "criterios")}</td>
                         
                         </tr>
                     </g:each>

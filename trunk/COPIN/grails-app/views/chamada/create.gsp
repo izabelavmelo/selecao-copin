@@ -83,20 +83,15 @@
                                 </td>
                             </tr>
                             
-                           <script type="text/javascript">
-    							enable('criterios');
-    							alert(selectedCount('criterios'));
-							</script>
-                            
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="criterios"><g:message code="chamada.criterios.label" default="Criterios:" /></label>
+                                  <label for="criterios"><g:message code="chamada.criterios.label" default="Criterios" /></label>
                                 </td>
-                                
-                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'criterios', 'errors')}">   
-                                    <ui:multiSelect name="criterios" multiple="yes" from="${criterios}" value="${chamadaInstance?.criterios}" noSelection="['':'Select One']"/>
+                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'criterios', 'errors')}">
+                                    <g:select name="criterios" from="${criterios}" multiple="yes" value="${chamadaInstance?.criterios*.nome}" />
                                 </td>
                             </tr>
+
                             
                 
                         </tbody>
