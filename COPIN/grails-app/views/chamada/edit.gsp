@@ -77,10 +77,19 @@
                            
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="usuarios"><g:message code="chamada.usuarios.label" default="Usuarios" /></label>
+                                  <label for="formula"><g:message code="chamada.formula.label" default="Formula" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'usuarios', 'errors')}">
-                                    <g:select name="usuarios" from="${copin.Usuario.list()}" multiple="yes" optionKey="id" size="5" value="${chamadaInstance?.usuarios*.id}" />
+                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'formula', 'errors')}">
+                                    <g:textField name="formula" value="${chamadaInstance?.formula}" />
+                                </td>
+                            </tr>
+                           
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="criterios"><g:message code="chamada.criterios.label" default="Criterios" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'criterios', 'errors')}">
+                                    <g:select name="criterios" from="${copin.Criterio.list()}" multiple="yes" optionKey="id" size="5" value="${chamadaInstance?.criterios*.id}" />
                                 </td>
                             </tr>
                         

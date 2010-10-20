@@ -69,6 +69,12 @@
                             <td valign="top" class="value">${fieldValue(bean: chamadaInstance, field: "formula")}</td>
                             
                         </tr>
+                        
+                         <tr class="prop">
+                                <td valign="top" class="name"><g:message code="chamada.criterios.label" default="Criterios:" /></td>
+                                
+                                <td valign="top" class="value"> ${fieldValue(bean: chamadaInstance, field: 'criterios')}</td>
+                            </tr>
                                      
                     </tbody>
                 </table>
