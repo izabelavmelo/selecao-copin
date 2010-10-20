@@ -31,8 +31,10 @@ class UsuarioController {
 			if(usuario.ativo){
 				session["usuario"] = usuario
 				redirect(action:"perfil")
+			}else{
+			redirect(url:"http://localhost:8080/COPIN")
 			}	
-		}
+		}else
 		redirect(url:"http://localhost:8080/COPIN")		
 				
 	}
@@ -76,7 +78,7 @@ class UsuarioController {
 			sendMail {
 				from "copin@gmail.com"
 				to usuarioInstance.email
-				subject "Confirmação de cadastro COPIN"
+				subject "[SELECAO COPIN]Confirme seu cadastro"
 				body """
  Para confirmar o cadastro clique no link abaixo.
  http://localhost:8080/COPIN/usuario/confirmar?code=""" + usuarioInstance.hashCPF.replace('+', '%2B')

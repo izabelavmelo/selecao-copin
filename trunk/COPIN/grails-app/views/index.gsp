@@ -50,6 +50,13 @@
             margin-right:20px;
         }
         </style>
+        
+        <g:if test="${session.usuario}">
+            <meta http-equiv="refresh" content="0; 
+			url=usuario/perfil/"> 
+        </g:if>
+        
+        
     </head>
     <body>
         
