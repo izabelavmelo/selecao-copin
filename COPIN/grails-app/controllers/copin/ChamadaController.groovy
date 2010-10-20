@@ -22,7 +22,6 @@ class ChamadaController {
     def save = {
         def chamadaInstance = new Chamada(params)
         if (chamadaInstance.save(flush: true) && chamadaInstance.getDataInicialInscricoes().compareTo(chamadaInstance.getDataFinalInscricoes()) < 0) {
-				print chamadaInstance.getDataInicialInscricoes().compareTo(chamadaInstance.getDataFinalInscricoes()) < 0
 				flash.message = "${message(code: 'default.message.chamada', args: [message(code: 'chamada.label', default: 'Chamada'), chamadaInstance.id])}"
 				redirect(action: "perfil", controller: "usuario")
         }
