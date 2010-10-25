@@ -52,9 +52,9 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.CPF.label" default="CPF" /></td>
+                            <td valign="top" class="name"><g:message code="usuario.cpf.label" default="cpf" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "CPF")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "cpf")}</td>
                             
                         </tr>
                     

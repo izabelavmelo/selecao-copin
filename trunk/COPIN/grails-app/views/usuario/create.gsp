@@ -65,10 +65,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="CPF"><g:message code="usuario.CPF.label" default="CPF" /></label>
+                                    <label for="cpf"><g:message code="usuario.cpf.label" default="cpf" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'CPF', 'errors')}">
-                                    <g:textField name="CPF" value="${usuarioInstance?.CPF}" />
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'cpf', 'errors')}">
+                                    <g:textField name="cpf" value="${usuarioInstance?.cpf}" />
                                 </td>
                             </tr>
                         

@@ -59,7 +59,7 @@ class UsuarioController {
 		usuarioInstance.dataCadastro = Calendar.getInstance()
 		
 		
-		def usuario = Usuario.findByLoginOrCPF(usuarioInstance.login, usuarioInstance.CPF)
+		def usuario = Usuario.findByLoginOrCpf(usuarioInstance.login, usuarioInstance.cpf)
 		if(usuario){
 			if(!usuario.ativo){
 				usuario.dataCadastro.add(Calendar.HOUR_OF_DAY, horasPraConfirmar)
