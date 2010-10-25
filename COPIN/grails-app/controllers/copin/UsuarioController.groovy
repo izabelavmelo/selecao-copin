@@ -110,7 +110,12 @@ class UsuarioController {
 	def perfil = {
 		
 		def usuarioInstance = session["usuario"]
-		[usuarioInstance: usuarioInstance]
+		
+		if(usuarioInstance){
+			[usuarioInstance: usuarioInstance]
+		}else{
+			redirect(url:"http://localhost:8080/COPIN")
+		}
 		
 	}
 	
