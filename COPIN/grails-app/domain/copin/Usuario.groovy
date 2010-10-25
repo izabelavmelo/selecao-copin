@@ -8,7 +8,7 @@ class Usuario {
 	String senha
 	String nome
 	String email
-	String CPF
+	String cpf
 	Boolean ativo
 	Calendar dataCadastro
 	
@@ -19,8 +19,8 @@ class Usuario {
 		}	
 	}
 	
-	void setCPF(String valor){
-		this.CPF = valor
+	void setCpf(String valor){
+		this.cpf = valor
 		if (valor != null){
 			this.hashCPF = valor.encodeAsPassword()
 		}
@@ -34,6 +34,6 @@ class Usuario {
 		senha(blank:false, minSize:6, maxSize:20)
 		nome(blank:false, nullable:false)		
 		email(email:true, blank:false)
-		CPF(blank:false, unique:true, cpf:true)
+		cpf(blank:false, unique:true, cpf:true)
     }
 }
