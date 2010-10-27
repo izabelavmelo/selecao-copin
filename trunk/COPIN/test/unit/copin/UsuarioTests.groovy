@@ -6,29 +6,29 @@ class UsuarioTests extends GrailsUnitTestCase {
 	
 	void testCreate() {
 		def u1 = new Usuario( //eh cadastrado
-				login:"teste",
-				senha :"teste123",
-				nome : "Joaquim",
-				email : "joaquim@teste.com",
-				CPF : "08580911435");
+				login:'teste',
+				senha :'teste123',
+				nome : 'Joaquim',
+				email : 'joaquim@teste.com',
+				cpf : '26364959164');
 		def u2 = new Usuario( //nao eh cadastrado por causa de senha
 				login:'teste1',
 				senha :'tes',
 				nome : 'Joao',
 				email : 'joaquim@teste.com',
-				CPF : '08580911438');
+				cpf : '08580911438');
 		def u3 = new Usuario(//nao eh cadastrado por causa do login repetido
 				login:'teste2',
 				senha :'teste1234',
 				nome : 'Joaquim',
 				email : 'joaquimohhh@teste.com',
-				CPF : '08580911437');
+				cpf : '08580911437');
 		def u4 = new Usuario( //nao eh cadastrado: falta item de email
 				login:'teste3',
 				senha :'teste1234',
 				nome : 'Joaquim',
 				email : '',
-				CPF : '08580911436');
+				cpf : '08580911436');
 		
 		//Testando os nomes
 		assertEquals u1.getNome(), "Joaquim"
@@ -56,10 +56,10 @@ class UsuarioTests extends GrailsUnitTestCase {
 		assertEquals u4.getEmail(), ""
 		
 		//Testando os CPFs
-		assertEquals u1.getCPF(), "08580911435"
-		assertEquals u2.getCPF(), "08580911438"
-		assertEquals u3.getCPF(), "08580911437"
-		assertEquals u4.getCPF(), "08580911436"
+		assertEquals u1.getCpf(), "08580911435"
+		assertEquals u2.getCpf(), "08580911438"
+		assertEquals u3.getCpf(), "08580911437"
+		assertEquals u4.getCpf(), "08580911436"
 		
 		//Testando se os usuarios foram realmente criados
 		if(u1) true
