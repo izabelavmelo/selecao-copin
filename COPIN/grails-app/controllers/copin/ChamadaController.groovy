@@ -23,6 +23,7 @@ class ChamadaController {
         def chamadaInstance = new Chamada(params)
         if (chamadaInstance.save(flush: true) && chamadaInstance.getDataInicialInscricoes().compareTo(chamadaInstance.getDataFinalInscricoes()) < 0) {
 				flash.message = "${message(code: 'default.message.chamada', args: [message(code: 'chamada.label', default: 'Chamada'), chamadaInstance.id])}"
+				//pro teste de aceitação: render(view: "create", model: [chamadaInstance: chamadaInstance])
 				redirect(action: "perfil", controller: "usuario")
         }
         else {
