@@ -33,6 +33,11 @@ h1 {
     margin: .8em 0 .3em 0;
 }
 
+h2 {
+	font-weight: bold;
+	font-size: 20px;
+}
+
 ul {
     padding-left: 15px;
 }

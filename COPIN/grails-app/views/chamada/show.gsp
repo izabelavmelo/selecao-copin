@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'chamada.label', default: 'Chamada')}" />
-        <title><g:message code="Criterio" args="[entityName]" /></title>
+        <title><g:message code="Chamada" args="[entityName]" /></title>
     </head>
     <body>
     	<div class="nav">
@@ -13,7 +13,7 @@
             <span class="menuButton"><a class="home" href="${createLink(uri: '/chamada/list')}"><g:message code="Lista de chamada"/></a></span>
         </div>
         <div class="body">
-            <h1><g:message code="Criterio" /></h1>
+            <h1><g:message code="Chamada" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -50,6 +50,13 @@
                         </tr>
                         
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="chamada.vagasDisponiveis.label" default="Vagas disponiveis:" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: chamadaInstance, field: "vagasDisponiveis")}</td>
+                            
+                        </tr>
+                        
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="chamada.DataInicialInscricoes.label" default="Data inicial das inscricoes:" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: chamadaInstance, field: "DataInicialInscricoes")}</td>
@@ -69,12 +76,6 @@
                             <td valign="top" class="value">${fieldValue(bean: chamadaInstance, field: "formula")}</td>
                             
                         </tr>
-                        
-                         <tr class="prop">
-                                <td valign="top" class="name"><g:message code="chamada.criterios.label" default="Criterios:" /></td>
-                                
-                                <td valign="top" class="value"> ${fieldValue(bean: chamadaInstance, field: 'criterios')}</td>
-                            </tr>
                                      
                     </tbody>
                 </table>
