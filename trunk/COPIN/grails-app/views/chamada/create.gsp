@@ -76,15 +76,49 @@
                             
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                    <label for="vagasDisponiveis"><g:message code="chamada.vagasDisponiveis.label" default="Vagas disponiveis:" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'vagasDisponiveis', 'errors')}">
+                                    <g:textField name="vagasDisponiveis" value="${chamadaInstance?.vagasDisponiveis}"/>
+                                </td>
+                            </tr>
+                            
+                             <tr class="prop">
+                                <td valign="top" class="name">
                                     <label for="formula"><g:message code="chamada.formula.label" default="Formula:" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'formula', 'errors')}">
                                     <g:textField name="formula" value="${chamadaInstance?.formula}"/>
                                 </td>
                             </tr>
-
                             
-                
+                            <table>
+        
+                            <tr class="prop">
+                            	 <td valign="top" class="value">
+                                    <h1><g:message code="ATENCAO!"/></h1>
+                                    <p>Use os criterios abaixo para definir a formula.</p>
+                                	<ul>
+                                		<li>N1 = Media escolar da graduacao (escala de 0 a 10);</li>
+                                		<li>N2 = Avaliacao ENADE (Media Geral (conc)) do curso de graduacao (=35 para curso nao avaliado);</li>
+                               			<li>N3 = Media escolar da pos-graduacao (escala de 0 a 10);</li>
+                               			<li>N4 = Avaliacao CAPES do curso de pos-graduacao (1 a 7) (=3 para curso nao avaliado);</li>
+										<li>N5 = Indice de artigos completos;</li>
+										<li>N6 = Semestres concluidos como pesquisador com mestrado em projetos de pesquisa institucionais;</li>
+										<li>N7 = Semestres concluidos de monitoria, de ensino (segundo grau, tecnico ou nivel superior) ou de experiencia profissional na area;</li>
+										<li>N8 = Semestres concluidos de IC;</li>
+										<li>N9 = Semestres concluidos de participacao de grupo PET;</li>
+										<li>N10 = 1,0, se possui especializacao latu-sensu;</li>
+										<li>N11 = 5,0, se possui mestrado em Ciencia da Computacao ou em areas afins definidas no Regulamento do Programa;</li>
+										<li>N12 = Nota no POSCOMP;</li>
+										<li>N13 = Media do POSCOMP no ano referente a N12;</li>
+										<li>N14 = Media de pontuacao nas cartas de recomendacao.</li>		
+                               		</ul>
+                                </td>
+                                
+                            </tr>
+                            </table>
+                   
                         </tbody>
                     </table>
                 </div>

@@ -28,14 +28,13 @@
                     
                      		<g:sortableColumn property="tipoDeChamada" title="${message(code: 'chamada.tipoDeChamada.label', default: 'Tipo De Chamada')}" />
                         
-                        	<g:sortableColumn property="texto" title="${message(code: 'chamada.texto.label', default: 'Texto')}" />
-                        
+                       		<g:sortableColumn property="vagasDisponiveis" title="${message(code: 'chamada.vagasDisponiveis.label', default: 'Vagas disponiveis')}" />
+                           
                         	<g:sortableColumn property="dataInicialInscricoes" title="${message(code: 'chamada.dataInicialInscricoes.label', default: 'Data Inicial Inscricoes')}" />
                         
                             <g:sortableColumn property="dataFinalInscricoes" title="${message(code: 'chamada.dataFinalInscricoes.label', default: 'Data Final Inscricoes')}" />
                         
-              				<g:sortableColumn property="criterios" title="${message(code: 'chamada.criterios.label', default: 'Criterios')}" />
-                           
+              				
                            
                            
                                 
@@ -45,19 +44,32 @@
                     <g:each in="${chamadaInstanceList}" status="i" var="chamadaInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="show" id="${chamadaInstance.id}">${fieldValue(bean: chamadaInstance, field: "id")}</g:link></td>
-                        
+                            <td>
+                    		<g:form controller="chamada">
+                   				<g:hiddenField name="id" value="${chamadaInstance?.id}" />
+            					<span class="button"><g:actionSubmit action="show" value="Visualizar" ></g:actionSubmit></span></br>
+            	    		</g:form>
+            	    
+            	            
+            	    		<g:form controller="inscricao">
+            	    		    <g:if test="${Calendar.getInstance().after(chamadaInstance.DataInicialInscricoes) && Calendar.getInstance().before(chamadaInstance.DataFinalInscricoes)}">
+            	        			<span class="button"><g:actionSubmit class="edit" action="create" value="Inscricao"></g:actionSubmit></span></br>
+					            </g:if>
+					            <g:else>
+					            	<span class="button"><g:actionSubmit disabled="true" class="edit" action="create" value="Inscricao"></g:actionSubmit></span></br>
+					            </g:else>
+            	    		</g:form>
+            	    		</td>
+            	    
                             <td>${fieldValue(bean: chamadaInstance, field: "tituloDaChamada")}</td>
                         
                             <td>${fieldValue(bean: chamadaInstance, field: "tipoDeChamada")}</td>
-                        
-                            <td>${fieldValue(bean: chamadaInstance, field: "texto")}</td>
+      
+                            <td>${fieldValue(bean: chamadaInstance, field: "vagasDisponiveis")}</td>
                         
                         	<td><g:formatDate date="${chamadaInstance.dataInicialInscricoes}" /></td>
                         
                             <td><g:formatDate date="${chamadaInstance.dataFinalInscricoes}" /></td>
-                            
-                            <td>${fieldValue(bean: chamadaInstance, field: "criterios")}</td>
                         
                         </tr>
                     </g:each>
