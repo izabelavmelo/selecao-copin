@@ -10,8 +10,7 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="Lista de usuarios" args="[entityName]" /></g:link></span>
-            </div>
+        </div>
         <div class="body">
             <h1><g:message code="Dados do usuario" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
@@ -43,7 +42,28 @@
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nome")}</td>
                             
                         </tr>
-                    
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.endereco.label" default="Endereco" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "endereco")}</td>
+                            
+                        </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.telefone.label" default="Telefone" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "telefone")}</td>
+                            
+                        </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.dataNascimento.label" default="Data de nascimento" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "dataNascimento")}</td>
+                            
+                        </tr>
+             
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.email.label" default="Email" /></td>
                             
@@ -61,15 +81,14 @@
                     </tbody>
                 </table>
             </div>
-            <% /*
+            
             <div class="buttons">
                 <g:form>
                     <g:hiddenField name="id" value="${usuarioInstance?.id}" />
                     <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Tem certeza?')}');" /></span>
                 </g:form>
             </div>
-			*/ %>
+			
         </div>
     </body>
 </html>

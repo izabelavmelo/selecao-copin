@@ -53,6 +53,33 @@
                                     <g:textField name="nome" value="${usuarioInstance?.nome}" />
                                 </td>
                             </tr>
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="endereco"><g:message code="usuario.endereco.label" default="endereco" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'endereco', 'errors')}">
+                                    <g:textField name="endereco" value="${usuarioInstance?.endereco}" />
+                                </td>
+                            </tr>
+                        
+                        	<tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="telefone"><g:message code="usuario.telefone.label" default="Telefone" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'telefone', 'errors')}">
+                                    <g:textField name="telefone" value="${usuarioInstance?.telefone}" />
+                                </td>
+                            </tr>
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="dataNascimento"><g:message code="usuario.dataNascimento.label" default="Data de nascimento" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'dataNascimento', 'errors')}">
+                                    <g:datePicker name="dataNascimento" precision="day" value="${chamadaInstance?.dataNascimento}"  />
+                                </td>
+                            </tr>  
                         
                             <tr class="prop">
                                 <td valign="top" class="name">

@@ -12,6 +12,11 @@ class Usuario {
 	Boolean ativo
 	Calendar dataCadastro
 	
+	String endereco
+	String telefone
+	Calendar dataNascimento
+	
+	
 	void setSenha(String valor){
 		this.senha = valor
 		if (valor != null){
