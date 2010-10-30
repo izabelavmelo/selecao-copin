@@ -48,7 +48,7 @@ class Inscricao {
 	int outrasNacionais
 	int locaisERegionais
 	
-	/** Atividades acadêmicas */
+	/** Outras atividades acadêmicas */
 	int semestresPesquisadorMestrado
 	int semestresMonitoria
 	int semestresEnsino
