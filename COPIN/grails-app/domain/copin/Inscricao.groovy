@@ -58,7 +58,21 @@ class Inscricao {
 	int semestresPET
 	
 	/** Documentos */
-	File[] arquivosNecessarios
+	File[] historicosEscolares
+	File diplomaDeGraduacao
+	File curriculumVitae
+	File ResultadoDoPoscomp
+	File copiaIdentidade
+	File copiaCpf
+	File foto3x4
+	File documentosMilitares
+	File documentosEleitorais
+	File cartaDeReferencia1
+	File cartaDeReferencia2
+	File cartaDeReferencia3
+
+	/** arquivos que diferenciam mestrado de doutorado*/
+	File arquivosDiferencais 
 	
 	static belongsTo = {chamada: Chamada ; usuario: Usuario}
 	
