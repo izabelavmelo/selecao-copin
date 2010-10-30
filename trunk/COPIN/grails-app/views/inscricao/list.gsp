@@ -24,7 +24,15 @@
                         
                             <g:sortableColumn property="id" title="${message(code: 'inscricao.id.label', default: 'Id')}" />
                         
-                            <g:sortableColumn property="a" title="${message(code: 'inscricao.a.label', default: 'A')}" />
+                            <g:sortableColumn property="alunoEspecial" title="${message(code: 'inscricao.alunoEspecial.label', default: 'Aluno Especial')}" />
+                        
+                            <g:sortableColumn property="anoDeConclusao" title="${message(code: 'inscricao.anoDeConclusao.label', default: 'Ano De Conclusao')}" />
+                        
+                            <g:sortableColumn property="anoDeConclusaoMestrado" title="${message(code: 'inscricao.anoDeConclusaoMestrado.label', default: 'Ano De Conclusao Mestrado')}" />
+                        
+                            <g:sortableColumn property="anoPoscomp" title="${message(code: 'inscricao.anoPoscomp.label', default: 'Ano Poscomp')}" />
+                        
+                            <g:sortableColumn property="arquivosDiferencais" title="${message(code: 'inscricao.arquivosDiferencais.label', default: 'Arquivos Diferencais')}" />
                         
                         </tr>
                     </thead>
@@ -34,7 +42,15 @@
                         
                             <td><g:link action="show" id="${inscricaoInstance.id}">${fieldValue(bean: inscricaoInstance, field: "id")}</g:link></td>
                         
-                            <td>${fieldValue(bean: inscricaoInstance, field: "a")}</td>
+                            <td>${fieldValue(bean: inscricaoInstance, field: "alunoEspecial")}</td>
+                        
+                            <td><g:formatDate date="${inscricaoInstance.anoDeConclusao}" /></td>
+                        
+                            <td><g:formatDate date="${inscricaoInstance.anoDeConclusaoMestrado}" /></td>
+                        
+                            <td><g:formatDate date="${inscricaoInstance.anoPoscomp}" /></td>
+                        
+                            <td>${fieldValue(bean: inscricaoInstance, field: "arquivosDiferencais")}</td>
                         
                         </tr>
                     </g:each>
