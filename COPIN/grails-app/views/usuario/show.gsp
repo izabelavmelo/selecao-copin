@@ -60,7 +60,7 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.dataNascimento.label" default="Data de nascimento" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "dataNascimento")}</td>
+                            <td valign="top" class="value"><g:formatDate date="${fieldValue(bean: usuarioInstance, field: "dataNascimento")}"/></td>
                             
                         </tr>
              
