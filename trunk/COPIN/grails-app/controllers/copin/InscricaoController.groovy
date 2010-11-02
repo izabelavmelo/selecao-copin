@@ -14,23 +14,15 @@ class InscricaoController {
     }
 
     def create = {
-		def usuarioInstance = session.usuario
-		if (usuarioInstance) {
-			def inscricaoInstance = new Inscricao()
-			inscricaoInstance.properties = params
-			return [inscricaoInstance: inscricaoInstance, usuarioInstance: usuarioInstance]
-		}
-		else {
-			flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
-			redirect(action: "perfil")
-		}
-        
+        def inscricaoInstance = new Inscricao()
+        inscricaoInstance.properties = params
+        return [inscricaoInstance: inscricaoInstance]
     }
 
     def save = {
         def inscricaoInstance = new Inscricao(params)
         if (inscricaoInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'inscricao.label', default: 'Inscricao'), inscricaoInstance.id])}"
+            flash.message = "${message(code: 'inscricao.confirmacao.ok', args: [message(code: 'inscricao.label', default: 'Inscricao'), inscricaoInstance.id])}"
             redirect(action: "show", id: inscricaoInstance.id)
         }
         else {
