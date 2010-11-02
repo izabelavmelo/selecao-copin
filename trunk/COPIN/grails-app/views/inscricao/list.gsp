@@ -32,7 +32,7 @@
                         
                             <g:sortableColumn property="anoPoscomp" title="${message(code: 'inscricao.anoPoscomp.label', default: 'Ano Poscomp')}" />
                         
-                            <g:sortableColumn property="arquivosDiferencais" title="${message(code: 'inscricao.arquivosDiferencais.label', default: 'Arquivos Diferencais')}" />
+                            <g:sortableColumn property="cargoFuncoes" title="${message(code: 'inscricao.cargoFuncoes.label', default: 'Cargo Funcoes')}" />
                         
                         </tr>
                     </thead>
@@ -50,7 +50,7 @@
                         
                             <td><g:formatDate date="${inscricaoInstance.anoPoscomp}" /></td>
                         
-                            <td>${fieldValue(bean: inscricaoInstance, field: "arquivosDiferencais")}</td>
+                            <td>${fieldValue(bean: inscricaoInstance, field: "cargoFuncoes")}</td>
                         
                         </tr>
                     </g:each>

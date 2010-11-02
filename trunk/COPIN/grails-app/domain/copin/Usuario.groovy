@@ -16,6 +16,7 @@ class Usuario {
 	String telefone
 	Calendar dataNascimento
 	
+	static hasMany = [inscricoes: Inscricao]
 	
 	void setSenha(String valor){
 		this.senha = valor
