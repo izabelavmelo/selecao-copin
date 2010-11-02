@@ -82,9 +82,15 @@
        
             </div>
             <div class="buttons">
-                <g:form>
+            	 <g:form>
                     <g:hiddenField name="id" value="${chamadaInstance?.id}" />
-                    <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
+                    <g:if test="${Calendar.getInstance().after(chamadaInstance.DataInicialInscricoes) && Calendar.getInstance().before(chamadaInstance.DataFinalInscricoes)}">
+            	        			<span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
+                    </g:if>
+					            <g:else>
+					            	<span class="button"><g:actionSubmit disabled="true" class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
+                    </br>
+					</g:else>
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>
             </div>

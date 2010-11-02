@@ -32,7 +32,7 @@ class Inscricao {
 	String vinculoPICD
 	String universidadePICD
 	String sabeProgramar
-	String[] linguagens
+	String linguagens
 	int numeroInscricaoPoscomp
 	double resultadoPoscomp
 	Calendar anoPoscomp
@@ -58,22 +58,22 @@ class Inscricao {
 	int semestresPET
 	
 	/** Documentos */
-	File[] historicosEscolares
-	File diplomaDeGraduacao
-	File curriculumVitae
-	File ResultadoDoPoscomp
-	File copiaIdentidade
-	File copiaCpf
-	File foto3x4
-	File documentosMilitares
-	File documentosEleitorais
-	File cartaDeReferencia1
-	File cartaDeReferencia2
-	File cartaDeReferencia3
-
+	/**byte[] historicosEscolares
+	byte[] diplomaDeGraduacao
+	byte[] curriculumVitae
+	byte[] ResultadoDoPoscomp
+	byte[] copiaIdentidade
+	byte[] copiaCpf
+	byte[] foto3x4
+	byte[] documentosMilitares
+	byte[] documentosEleitorais
+	byte[] cartaDeReferencia1
+	byte[] cartaDeReferencia2
+	byte[] cartaDeReferencia3
+*/
 	/** arquivos que diferenciam mestrado de doutorado*/
-	File arquivosDiferencais 
-	
+	/**byte[] arquivosDiferencais 
+	*/
 	static belongsTo = {chamada: Chamada ; usuario: Usuario}
 	
     static constraints = {

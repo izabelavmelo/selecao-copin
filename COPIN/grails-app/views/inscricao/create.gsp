@@ -29,24 +29,7 @@
                         <tbody>
                         
                             <h1><g:message code="Dados basicos"/></h1>
-                        	<tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="nome"><g:message code="usuario.nome.label" default="Nome" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'nome', 'errors')}">
-                                    <g:textField name="nome" value="${usuarioInstance.nome}" />
-                                </td>
-                            </tr>
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="email"><g:message code="usuario.email.label" default="Email" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'email', 'errors')}">
-                                    <g:textField name="email" value="${usuarioInstance.email}" />
-                                </td>
-                            </tr>
-                            
+                        	                            
                              <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="cargoFuncoes"><g:message code="inscricao.cargoFuncoes.label" default="Cargo Funcoes" /></label>
@@ -227,7 +210,7 @@
                                     <label for="vinculoEmpregaticio"><g:message code="inscricao.vinculoEmpregaticio.label" default="Vinculo Empregaticio" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'vinculoEmpregaticio', 'errors')}">
-                                    <g:textField name="vinculoEmpregaticio" value="${inscricaoInstance?.vinculoEmpregaticio}" />
+                                    <g:select name="vinculoEmpregaticio" from="${['Sim', 'Nao']}" value="${inscricaoInstance?.vinculoEmpregaticio}" />
                                 </td>
                             </tr>
                             
@@ -245,7 +228,7 @@
                                     <label for="solicitaBolsa"><g:message code="inscricao.solicitaBolsa.label" default="Solicita Bolsa" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'solicitaBolsa', 'errors')}">
-                                    <g:textField name="solicitaBolsa" value="${inscricaoInstance?.solicitaBolsa}" />
+                                    <g:select name="solicitaBolsa" from="${['Sim', 'Nao']}" value="${inscricaoInstance?.solicitaBolsa}" />
                                 </td>
                             </tr>
                             
@@ -272,7 +255,7 @@
                                     <label for="sabeProgramar"><g:message code="inscricao.sabeProgramar.label" default="Sabe Programar" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'sabeProgramar', 'errors')}">
-                                    <g:textField name="sabeProgramar" value="${inscricaoInstance?.sabeProgramar}" />
+                                    <g:select name="sabeProgramar" from="${['Sim', 'Nao']}" value="${inscricaoInstance?.sabeProgramar}" />
                                 </td>
                             </tr>
                             
@@ -281,7 +264,7 @@
                                     <label for="linguagens"><g:message code="inscricao.linguagens.label" default="Linguagens" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'linguagens', 'errors')}">
-                                    
+                                    <g:textField name="linguagens" value="${inscricaoInstance?.linguagens}" />
                                 </td>
                             </tr>
                             
@@ -317,7 +300,7 @@
                                     <label for="estudoTempoIntegral"><g:message code="inscricao.estudoTempoIntegral.label" default="Estudo Tempo Integral" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'estudoTempoIntegral', 'errors')}">
-                                    <g:textField name="estudoTempoIntegral" value="${inscricaoInstance?.estudoTempoIntegral}" />
+                                    <g:select name="estudoTempoIntegral" from="${['Sim', 'Nao']}" value="${inscricaoInstance?.estudoTempoIntegral}" />
                                 </td>
                             </tr>
                             
@@ -326,7 +309,7 @@
                                     <label for="alunoEspecial"><g:message code="inscricao.alunoEspecial.label" default="Aluno Especial" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'alunoEspecial', 'errors')}">
-                                    <g:textField name="alunoEspecial" value="${inscricaoInstance?.alunoEspecial}" />
+                                    <g:select name="alunoEspecial" from="${['Sim', 'Nao']}" value="${inscricaoInstance?.alunoEspecial}" />
                                 </td>
                             </tr>
                             
@@ -473,131 +456,7 @@
                             
                         </tbody>
                      </table>
-                     
-                     <table>
-                     	<tbody>
-                     		</br>
-                     		<h1><g:message code="Documentos"/></h1>
-                        
-                        	<tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="historicosEscolares"><g:message code="inscricao.historicosEscolares.label" default="Historicos Escolares" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'historicosEscolares', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="diplomaDeGraduacao"><g:message code="inscricao.diplomaDeGraduacao.label" default="Diploma De Graduacao" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'diplomaDeGraduacao', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="curriculumVitae"><g:message code="inscricao.curriculumVitae.label" default="Curriculum Vitae" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'curriculumVitae', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="resultadoDoPoscomp"><g:message code="inscricao.resultadoDoPoscomp.label" default="Resultado Do Poscomp" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'resultadoDoPoscomp', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="copiaIdentidade"><g:message code="inscricao.copiaIdentidade.label" default="Copia Identidade" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'copiaIdentidade', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="copiaCpf"><g:message code="inscricao.copiaCpf.label" default="Copia Cpf" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'copiaCpf', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="foto3x4"><g:message code="inscricao.foto3x4.label" default="Foto3x4" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'foto3x4', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="documentosMilitares"><g:message code="inscricao.documentosMilitares.label" default="Documentos Militares" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'documentosMilitares', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="documentosEleitorais"><g:message code="inscricao.documentosEleitorais.label" default="Documentos Eleitorais" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'documentosEleitorais', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="cartaDeReferencia1"><g:message code="inscricao.cartaDeReferencia1.label" default="Carta De Referencia1" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'cartaDeReferencia1', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="cartaDeReferencia2"><g:message code="inscricao.cartaDeReferencia2.label" default="Carta De Referencia2" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'cartaDeReferencia2', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="cartaDeReferencia3"><g:message code="inscricao.cartaDeReferencia3.label" default="Carta De Referencia3" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'cartaDeReferencia3', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="arquivosDiferencais"><g:message code="inscricao.arquivosDiferencais.label" default="Arquivos Diferencais" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'arquivosDiferencais', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                       
-                        </tbody>
-                    </table>
+            
                 </div>
                 <div class="buttons">
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
