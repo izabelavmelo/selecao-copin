@@ -31,7 +31,7 @@
                     <span class="button"><g:actionSubmit class="edit" action="list" value="Listar chamadas criadas" /></span></br>
             </g:form>
             <g:form controller="usuario" method="post">
-                    <g:hiddenField name="id" value="${usuarioInstance?.id}" />
+        			<g:hiddenField name="id" value="${usuarioInstance?.id}" />
 					<span class="button"><g:actionSubmit controller="usuario" class="edit" action="logout" value="Logout" /></span></br>
             </g:form>
         </div>
