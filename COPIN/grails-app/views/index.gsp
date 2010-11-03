@@ -67,9 +67,38 @@
 			<h1>LOGIN</h1>
 			
 			<g:form name="formLogin" url="[controller:'usuario',action:'login']">
-        	Login: <input type="text" name="login"/><br/>
-        	Senha: <input type="password" name="senha"/><br/>
-        	<input type="submit" value="Entrar"/>
+        	
+        	<div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login"><g:message code="usuario.login.label" default="Login" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'login', 'errors')}">
+                                    <g:textField name="login" value="${usuarioInstance?.login}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha"><g:message code="usuario.senha.label" default="Senha" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'senha', 'errors')}">
+                                    <g:passwordField name="senha" maxlength="20" value="${usuarioInstance?.senha}" />
+                                </td>
+                            </tr>
+                            
+                         </tbody>
+                         </table>
+                         </div>
+        	
+        	<div class="buttons">
+                    <span class="button"><g:submitButton name="login" class="loign" value="${message(code: 'default.button.login.label', default: 'Entrar')}" /></span>
+            </div>
+        	
+        	
         	</g:form>
 
             <div id="controllerList" class="dialog">
