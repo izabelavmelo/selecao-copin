@@ -1,5 +1,8 @@
 package copin
 
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 class InscricaoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -13,6 +16,17 @@ class InscricaoController {
         [inscricaoInstanceList: Inscricao.list(params), inscricaoInstanceTotal: Inscricao.count()]
     }
 
+	def uploadFileData = { todo ->
+		if (request instanceof MultipartHttpServletRequest) {
+		   MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest)request;
+		   CommonsMultipartFile file = (CommonsMultipartFile)multiRequest.getFile("documentos");
+		   // Save the object items.
+		   todo.fileName = file.originalFilename
+		   todo.contentType = file.contentType
+		   todo.associatedFile = file.bytes
+		}
+  }
+	
     def create = {
         def inscricaoInstance = new Inscricao()
         inscricaoInstance.properties = params
