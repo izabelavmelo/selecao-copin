@@ -58,6 +58,7 @@ class Inscricao {
 	int semestresPET
 	
 	/** Documentos */
+	byte[] documentos
 	/**byte[] historicosEscolares
 	byte[] diplomaDeGraduacao
 	byte[] curriculumVitae
