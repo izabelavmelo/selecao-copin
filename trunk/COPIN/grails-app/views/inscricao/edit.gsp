@@ -459,6 +459,22 @@
                             
                         </tbody>
                      </table>
+                     <table>
+                     	<tbody>
+                     		</br>
+                     		<h1><g:message code="Documentos"/></h1>
+                     		
+                     		   <tr>Faca o upload de todos os documentos necessarios num .zip ou .rar</tr>
+                     
+                     
+                     			<tr class='prop'>
+   									<td valign='top' class='name'><label for='dueDate'>File:</label></td>
+   									<td valign='top' class='value ${hasErrors(bean:todo ,field:'documentos','errors')}'>
+   										<input type="file" name="documentos" />
+   									</td>
+								</tr>
+							</tbody>
+						</table>
                    </div>
                 <div class="buttons">
                     <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
