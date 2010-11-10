@@ -12,10 +12,10 @@
         <div id="pageBody">
 			<h1>LOGIN</h1>
 			
-			<g:form name="formLogin" url="[controller:'usuario',action:'login']">
-        	Login: <input type="text" name="username"/><br/>
-        	Senha: <input type="password" name="senha"/><br/>
-        	<input type="submit" value="Entrar"/>
+			<g:if test="${flash.message}">
+            	<div class="message">${flash.message}</div>
+            </g:if>
+			
 			<g:form action="login" name="loginUsuario">
         	<div class="dialog">
                     <table>
@@ -40,8 +40,8 @@
                             </tr>
                             
                          </tbody>
-                         </table>
-                         </div>
+                    </table>
+              </div>
         	
         	<div class="buttons">
                     <span class="button"><g:submitButton name="login" class="login" value="${message(code: 'default.button.login.label', default: 'Entrar')}" /></span>
