@@ -18,7 +18,7 @@ class UsuarioController {
 	
 	def login = {
 		
-		def loginUsuario = params["username"]
+		def loginUsuario = params.username
 		def senhaUsuario = params.senha
 		
 		if(!senhaUsuario){
@@ -32,11 +32,13 @@ class UsuarioController {
 				session["usuario"] = usuario
 				redirect(action:"perfil")
 			}else{
+			flash.message = "${message(code: 'usuario.login.inativo', args: [message(code: 'usuario.label', default: 'Usuario'), usuario.nome])}"
 			redirect(url:"http://localhost:8080/COPIN")
 			}	
-		}else
+		}else{
+		flash.message = "${message(code: 'usuario.login.invalido')}"
 		redirect(url:"http://localhost:8080/COPIN")		
-				
+		}
 	}
 	
 	def logout = {

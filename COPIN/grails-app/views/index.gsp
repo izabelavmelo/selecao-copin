@@ -65,7 +65,9 @@
             <p>O projeto visa o desenvolvimento de um software para gerenciar o processo de seleção da COPIN (Programa de Pós-Graduação em Computação), desde o processo de submissão da documentação on-line pelos candidatos, até a definição do resultado da seleção de acordo com dados inseridos por professores durante a avaliação dos candidatos. O software é importante para agilizar o processo de divulgação de resultados, assim como facilita o acesso à informação por parte dos docentes da instituição.</p>
 
 			<h1>LOGIN</h1>
-			
+			<g:if test="${flash.message}">
+            	<div class="message">${flash.message}</div>
+            </g:if>
 			<g:form name="formLogin" url="[controller:'usuario',action:'login']">
         	
         	<div class="dialog">
@@ -95,7 +97,7 @@
                          </div>
         	
         	<div class="buttons">
-                    <span class="button"><g:submitButton name="login" class="login" value="${message(code: 'default.button.login.label', default: 'Entrar')}" /></span>
+                    <span class="button"><g:submitButton name="login" class="loign" value="${message(code: 'default.button.login.label', default: 'Entrar')}" /></span>
             </div>
         	
         	
