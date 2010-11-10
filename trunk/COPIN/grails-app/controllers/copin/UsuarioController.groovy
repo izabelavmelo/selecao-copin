@@ -18,7 +18,7 @@ class UsuarioController {
 	
 	def login = {
 		
-		def loginUsuario = params["login"]
+		def loginUsuario = params["username"]
 		def senhaUsuario = params.senha
 		
 		if(!senhaUsuario){

@@ -31,8 +31,7 @@ class Usuario {
 			this.hashCPF = valor.encodeAsPassword()
 		}
 	}
-	
-	
+		
 	static transisents = ['senha']
 
     static constraints = {
