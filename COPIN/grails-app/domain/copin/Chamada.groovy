@@ -5,8 +5,8 @@ class Chamada {
 	String tipoDeChamada
 	String tituloDaChamada
 	String texto
-	Calendar DataInicialInscricoes
-	Calendar DataFinalInscricoes
+	Calendar dataInicialInscricoes
+	Calendar dataFinalInscricoes
 	int vagasDisponiveis
 	String formula
 	

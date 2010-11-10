@@ -57,14 +57,14 @@
                         </tr>
                         
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="chamada.DataInicialInscricoes.label" default="Data inicial das inscricoes:" /></td>
+                            <td valign="top" class="name"><g:message code="chamada.dataInicialInscricoes.label" default="Data inicial das inscricoes:" /></td>
                             
                             <td valign="top" class="value"><g:formatDate date="${fieldValue(bean: chamadaInstance, field: "DataInicialInscricoes")}"/></td>
                             
                         </tr>
                         
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="chamada.DataFinalInscricoes.label" default="Data final das inscricoes:" /></td>
+                            <td valign="top" class="name"><g:message code="chamada.dataFinalInscricoes.label" default="Data final das inscricoes:" /></td>
                             
                             <td valign="top" class="value"><g:formatDate date="${fieldValue(bean: chamadaInstance, field: "DataFinalInscricoes")}"/></td>
                             
