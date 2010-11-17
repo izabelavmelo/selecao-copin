@@ -28,6 +28,40 @@
                     <table>
                         <tbody>
                         
+                            <h1><g:message code="Usuario"/></h1>
+                                  
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="usuario"><g:message code="inscricao.usuario.label" default="Usuario" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'usuario', 'errors')}">
+                                    <g:select name="usuario.id" from="${usuarioInstance}" optionKey="id" value="${inscricaoInstance?.usuario?.id}" />
+                                </td>
+                            </tr>
+						</tbody>
+					</table>
+  
+                    <table>
+                        <tbody>
+                        
+                            <h1><g:message code="Chamada correspondente"/></h1>
+                                              
+							<tr class="prop">
+                                    <td valign="top" class="name">
+                                    <label for="chamada"><g:message code="inscricao.chamada.label" default="Chamada" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'chamada', 'errors')}">
+                                    <g:select name="chamada.id" from="${chamadaInstance}" optionKey="id" value="${inscricaoInstance?.chamada?.id}"  />
+                                </td>
+                            </tr>
+  
+						</tbody>
+					</table>
+
+                    <table>
+                        <tbody>
+                        
                             <h1><g:message code="Dados basicos"/></h1>
                         	                            
                              <tr class="prop">

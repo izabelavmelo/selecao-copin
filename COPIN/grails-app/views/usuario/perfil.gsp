@@ -26,10 +26,15 @@
                     <span class="button"><g:actionSubmit class="edit" action="edit" value="Editar meus dados" /></span></br>                    
             </g:form>
             
+            <g:form controller="inscricao">
+            		<span class="button"><g:actionSubmit class="edit" action="list" value="Listar minhas inscricoes" /></span></br>
+            </g:form>
+            
             <g:form controller="chamada">
             		<span class="button"><g:actionSubmit class="edit" action="create" value="Criar uma chamada" /></span></br>
                     <span class="button"><g:actionSubmit class="edit" action="list" value="Listar chamadas criadas" /></span></br>
             </g:form>
+            
             <g:form controller="usuario" method="post">
         			<g:hiddenField name="id" value="${usuarioInstance?.id}" />
 					<span class="button"><g:actionSubmit controller="usuario" class="edit" action="logout" value="Logout" /></span></br>

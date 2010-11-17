@@ -10,6 +10,8 @@ class Chamada {
 	int vagasDisponiveis
 	String formula
 	
+	//Calendar.getInstance().after(chamadaInstance.dataInicialInscricoes) && Calendar.getInstance().before(chamadaInstance.dataFinalInscricoes)
+	
 	static hasMany = {inscricoes: Inscricao}
 	
     static constraints = {
