@@ -12,7 +12,21 @@ class ChamadaController {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [chamadaInstanceList: Chamada.list(params), chamadaInstanceTotal: Chamada.count()]
     }
+	
+	/**def estaAtivo = {
+		def chamadaInstance = new Chamada()
+		if(Calendar.getInstance().after(chamadaInstance.dataInicialInscricoes) && Calendar.getInstance().before(chamadaInstance.dataFinalInscricoes)){
+			chamadaInstance.chamadaAtiva = true;
+		}else{
+			chamadaInstance.chamadaAtiva = false;
+		}
+	}*/
 
+	def listPermitidos ={
+		params.max = Math.min(params.max ? params.int('max') : 10, 100)
+		[chamadaInstanceList: Chamada.list(params), chamadaInstanceTotal: Chamada.count()]
+	}
+	
     def create = {
         def chamadaInstance = new Chamada()
         chamadaInstance.properties = params

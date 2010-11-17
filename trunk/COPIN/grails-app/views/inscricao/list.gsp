@@ -5,15 +5,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'inscricao.label', default: 'Inscricao')}" />
-        <title><g:message code="default.list.label" args="[entityName]" /></title>
+        <title><g:message code="Minhas inscricoes" args="[entityName]" /></title>
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+                 <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
         </div>
         <div class="body">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+            <h1><g:message code="Minhas inscricoes" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -40,6 +39,8 @@
                     <g:each in="${inscricaoInstanceList}" status="i" var="inscricaoInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
+                        <g:if test="${inscricaoInstance.usuario.id == usuarioInstance}">
+                        
                             <td><g:link action="show" id="${inscricaoInstance.id}">${fieldValue(bean: inscricaoInstance, field: "id")}</g:link></td>
                         
                             <td>${fieldValue(bean: inscricaoInstance, field: "alunoEspecial")}</td>
@@ -51,7 +52,7 @@
                             <td><g:formatDate date="${inscricaoInstance.anoPoscomp}" /></td>
                         
                             <td>${fieldValue(bean: inscricaoInstance, field: "cargoFuncoes")}</td>
-                        
+                        </g:if>
                         </tr>
                     </g:each>
                     </tbody>

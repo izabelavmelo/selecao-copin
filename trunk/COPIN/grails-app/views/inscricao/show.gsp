@@ -21,6 +21,34 @@
             </g:if>
             <div class="dialog">
             
+             <table>
+                        <tbody>
+                        
+                            <h1><g:message code="Usuario"/></h1>
+                                  
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name"><g:message code="inscricao.label" default="Usuario" />
+                                </td>
+                                <td valign="top" class="value">${usuarioInstance}
+                               </td>
+                            </tr>
+						</tbody>
+					</table>
+            
+                    <table>
+                        <tbody>
+                        
+                            <h1><g:message code="Chamada correspondente"/></h1>
+                                              
+							<tr class="prop">
+                                    <td valign="top" class="name"><g:message code="inscricao.chamada.tituloDaChamada.label" default="Chamada" /></td>
+                                <td valign="top" class="value"> ${fieldValue(bean: inscricaoInstance.chamada, field: 'tituloDaChamada', 'errors')}</td>
+                            </tr>
+  
+						</tbody>
+					</table>
+            
                 <table>
                     <tbody>
                         

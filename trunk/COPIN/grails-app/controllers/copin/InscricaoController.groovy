@@ -12,8 +12,15 @@ class InscricaoController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [inscricaoInstanceList: Inscricao.list(params), inscricaoInstanceTotal: Inscricao.count()]
+		def usuarioInstance = session.usuario
+		if(usuarioInstance){
+			params.max = Math.min(params.max ? params.int('max') : 10, 100)
+			[inscricaoInstanceList: Inscricao.list(params), inscricaoInstanceTotal: Inscricao.count(), usuarioInstance:usuarioInstance.id]
+		}else {
+			flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
+			redirect(action: "perfil")
+		}
+        
     }
 
 	def uploadFileData = { todo ->
@@ -28,9 +35,17 @@ class InscricaoController {
   }
 	
     def create = {
-        def inscricaoInstance = new Inscricao()
-        inscricaoInstance.properties = params
-        return [inscricaoInstance: inscricaoInstance]
+        def usuarioInstance = session.usuario
+		def chamadaInstance = Chamada.get(params.id)
+		if (usuarioInstance && chamadaInstance) {
+			def inscricaoInstance = new Inscricao()
+			inscricaoInstance.properties = params
+			return [inscricaoInstance: inscricaoInstance, usuarioInstance: usuarioInstance, chamadaInstance: chamadaInstance]
+		}
+		else {
+			flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
+			redirect(action: "perfil")
+		}
     }
 
     def save = {
@@ -51,7 +66,7 @@ class InscricaoController {
             redirect(action: "list")
         }
         else {
-            [inscricaoInstance: inscricaoInstance]
+            [inscricaoInstance: inscricaoInstance, usuarioInstance:inscricaoInstance.usuario.nome]
         }
     }
 
@@ -62,7 +77,7 @@ class InscricaoController {
             redirect(action: "list")
         }
         else {
-            return [inscricaoInstance: inscricaoInstance]
+            return [inscricaoInstance: inscricaoInstance, usuarioInstance:inscricaoInstance.usuario, chamadaInstance:inscricaoInstance.chamada]
         }
     }
 

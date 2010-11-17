@@ -75,6 +75,10 @@ class Inscricao {
 	/** arquivos que diferenciam mestrado de doutorado*/
 	/**byte[] arquivosDiferencais 
 	*/
+	
+	Chamada chamada
+	Usuario usuario
+	
 	static belongsTo = {chamada: Chamada ; usuario: Usuario}
 	
     static constraints = {
