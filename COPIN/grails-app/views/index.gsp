@@ -56,6 +56,12 @@
 			url=usuario/perfil/"> 
         </g:if>
         
+        <g:if test="${session.administrador}">
+            <meta http-equiv="refresh" content="0; 
+			url=administrador/perfil/"> 
+        </g:if>
+        
+        
         
     </head>
     <body>
@@ -103,7 +109,8 @@
         	</g:form>
 
             <div id="controllerList" class="dialog">
-                <h2>Para se cadastrar no sistema, clique <g:link controller="usuario" action="create">aqui</g:link></h2>
+                <h2>Para o usuario se cadastrar no sistema, clicar <g:link controller="usuario" action="create">aqui</g:link></h2>
+                <h2>Para o administrador se cadastrar no sistema, clicar <g:link controller="administrador" action="create">aqui</g:link></h2>
              </div>
         </div>
                 
