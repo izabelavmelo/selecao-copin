@@ -82,5 +82,26 @@ class Inscricao {
 	static belongsTo = {chamada: Chamada ; usuario: Usuario}
 	
     static constraints = {
+		
+		enade(min:0, max:10)
+		mediaEscolar(min:0, max:10)
+		enadeMestrado(min:0, max:10)
+		mediaEscolarMestrado(min:0, max:10)
+		numeroInscricaoPoscomp(min:0)
+		resultadoPoscomp(min:0)
+		quantasDisciplinasEspeciais(min:0)
+		mediaDisciplinasEspeciais(min:0)
+		qualisInternacional(min:0)
+		qualisNacional(min:0)
+		outrasInternacionais(min:0)
+		outrasNacionais(min:0)
+		locaisERegionais(min:0)
+		semestresPesquisadorMestrado(min:0)
+		semestresMonitoria(min:0)
+		semestresEnsino(min:0)
+		semestresAtuandoNaArea(min:0)
+		semestresPibicIti(min:0)
+		especializacaoLatuSensu(min:0)
+		semestresPET(min:0)
     }
 }
