@@ -83,14 +83,14 @@ class Inscricao {
 	
     static constraints = {
 		
-		enade(min:0.0, max:10)
-		mediaEscolar(min:0.0, max:10)
-		enadeMestrado(min:0.0, max:10)
-		mediaEscolarMestrado(min:0.0, max:10)
+		enade(min:0d, max:10d)
+		mediaEscolar(min:0d, max:10d)
+		enadeMestrado(min:0d, max:10d)
+		mediaEscolarMestrado(min:0d, max:10d)
 		numeroInscricaoPoscomp(min:0)
 		resultadoPoscomp(min:0)
 		quantasDisciplinasEspeciais(min:0)
-		mediaDisciplinasEspeciais(min:0.0)
+		mediaDisciplinasEspeciais(min:0d)
 		qualisInternacional(min:0)
 		qualisNacional(min:0)
 		outrasInternacionais(min:0)
