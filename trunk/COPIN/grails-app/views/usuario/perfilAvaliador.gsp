@@ -3,16 +3,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
-    
-    	<g:if test="${session.administrador}">
-            <meta http-equiv="refresh" content="0; 
-			url=administrador/perfil/"> 
-        </g:if>
-        
+        <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />        
     </head>
     <body>
-        
+       
         <div class="body">
         	
             <g:if test="${flash.message}">
@@ -29,20 +23,17 @@
 			<g:form controller="usuario" method="post">
                     <g:hiddenField name="id" value="${usuarioInstance?.id}" />
                     <span class="button"><g:actionSubmit class="edit" action="show" value="Visualizar meus dados" /></span></br>
-                    <span class="button"><g:actionSubmit class="edit" action="edit" value="Editar meus dados" /></span></br>                    
-            </g:form>
-            
-            <g:form controller="inscricao">
-            		<span class="button"><g:actionSubmit class="edit" action="list" value="Listar minhas inscricoes" /></span></br>
+                    <span class="button"><g:actionSubmit class="edit" action="edit" value="Editar meus dados" /></span></br>
+                                        
             </g:form>
             
             <g:form controller="chamada">
-            		<span class="button"><g:actionSubmit class="edit" action="list" value="Verificar chamadas ativas" /></span></br>
+            		<span class="button"><g:actionSubmit class="edit" action="list" value="Listar chamadas criadas" /></span></br>
             </g:form>
             
             <g:form controller="usuario" method="post">
-        			<g:hiddenField name="id" value="${usuarioInstance?.id}" />
-					<span class="button"><g:actionSubmit controller="usuario" class="edit" action="logout" value="Logout" /></span></br>
+        			<g:hiddenField name="id" value="${administradorInstance?.id}" />
+					<span class="button"><g:actionSubmit controller="administrador" class="edit" action="logout" value="Logout" /></span></br>
             </g:form>
         </div>
 

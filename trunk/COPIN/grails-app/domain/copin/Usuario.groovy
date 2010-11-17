@@ -9,8 +9,11 @@ class Usuario {
 	String nome
 	String email
 	String cpf
-	Boolean ativo
+	Boolean ativo = false
 	Calendar dataCadastro
+	
+	Boolean ehAdministrador = false
+	Boolean ehAvaliador = false
 	
 	String endereco
 	String telefone

@@ -110,8 +110,7 @@
 
             <div id="controllerList" class="dialog">
                 <h2>Para o usuario se cadastrar no sistema, clicar <g:link controller="usuario" action="create">aqui</g:link></h2>
-                <h2>Para o administrador se cadastrar no sistema, clicar <g:link controller="administrador" action="create">aqui</g:link></h2>
-             </div>
+            </div>
         </div>
                 
     </body>

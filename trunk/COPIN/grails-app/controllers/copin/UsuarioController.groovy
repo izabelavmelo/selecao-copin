@@ -26,34 +26,29 @@ class UsuarioController {
 		}
 		
 		def usuario = Usuario.findByLoginAndHashSenha(loginUsuario, senhaUsuario.encodeAsPassword())
-		
-		if(loginUsuario == "admin" && senhaUsuario == "copinsid"){
 			
-			def administrador = Administrador.findByLoginAndHashSenha(loginUsuario, senhaUsuario.encodeAsPassword())
-			
-			if(administrador) {
-				session["administrador"] = administrador
-				redirect(controller:"administrador",action:"perfil")
-			}
-			else {
-				flash.message = "${message(code: 'administrador.login.invalido')}"
-				redirect(url:"http://localhost:8080/COPIN")
-			}
-		}
-		else{
-			
-			if(usuario){
-				if(usuario.ativo){
-					session["usuario"] = usuario
-					redirect(action:"perfil")
-				}else{
-					flash.message = "${message(code: 'usuario.login.inativo', args: [message(code: 'usuario.label', default: 'Usuario'), usuario.nome])}"
-					redirect(url:"http://localhost:8080/COPIN")
+		if(usuario){			
+			if(usuario.ativo){
+				session["usuario"] = usuario
+				
+				/* if(usuario.ehAdministrador){
+					redirect(action:"perfilAdministrador")
+				} */
+				
+				if(usuario.ehAvaliador){
+					redirect(action:"perfilAvaliador")
 				}
+				else{
+					redirect(action:"perfilAdministrador")
+				}
+				
 			}else{
-				flash.message = "${message(code: 'usuario.login.invalido')}"
+				flash.message = "${message(code: 'usuario.login.inativo', args: [message(code: 'usuario.label', default: 'Usuario'), usuario.nome])}"
 				redirect(url:"http://localhost:8080/COPIN")
 			}
+		}else{
+			flash.message = "${message(code: 'usuario.login.invalido')}"
+			redirect(url:"http://localhost:8080/COPIN")
 		}
 		
 	}
@@ -71,6 +66,33 @@ class UsuarioController {
         usuarioInstance.properties = params
         return [usuarioInstance: usuarioInstance]
     }
+	
+	def createAvaliador = {
+		def usuarioInstance = new Usuario()
+        usuarioInstance.properties = params
+        return [usuarioInstance: usuarioInstance]
+	}
+	
+	def saveAvaliador = {
+		def usuarioInstance = new Usuario(params)
+		
+		if (usuarioInstance.save(flush: true)) {
+			flash.message = "${message(code: 'default.created.avaliador', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
+
+			def usuario = Usuario.findByLoginOrCpf(usuarioInstance.login, usuarioInstance.cpf)
+			
+			if(usuario){
+				usuario.ativo = true
+				usuario.ehAvaliador = true
+			}
+
+			redirect(action: "perfilAdministrador")
+		}
+		else {
+			render(view: "createAvaliador", model: [usuarioInstance: usuarioInstance])
+		}	
+	}
+	
 
     def save = {
         def usuarioInstance = new Usuario(params)
@@ -134,8 +156,17 @@ class UsuarioController {
 			[usuarioInstance: usuarioInstance]
 		}else{
 			redirect(url:"http://localhost:8080/COPIN")
-		}
+		}	
+	}
+	
+	def perfilAdministrador = {
+		def usuarioInstance = session["usuario"]
 		
+		if(usuarioInstance) {
+			[usuarioInstance: usuarioInstance]
+		}else{
+			redirect(url:"http://localhost:8080/COPIN")
+		}
 	}
 	
     def edit = {
