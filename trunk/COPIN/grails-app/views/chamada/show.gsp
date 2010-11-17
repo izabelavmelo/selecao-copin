@@ -6,10 +6,16 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'chamada.label', default: 'Chamada')}" />
         <title><g:message code="Chamada" args="[entityName]" /></title>
+        
+        <g:if test="${session.usuario}">
+            <meta http-equiv="refresh" content="0; 
+			url=usuario/perfil/"> 
+        </g:if>
+        
     </head>
     <body>
     	<div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
+            <span class="menuButton"><a class="home" href="${createLink(uri: '/administrador/perfil')}"><g:message code="default.home.label"/></a></span>
             <span class="menuButton"><a class="home" href="${createLink(uri: '/chamada/list')}"><g:message code="Lista de chamada"/></a></span>
         </div>
         <div class="body">

@@ -27,18 +27,35 @@ class UsuarioController {
 		
 		def usuario = Usuario.findByLoginAndHashSenha(loginUsuario, senhaUsuario.encodeAsPassword())
 		
-		if(usuario){
-			if(usuario.ativo){
-				session["usuario"] = usuario
-				redirect(action:"perfil")
-			}else{
-			flash.message = "${message(code: 'usuario.login.inativo', args: [message(code: 'usuario.label', default: 'Usuario'), usuario.nome])}"
-			redirect(url:"http://localhost:8080/COPIN")
-			}	
-		}else{
-		flash.message = "${message(code: 'usuario.login.invalido')}"
-		redirect(url:"http://localhost:8080/COPIN")		
+		if(loginUsuario == "admin" && senhaUsuario == "copinsid"){
+			
+			def administrador = Administrador.findByLoginAndHashSenha(loginUsuario, senhaUsuario.encodeAsPassword())
+			
+			if(administrador) {
+				session["administrador"] = administrador
+				redirect(controller:"administrador",action:"perfil")
+			}
+			else {
+				flash.message = "${message(code: 'administrador.login.invalido')}"
+				redirect(url:"http://localhost:8080/COPIN")
+			}
 		}
+		else{
+			
+			if(usuario){
+				if(usuario.ativo){
+					session["usuario"] = usuario
+					redirect(action:"perfil")
+				}else{
+					flash.message = "${message(code: 'usuario.login.inativo', args: [message(code: 'usuario.label', default: 'Usuario'), usuario.nome])}"
+					redirect(url:"http://localhost:8080/COPIN")
+				}
+			}else{
+				flash.message = "${message(code: 'usuario.login.invalido')}"
+				redirect(url:"http://localhost:8080/COPIN")
+			}
+		}
+		
 	}
 	
 	def logout = {
