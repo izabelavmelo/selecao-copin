@@ -3,6 +3,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
+        
+        <g:if test="${session.administrador}">
+            <meta http-equiv="refresh" content="0; 
+			url=administrador/perfil/"> 
+        </g:if>
+        
+        
     </head>
     <body>
         <div class="body">
