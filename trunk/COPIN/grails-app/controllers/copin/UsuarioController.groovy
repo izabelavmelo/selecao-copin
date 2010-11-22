@@ -195,6 +195,7 @@ class UsuarioController {
             usuarioInstance.properties = params
             if (!usuarioInstance.hasErrors() && usuarioInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
+				session.usuario = usuarioInstance
                 redirect(action: "show", id: usuarioInstance.id)
             }
             else {
