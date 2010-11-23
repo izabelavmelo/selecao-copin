@@ -7,9 +7,9 @@
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     
-    	<g:if test="${session.administrador}">
+    	<g:if test="${!session.usuario.ehAdministrador}">
             <meta http-equiv="refresh" content="0; 
-			url=administrador/perfil/"> 
+			url=perfil/"/> 
         </g:if>
         
     

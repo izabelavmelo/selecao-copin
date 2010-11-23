@@ -4,6 +4,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />        
+    
+  		<g:if test="${!session.usuario.ehAdministrador}">   
+        	<g:if test="${session.usuario.ehAvaliador}">
+        		<meta http-equiv="refresh" content="0; 
+				url=perfilAvaliador/"/> 
+        	</g:if>
+        	<g:else>
+        		<meta http-equiv="refresh" content="0; 
+				url=perfil/"/> 
+        	</g:else>    
+        </g:if>
+    
     </head>
     <body>
        

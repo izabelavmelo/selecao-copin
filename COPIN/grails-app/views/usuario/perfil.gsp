@@ -5,9 +5,13 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
     
-    	<g:if test="${session.administrador}">
+    	<g:if test="${session.usuario.ehAdministrador}">
             <meta http-equiv="refresh" content="0; 
-			url=administrador/perfil/"> 
+			url=perfilAdministrador/"/> 
+        </g:if>
+        <g:if test="${session.usuario.ehAvaliador}">
+            <meta http-equiv="refresh" content="0; 
+			url=perfilAvaliador/"/> 
         </g:if>
         
     </head>
