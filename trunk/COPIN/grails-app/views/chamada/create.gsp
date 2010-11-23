@@ -8,7 +8,7 @@
         <g:set var="entityName" value="${message(code: 'chamada.label', default: 'Chamada')}" />
         <title><g:message code="Criar chamada" args="[entityName]" /></title>
     
-    	 <g:if test="${!session.usuario.ehAdministrador}">
+    	<g:if test="${!session.usuario.ehAdministrador}">
             <meta http-equiv="refresh" content="0; 
 			url=http://localhost:8080/COPIN/usuario/perfil"/> 
         </g:if>

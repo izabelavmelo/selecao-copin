@@ -4,10 +4,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         
-    	<g:if test="${session.usuario.ehAdministrador}">
+        <g:if test="${session.usuario.ehAdministrador}">
             <meta http-equiv="refresh" content="0; 
 			url=perfilAdministrador/"/> 
         </g:if>
+        
+        <g:if test="${session.usuario.ehAvaliador}">
+            <meta http-equiv="refresh" content="0; 
+			url=perfilAvaliador/"/> 
+        </g:if>
+        
         
     </head>
     <body>
