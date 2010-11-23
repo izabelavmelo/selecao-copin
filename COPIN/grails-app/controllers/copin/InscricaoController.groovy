@@ -17,12 +17,22 @@ class InscricaoController {
 			params.max = Math.min(params.max ? params.int('max') : 10, 100)
 			[inscricaoInstanceList: Inscricao.list(params), inscricaoInstanceTotal: Inscricao.count(), usuarioInstance:usuarioInstance.id]
 		}else {
-			flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
-			redirect(action: "perfil")
+			redirect(url:"http://localhost:8080/COPIN/usuario/perfil")
 		}
         
     }
 
+	def listaDeChamada = {
+		def usuarioInstance = session.usuario
+		def chamadaInstance = Chamada.get(params.id)
+		if(usuarioInstance && chamadaInstance){
+			params.max = Math.min(params.max ? params.int('max') : 10, 100)
+			[inscricaoInstanceList: Inscricao.list(params), inscricaoInstanceTotal: Inscricao.count(), usuarioInstance:usuarioInstance, chamadaInstance: chamadaInstance]
+		}else {
+			redirect(url:"http://localhost:8080/COPIN/usuario/perfil")
+		}
+		
+	}
 	def uploadFileData = { todo ->
 		if (request instanceof MultipartHttpServletRequest) {
 		   MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest)request;
@@ -43,8 +53,7 @@ class InscricaoController {
 			return [inscricaoInstance: inscricaoInstance, usuarioInstance: usuarioInstance, chamadaInstance: chamadaInstance]
 		}
 		else {
-			flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
-			redirect(action: "perfil")
+			redirect(url:"http://localhost:8080/COPIN/usuario/perfil")
 		}
     }
 
