@@ -6,19 +6,22 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'inscricao.label', default: 'Inscricao')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
-    	
-    	<g:if test="${session.administrador}">
-            <meta http-equiv="refresh" content="0; 
-			url=administrador/perfil/"> 
-        </g:if>
     
     </head>
     <body>
         <div class="nav">
-           <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
+         <g:if test="${session.usuario.ehAdministrador}">
+            <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfilAdministrador')}"><g:message code="default.home.label"/></a></span>
+        	<span class="menuButton"><a class="list" href="${createLink(uri: '/chamada/index')}"><g:message code="Lista de Chamadas"/></a></span>
+        
+         </g:if>
+         <g:else>
+            <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
         	<span class="menuButton"><a class="list" href="${createLink(uri: '/chamada/index')}"><g:message code="Lista de Chamadas"/></a></span>
         	<span class="menuButton"><a class="list" href="${createLink(uri: '/inscricao/list')}"><g:message code="Minhas inscricoes"/></a></span>
         
+         </g:else>
+         
         </div>
         <div class="body">
             <h2 align="center" size="1"><g:message code="Minha inscricao" args="[entityName]" /></h2>
@@ -397,9 +400,17 @@
                 <g:form>
                 
                     <g:hiddenField name="id" value="${inscricaoInstance?.id}" />
-                    <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-                </g:form>
+                    <g:if test="${session.usuario.ehAdministrador || session.usuario.ehAvaliador}">
+                    	<span class="button"><g:actionSubmit disabled="true" class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
+                	    <span class="button"><g:actionSubmit disabled="true" class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+                
+                    </g:if>
+                    <g:else>
+                	    <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
+                    	<span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+                
+                    </g:else>
+                    </g:form>
             </div>
         </div>
     </body>
