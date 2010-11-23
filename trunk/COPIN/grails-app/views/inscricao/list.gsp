@@ -6,6 +6,16 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'inscricao.label', default: 'Inscricao')}" />
         <title><g:message code="Minhas inscricoes" args="[entityName]" /></title>
+        
+        <g:if test="${session.usuario.ehAdministrador}">
+            <meta http-equiv="refresh" content="0; 
+			url=http://localhost:8080/COPIN/usuario/perfilAdministrador"/> 
+        </g:if>
+        <g:if test="${session.usuario.ehAvaliador}">
+            <meta http-equiv="refresh" content="0; 
+			url=http://localhost:8080/COPIN/usuario/perfilAvaliador"/> 
+        </g:if>
+        
     </head>
     <body>
         <div class="nav">

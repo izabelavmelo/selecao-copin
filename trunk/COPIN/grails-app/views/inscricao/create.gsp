@@ -8,9 +8,9 @@
         <g:set var="entityName" value="${message(code: 'inscricao.label', default: 'Inscricao')}" />
         <title><g:message code="Inscricao" args="[entityName]" /></title>
         
-        <g:if test="${session.administrador}">
+        <g:if test="${session.usuario.ehAdministrador}">
             <meta http-equiv="refresh" content="0; 
-			url=administrador/perfil/"> 
+			url=http://localhost:8080/COPIN/usuario/perfilAdministrador"/> 
         </g:if>
         
     </head>
