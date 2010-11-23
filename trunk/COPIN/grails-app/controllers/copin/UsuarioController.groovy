@@ -99,7 +99,6 @@ class UsuarioController {
 		usuarioInstance.ativo = false
 		usuarioInstance.dataCadastro = Calendar.getInstance()
 		
-		
 		def usuario = Usuario.findByLoginOrCpf(usuarioInstance.login, usuarioInstance.cpf)
 		if(usuario){
 			if(!usuario.ativo){

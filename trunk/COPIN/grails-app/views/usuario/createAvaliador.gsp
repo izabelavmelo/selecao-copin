@@ -102,8 +102,10 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="create" action="saveAvaliador" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
+                <div class="button">
+                	<g:form controller="usuario" method="post">
+                		<span class="button"><g:actionSubmit class="saveAvaliador" action="saveAvaliador" value="Criar" /></span><br>
+                	</g:form> 
                 </div>
             </g:form>
         </div>
