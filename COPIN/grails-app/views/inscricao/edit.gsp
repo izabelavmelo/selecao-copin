@@ -13,6 +13,11 @@
 			url=http://localhost:8080/COPIN/usuario/perfilAdministrador"/> 
         </g:if>
         
+        <g:if test="${session.usuario.ehAvaliador}">
+            <meta http-equiv="refresh" content="0; 
+			url=http://localhost:8080/COPIN/usuario/perfilAvaliador"/> 
+        </g:if>
+        
     </head>
     <body>
         <div class="nav">

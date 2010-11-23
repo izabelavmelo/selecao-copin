@@ -30,7 +30,7 @@
             </div>
             </g:hasErrors>
         	
-        	<h1> Ola, ${session.getAt("usuario").nome}. O que voce deseja fazer no sistema?</h1><br/>
+        	<h1> Ola, ${session.getAt("usuario").nome}. Voce eh um avaliador. O que voce deseja fazer no sistema?</h1><br/>
 			
 			<g:form controller="usuario" method="post">
                     <g:hiddenField name="id" value="${usuarioInstance?.id}" />
@@ -40,7 +40,7 @@
             </g:form>
             
             <g:form controller="chamada">
-            		<span class="button"><g:actionSubmit class="edit" action="list" value="Listar chamadas criadas" /></span></br>
+            		<span class="button"><g:actionSubmit class="edit" action="list" value="Listar chamadas criadas e atribuir notas" /></span></br>
             </g:form>
             
             <g:form controller="usuario" method="post">

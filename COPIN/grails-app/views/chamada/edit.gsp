@@ -13,7 +13,6 @@
 			url=http://localhost:8080/COPIN/usuario/perfil"/> 
         </g:if>
     
-    
     </head>
     <body>
         <div class="nav">

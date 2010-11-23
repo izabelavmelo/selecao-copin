@@ -7,6 +7,11 @@
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
 
+	<g:if test="${!session.usuario.ehAdministrador}">
+            <meta http-equiv="refresh" content="0; 
+			url=http://localhost:8080/COPIN/usuario/perfil"/> 
+        </g:if>
+
     </head>
     <body>
         <div class="nav">

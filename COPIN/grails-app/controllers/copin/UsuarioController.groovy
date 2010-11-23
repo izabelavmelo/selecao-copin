@@ -31,15 +31,15 @@ class UsuarioController {
 			if(usuario.ativo){
 				session["usuario"] = usuario
 				
-				/* if(usuario.ehAdministrador){
+				if(usuario.ehAdministrador){
 					redirect(action:"perfilAdministrador")
-				} */
+				}
 				
 				if(usuario.ehAvaliador){
 					redirect(action:"perfilAvaliador")
 				}
 				else{
-					redirect(action:"perfilAdministrador")
+					redirect(action:"perfil")
 				}
 				
 			}else{
@@ -75,6 +75,8 @@ class UsuarioController {
 	
 	def saveAvaliador = {
 		def usuarioInstance = new Usuario(params)
+		usuarioInstance.ativo = true
+		usuarioInstance.dataCadastro = Calendar.getInstance()
 		
 		if (usuarioInstance.save(flush: true)) {
 			flash.message = "${message(code: 'default.created.avaliador', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
@@ -159,6 +161,16 @@ class UsuarioController {
 	}
 	
 	def perfilAdministrador = {
+		def usuarioInstance = session["usuario"]
+		
+		if(usuarioInstance) {
+			[usuarioInstance: usuarioInstance]
+		}else{
+			redirect(url:"http://localhost:8080/COPIN")
+		}
+	}
+	
+	def perfilAvaliador = {
 		def usuarioInstance = session["usuario"]
 		
 		if(usuarioInstance) {
