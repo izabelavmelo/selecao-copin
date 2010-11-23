@@ -9,9 +9,16 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/administrador/perfil')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="Nova chamada" args="[entityName]" /></g:link></span>
-        </div>
+            <g:if test="${session.usuario.ehAdministrador}">
+            <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfilAdministrador')}"><g:message code="default.home.label"/></a></span>
+        	<span class="menuButton"><g:link class="create" action="create"><g:message code="Nova chamada" args="[entityName]" /></g:link></span>
+      
+            </g:if>
+            <g:else>
+            <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
+            </g:else>
+          
+         </div>
         <div class="body">
             <h1><g:message code="Lista de chamadas" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
@@ -44,23 +51,35 @@
                     <g:each in="${chamadaInstanceList}" status="i" var="chamadaInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td>
+                        <td>
                     		<g:form controller="chamada">
                    				<g:hiddenField name="id" value="${chamadaInstance?.id}" />
             					<span class="button"><g:actionSubmit action="show" value="Visualizar" ></g:actionSubmit></span></br>
+      
             	    		</g:form>
-            	    
-            	            
-            	    		<g:form controller="inscricao">
-            	    		    <g:if test="${Calendar.getInstance().after(chamadaInstance.dataInicialInscricoes) && Calendar.getInstance().before(chamadaInstance.dataFinalInscricoes)}">
-            	    		    	<g:hiddenField name="id" value="${chamadaInstance?.id}" />
-            	        			<span class="button"><g:actionSubmit class="edit" action="create" value="Inscricao"></g:actionSubmit></span></br>
-					            </g:if>
-					            <g:else>
-					            	<span class="button"><g:actionSubmit disabled="true" class="edit" action="create" value="Inscricao"></g:actionSubmit></span></br>
-					            </g:else>
-            	    		</g:form>
-            	    		</td>
+      
+                        	<g:if test="${session.usuario.ehAdministrador}">
+                        
+        	    	    		<g:form controller="inscricao">
+        							<g:hiddenField name="id" value="${chamadaInstance?.id}" />
+            		        		<span class="button"><g:actionSubmit class="list" action="listaDeChamada" value="Lista de inscricoes"></g:actionSubmit></span></br>
+			
+            		    		</g:form>
+                
+                       		</g:if>
+                        	<g:else>
+            					<g:form controller="inscricao">
+            	    		    	<g:if test="${Calendar.getInstance().after(chamadaInstance.dataInicialInscricoes) && Calendar.getInstance().before(chamadaInstance.dataFinalInscricoes)}">
+            	    		    		<g:hiddenField name="id" value="${chamadaInstance?.id}" />
+            	        				<span class="button"><g:actionSubmit class="edit" action="create" value="Inscricao"></g:actionSubmit></span></br>
+					            	</g:if>
+					            	<g:else>
+					            		<span class="button"><g:actionSubmit disabled="true" class="edit" action="create" value="Inscricao"></g:actionSubmit></span></br>
+					            	</g:else>
+            	    			</g:form>        
+                        	</g:else>   	    
+            
+            	    	</td>
             	    
                             <td>${fieldValue(bean: chamadaInstance, field: "tituloDaChamada")}</td>
                         
