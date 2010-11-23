@@ -6,12 +6,14 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
-    
-    	<g:if test="${session.administrador}">
+     
+     <g:if test="${!session.usuario.ehAdministrador}">
+     
+     	<g:if test="${session.usuario.id != usuarioInstance?.id}">
             <meta http-equiv="refresh" content="0; 
-			url=administrador/perfil/"> 
-        </g:if>
-        
+			url=perfil/"/> 
+      	</g:if>
+     </g:if>
     
     </head>
     <body>
@@ -92,8 +94,15 @@
             <div class="buttons">
                 <g:form>
                     <g:hiddenField name="id" value="${usuarioInstance?.id}" />
+                    <g:if test="${session.usuario.ehAdministrador || session.usuario.ehAvaliador}">
+               		     <span class="button"><g:actionSubmit disabled="true" class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
+                 
+                    </g:if>
+                    <g:else>
                     <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
-                </g:form>
+               
+                    </g:else>
+               </g:form>
             </div>
 			
         </div>
