@@ -35,7 +35,6 @@
 			<g:form controller="usuario" method="post">
                     <g:hiddenField name="id" value="${usuarioInstance?.id}" />
                     <span class="button"><g:actionSubmit class="edit" action="show" value="Visualizar meus dados" /></span></br>
-                    <span class="button"><g:actionSubmit class="edit" action="edit" value="Editar meus dados" /></span></br>
                     <span class="button"><g:actionSubmit class="edit" action="createAvaliador" value="Registrar um avaliador" /></span><br>
                                         
             </g:form>

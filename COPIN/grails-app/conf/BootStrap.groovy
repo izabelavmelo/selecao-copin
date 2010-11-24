@@ -14,7 +14,8 @@ class BootStrap {
 			endereco: 'rua',
 			telefone: '12345678',
 			ativo: true,
-			ehAdministrador: true)
+			ehAdministrador: true,
+			ehAvaliador: false)
 		
 		userGod.dataNascimento = Calendar.getInstance()
 		userGod.dataCadastro = Calendar.getInstance()

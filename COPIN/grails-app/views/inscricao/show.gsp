@@ -19,7 +19,7 @@
             <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
         	<span class="menuButton"><a class="list" href="${createLink(uri: '/chamada/index')}"><g:message code="Lista de Chamadas"/></a></span>
         	<span class="menuButton"><a class="list" href="${createLink(uri: '/inscricao/list')}"><g:message code="Minhas inscricoes"/></a></span>
-        
+		</g:else>        
         </div>
         <div class="body">
             <h2 align="center" size="1"><g:message code="Minha inscricao" args="[entityName]" /></h2>

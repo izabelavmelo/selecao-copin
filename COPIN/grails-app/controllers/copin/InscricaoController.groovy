@@ -58,7 +58,12 @@ class InscricaoController {
     }
 
     def save = {
-        def inscricaoInstance = new Inscricao(params)
+		def chamadaInstance = Chamada.get(params.idChamada)
+		def inscricaoInstance = new Inscricao(params)
+		
+		inscricaoInstance.usuario = session.usuario
+		inscricaoInstance.chamada = chamadaInstance
+		
         if (inscricaoInstance.save(flush: true)) {
             flash.message = "${message(code: 'inscricao.confirmacao.ok', args: [message(code: 'inscricao.label', default: 'Inscricao'), inscricaoInstance.id])}"
             redirect(action: "show", id: inscricaoInstance.id)

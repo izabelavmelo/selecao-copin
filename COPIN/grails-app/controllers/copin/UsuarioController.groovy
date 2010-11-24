@@ -86,6 +86,7 @@ class UsuarioController {
 			if(usuario){
 				usuario.ativo = true
 				usuario.ehAvaliador = true
+				usuario.ehAdministrador = false
 			}
 
 			redirect(action: "perfilAdministrador")
@@ -100,7 +101,10 @@ class UsuarioController {
         def usuarioInstance = new Usuario(params)
 		usuarioInstance.ativo = false
 		usuarioInstance.dataCadastro = Calendar.getInstance()
-		
+
+		usuarioInstance.ehAdministrador = false
+		usuarioInstance.ehAvaliador = false
+				
 		def usuario = Usuario.findByLoginOrCpf(usuarioInstance.login, usuarioInstance.cpf)
 		if(usuario){
 			if(!usuario.ativo){
