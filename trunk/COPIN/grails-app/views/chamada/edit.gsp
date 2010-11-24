@@ -79,7 +79,16 @@
                                 <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'dataFinalInscricoes', 'errors')}">
                                     <g:datePicker name="dataFinalInscricoes" precision="day" value="${chamadaInstance?.dataFinalInscricoes}"  />
                                 </td>
-                            </tr>                        
+                            </tr>      
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="vagasDisponiveis"><g:message code="chamada.vagasDisponiveis.label" default="Vagas disponiveis:" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'vagasDisponiveis', 'errors')}">
+                                    <g:select from="${0..1000}" name="vagasDisponiveis" value="${chamadaInstance?.vagasDisponiveis}"/>
+                                </td>
+                            </tr>                  
                            
                             <tr class="prop">
                                 <td valign="top" class="name">

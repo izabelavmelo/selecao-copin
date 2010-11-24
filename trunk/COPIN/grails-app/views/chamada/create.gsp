@@ -85,7 +85,7 @@
                                     <label for="vagasDisponiveis"><g:message code="chamada.vagasDisponiveis.label" default="Vagas disponiveis:" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: chamadaInstance, field: 'vagasDisponiveis', 'errors')}">
-                                    <g:textField name="vagasDisponiveis" value="${chamadaInstance?.vagasDisponiveis}"/>
+                                    <g:select from="${0..1000}" name="vagasDisponiveis" value="${chamadaInstance?.vagasDisponiveis}"/>
                                 </td>
                             </tr>
                             

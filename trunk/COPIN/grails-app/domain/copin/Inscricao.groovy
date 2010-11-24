@@ -103,5 +103,19 @@ class Inscricao {
 		semestresPibicIti(min:0)
 		especializacaoLatuSensu(min:0)
 		semestresPET(min:0)
+
+		primeiraOpcaoProjeto(blank:false, nullable:false)
+		segundaOpcaoProjeto(blank:false, nullable:false)
+		terceiraOpcaoProjeto(blank:false, nullable:false)
+		quartaOpcaoProjeto(blank:false, nullable:false)
+		cursoInscricao(blank:false, nullable:false)
+		instituicao(blank:false, nullable:false)
+		curso(blank:false, nullable:false)
+		instituicaoMestrado(blank:false, nullable:false)
+		cursoMestrado(blank:false, nullable:false)
+		nomeEmpresa(blank:false, nullable:false)
+		universidadePICD(blank:false, nullable:false)
+		linguagens(blank:false, nullable:false)
+		
     }
 }

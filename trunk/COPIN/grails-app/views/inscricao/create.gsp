@@ -36,6 +36,15 @@
             </g:hasErrors>
             <g:form action="save" >
                 <div class="dialog">
+                
+                <table>
+                        <tbody>
+                        <h1><g:message code="Atencao!"/></h1>
+                        	<tr class="prop">
+                        	<td>Se algum campo nao se aplicar ao seu caso, preencha com "NA" (Nao se aplica).</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <table>
                         <tbody>
                         
@@ -134,7 +143,7 @@
                                     <label for="enade"><g:message code="inscricao.enade.label" default="Avaliacao ENADE do curso" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'enade', 'errors')}">
-                                    <g:textField name="enade" value="${fieldValue(bean: inscricaoInstance, field: 'enade')}" />
+                                    <g:select from="${0..5}" name="enade" value="${fieldValue(bean: inscricaoInstance, field: 'enade')}" />
                                 </td>
                             </tr>
                             
@@ -186,7 +195,7 @@
                                     <label for="enadeMestrado"><g:message code="inscricao.enadeMestrado.label" default="Avaliacao CAPES do curso" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'enadeMestrado', 'errors')}">
-                                    <g:textField name="enadeMestrado" value="${fieldValue(bean: inscricaoInstance, field: 'enadeMestrado')}" />
+                                    <g:select from="${0..5}" name="enadeMestrado" value="${fieldValue(bean: inscricaoInstance, field: 'enadeMestrado')}" />
                                 </td>
                             </tr>
                             
@@ -293,7 +302,7 @@
                                     <label for="resultadoPoscomp"><g:message code="inscricao.resultadoPoscomp.label" default="Resultado do POSCOMP" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'resultadoPoscomp', 'errors')}">
-                                    <g:textField name="resultadoPoscomp" value="${fieldValue(bean: inscricaoInstance, field: 'resultadoPoscomp')}" />
+                                    <g:select from="${0..70}" name="resultadoPoscomp" value="${fieldValue(bean: inscricaoInstance, field: 'resultadoPoscomp')}" />
                                 </td>
                             </tr>
                             
@@ -329,7 +338,7 @@
                                     <label for="quantasDisciplinasEspeciais"><g:message code="inscricao.quantasDisciplinasEspeciais.label" default="Quantas disciplinas?" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'quantasDisciplinasEspeciais', 'errors')}">
-                                    <g:textField name="quantasDisciplinasEspeciais" value="${fieldValue(bean: inscricaoInstance, field: 'quantasDisciplinasEspeciais')}" />
+                                    <g:select from="${0..100}" name="quantasDisciplinasEspeciais" value="${fieldValue(bean: inscricaoInstance, field: 'quantasDisciplinasEspeciais')}" />
                                 </td>
                             </tr>
                             
@@ -354,7 +363,7 @@
                                     <label for="qualisInternacional"><g:message code="inscricao.qualisInternacional.label" default="Qualis (veiculo internacional)" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'qualisInternacional', 'errors')}">
-                                    <g:textField name="qualisInternacional" value="${fieldValue(bean: inscricaoInstance, field: 'qualisInternacional')}" />
+                                    <g:select from="${0..100}" name="qualisInternacional" value="${fieldValue(bean: inscricaoInstance, field: 'qualisInternacional')}" />
                                 </td>
                             </tr>
                         
@@ -363,7 +372,7 @@
                                     <label for="qualisNacional"><g:message code="inscricao.qualisNacional.label" default="Qualis (veiculo nacional)" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'qualisNacional', 'errors')}">
-                                    <g:textField name="qualisNacional" value="${fieldValue(bean: inscricaoInstance, field: 'qualisNacional')}" />
+                                    <g:select from="${0..100}" name="qualisNacional" value="${fieldValue(bean: inscricaoInstance, field: 'qualisNacional')}" />
                                 </td>
                             </tr>
                             
@@ -372,7 +381,7 @@
                                     <label for="outrasInternacionais"><g:message code="inscricao.outrasInternacionais.label" default="Outras publicacoes internacionais" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'outrasInternacionais', 'errors')}">
-                                    <g:textField name="outrasInternacionais" value="${fieldValue(bean: inscricaoInstance, field: 'outrasInternacionais')}" />
+                                    <g:select from="${0..100}" name="outrasInternacionais" value="${fieldValue(bean: inscricaoInstance, field: 'outrasInternacionais')}" />
                                 </td>
                             </tr>
                         
@@ -381,7 +390,7 @@
                                     <label for="outrasNacionais"><g:message code="inscricao.outrasNacionais.label" default="Outras publicacoes nacionais" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'outrasNacionais', 'errors')}">
-                                    <g:textField name="outrasNacionais" value="${fieldValue(bean: inscricaoInstance, field: 'outrasNacionais')}" />
+                                    <g:select from="${0..100}" name="outrasNacionais" value="${fieldValue(bean: inscricaoInstance, field: 'outrasNacionais')}" />
                                 </td>
                             </tr>
                             
@@ -390,7 +399,7 @@
                                     <label for="locaisERegionais"><g:message code="inscricao.locaisERegionais.label" default="Outras publicacoes locais e regionais" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'locaisERegionais', 'errors')}">
-                                    <g:textField name="locaisERegionais" value="${fieldValue(bean: inscricaoInstance, field: 'locaisERegionais')}" />
+                                    <g:select from="${0..100}" name="locaisERegionais" value="${fieldValue(bean: inscricaoInstance, field: 'locaisERegionais')}" />
                                 </td>
                             </tr>
                             
@@ -407,7 +416,7 @@
                                     <label for="semestresPesquisadorMestrado"><g:message code="inscricao.semestresPesquisadorMestrado.label" default="Semestres concluidos como pesquisador em tempo integral com nivel de mestrado (com bolsa)" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'semestresPesquisadorMestrado', 'errors')}">
-                                    <g:textField name="semestresPesquisadorMestrado" value="${fieldValue(bean: inscricaoInstance, field: 'semestresPesquisadorMestrado')}" />
+                                    <g:select from="${0..100}" name="semestresPesquisadorMestrado" value="${fieldValue(bean: inscricaoInstance, field: 'semestresPesquisadorMestrado')}" />
                                 </td>
                             </tr>
                             
@@ -416,7 +425,7 @@
                                     <label for="semestresMonitoria"><g:message code="inscricao.semestresMonitoria.label" default="Semestres concluidos de monitoria" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'semestresMonitoria', 'errors')}">
-                                    <g:textField name="semestresMonitoria" value="${fieldValue(bean: inscricaoInstance, field: 'semestresMonitoria')}" />
+                                    <g:select from="${0..100}" name="semestresMonitoria" value="${fieldValue(bean: inscricaoInstance, field: 'semestresMonitoria')}" />
                                 </td>
                             </tr>
                             
@@ -425,7 +434,7 @@
                                     <label for="semestresEnsino"><g:message code="inscricao.semestresEnsino.label" default="Semestres concluidos realizando atividades de ensino" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'semestresEnsino', 'errors')}">
-                                    <g:textField name="semestresEnsino" value="${fieldValue(bean: inscricaoInstance, field: 'semestresEnsino')}" />
+                                    <g:select from="${0..100}" name="semestresEnsino" value="${fieldValue(bean: inscricaoInstance, field: 'semestresEnsino')}" />
                                 </td>
                             </tr>
                             
@@ -434,7 +443,7 @@
                                     <label for="semestresAtuandoNaArea"><g:message code="inscricao.semestresAtuandoNaArea.label" default="Semestres concluidos atuando profissionalmente na area" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'semestresAtuandoNaArea', 'errors')}">
-                                    <g:textField name="semestresAtuandoNaArea" value="${fieldValue(bean: inscricaoInstance, field: 'semestresAtuandoNaArea')}" />
+                                    <g:select from="${0..100}" name="semestresAtuandoNaArea" value="${fieldValue(bean: inscricaoInstance, field: 'semestresAtuandoNaArea')}" />
                                 </td>
                             </tr>
                         
@@ -443,7 +452,7 @@
                                     <label for="semestresPibicIti"><g:message code="inscricao.semestresPibicIti.label" default="Semestres concluidos realizando PIBIC ou projeto de pesquisa com bolsa ITI" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'semestresPibicIti', 'errors')}">
-                                    <g:textField name="semestresPibicIti" value="${fieldValue(bean: inscricaoInstance, field: 'semestresPibicIti')}" />
+                                    <g:select from="${0..100}" name="semestresPibicIti" value="${fieldValue(bean: inscricaoInstance, field: 'semestresPibicIti')}" />
                                 </td>
                             </tr>
                             
@@ -452,7 +461,7 @@
                                     <label for="especializacaoLatuSensu"><g:message code="inscricao.especializacaoLatuSensu.label" default="Especializacao latu-sensu" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'especializacaoLatuSensu', 'errors')}">
-                                    <g:textField name="especializacaoLatuSensu" value="${fieldValue(bean: inscricaoInstance, field: 'especializacaoLatuSensu')}" />
+                                    <g:select from="${0..100}" name="especializacaoLatuSensu" value="${fieldValue(bean: inscricaoInstance, field: 'especializacaoLatuSensu')}" />
                                 </td>
                             </tr>
                         
@@ -461,7 +470,7 @@
                                     <label for="semestresPET"><g:message code="inscricao.semestresPET.label" default="Semestres concluidos participando do grupo PET" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: inscricaoInstance, field: 'semestresPET', 'errors')}">
-                                    <g:textField name="semestresPET" value="${fieldValue(bean: inscricaoInstance, field: 'semestresPET')}" />
+                                    <g:select from="${0..100}" name="semestresPET" value="${fieldValue(bean: inscricaoInstance, field: 'semestresPET')}" />
                                 </td>
                             </tr>
                             
@@ -487,6 +496,7 @@
             
                 </div>
                 <div class="buttons">
+                	<g:hiddenField name="idChamada" value="${chamadaInstance?.id}" />
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 </div>
             </g:form>

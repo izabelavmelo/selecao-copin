@@ -36,6 +36,15 @@
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="list">
+            <table>
+            	<tr class="prop">
+                            <td valign="top" class="name"><g:message code="chamada.tituloDaChamada.label" default="Titulo da chamada:" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: chamadaInstance, field: "tituloDaChamada")}</td>
+                            
+                        </tr>
+            </table>
+            
                 <table>
                     <thead>
                         <tr>
