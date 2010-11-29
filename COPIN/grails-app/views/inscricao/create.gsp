@@ -496,8 +496,36 @@
             
                 </div>
                 <div class="buttons">
-                	<g:hiddenField name="idChamada" value="${chamadaInstance?.id}" />
+                	<g:set var="jaSeInscreveu" value="${false}"/>
+                
+                <g:hiddenField name="idChamada" value="${chamadaInstance?.id}" />
+                
+                	<g:each in="${inscricaoInstanceList}" status="i" var="inscricaoInstance">
+                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
+                        		<g:if test="${inscricaoInstance.usuario.id == session.usuario.id && chamadaInstance?.id == inscricaoInstance.chamada.id }">
+                        			<g:set var="jaSeInscreveu" value="${true}"/> </br>
+                        		</g:if>
+                        </tr>
+                    </g:each>
+                
+                <g:if test="${jaSeInscreveu }">
+                	
+                	<table>
+                        <tbody>
+                        <h1><g:message code="Atencao!"/></h1>
+                        	<tr class="prop">
+                        	<td>Voce ja se inscreveu nessa chamada!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <span class="button"><g:submitButton disabled="true" name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
+                
+                </g:if>
+                <g:else>
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
+                
+                </g:else>
                 </div>
             </g:form>
         </div>
