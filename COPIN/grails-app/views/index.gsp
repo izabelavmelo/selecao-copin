@@ -52,16 +52,20 @@
         </style>
         
         <g:if test="${session.usuario}">
-            <meta http-equiv="refresh" content="0; 
-			url=usuario/perfil/"> 
-        </g:if>
-        
-        <g:if test="${session.administrador}">
-            <meta http-equiv="refresh" content="0; 
-			url=administrador/perfil/"> 
-        </g:if>
-        
-        
+		
+			<g:if test="${session.usuario.ehAvaliador}">
+				<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfilAvaliador')}"/>
+			</g:if>
+				
+			<g:if test="${session.usuario.ehAdministrador}">
+				<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfilAdministrador')}"/>
+			</g:if>
+			
+			<g:else>
+				<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfil')}"/>
+			</g:else>
+			
+		</g:if>     
         
     </head>
     <body>

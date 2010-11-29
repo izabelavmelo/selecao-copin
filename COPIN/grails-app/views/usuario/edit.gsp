@@ -6,11 +6,11 @@
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
         <title><g:message code="Editar" args="[entityName]" /></title>
         
-    	<g:if test="${session.usuario.ehAdministrador}">
-            <meta http-equiv="refresh" content="0; 
-			url=perfilAdministrador/"/> 
-        </g:if>
-        
+    	<g:if test="${!session.usuario}">
+		
+			<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'index')}"/>
+			
+		</g:if>
         
     </head>
     <body>

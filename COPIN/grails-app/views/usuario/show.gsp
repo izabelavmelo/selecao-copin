@@ -7,18 +7,16 @@
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
      
-     <g:if test="${!session.usuario.ehAdministrador}">
-     
-     	<g:if test="${session.usuario.id != usuarioInstance?.id}">
-            <meta http-equiv="refresh" content="0; 
-			url=perfil/"/> 
-      	</g:if>
-     </g:if>
+    	<g:if test="${!session.usuario}">
+		
+			<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'index')}"/>
+			
+		</g:if>
     
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
+            <span class="menuButton"><a class="home" href="${createLink(url: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
         </div>
         <div class="body">
             <h1><g:message code="Dados do usuario" args="[entityName]" /></h1>

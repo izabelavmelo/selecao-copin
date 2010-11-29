@@ -1,20 +1,31 @@
 <%@ page import="copin.Usuario" %>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
-    
-    	<g:if test="${session.usuario.ehAdministrador}">
-            <meta http-equiv="refresh" content="0; 
-			url=perfilAdministrador/"/> 
-        </g:if>
-        <g:if test="${session.usuario.ehAvaliador}">
-            <meta http-equiv="refresh" content="0; 
-			url=perfilAvaliador/"/> 
-        </g:if>
+        <g:set var="paginaInicial" value="${"http://localhost:8080/"}" escope="session" />        
+  			
+    	
+    	<g:if test="${session.usuario}">
+		
+			<g:if test="${session.usuario.ehAvaliador}">
+				<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfilAvaliador')}"/>
+			</g:if>
+				
+			<g:if test="${session.usuario.ehAdministrador}">
+				<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfilAdministrador')}"/>
+			</g:if>
+			
+		</g:if>
+		
+		<g:else>
+			<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'index')}"/>
+		</g:else>
         
     </head>
+    
     <body>
         
         <div class="body">

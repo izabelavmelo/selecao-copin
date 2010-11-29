@@ -8,7 +8,7 @@ class UsuarioController {
 	static horasPraConfirmar = 2
 
     def index = {
-        redirect(action: "list", params: params)
+        redirect(url:"http://localhost:8080/COPIN")
     }
 
     def list = {
@@ -31,7 +31,7 @@ class UsuarioController {
 			if(usuario.ativo){
 				session["usuario"] = usuario
 				
-				if(usuario.ehAdministrador){
+				/*if(usuario.ehAdministrador){
 					redirect(action:"perfilAdministrador")
 				}
 				
@@ -40,7 +40,9 @@ class UsuarioController {
 				}
 				else{
 					redirect(action:"perfil")
-				}
+				}*/
+				
+				redirect(action:"perfil")
 				
 			}else{
 				flash.message = "${message(code: 'usuario.login.inativo', args: [message(code: 'usuario.label', default: 'Usuario'), usuario.nome])}"
@@ -165,6 +167,7 @@ class UsuarioController {
 	}
 	
 	def perfilAdministrador = {
+		
 		def usuarioInstance = session["usuario"]
 		
 		if(usuarioInstance) {

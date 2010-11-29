@@ -8,15 +8,21 @@
         <g:set var="entityName" value="${message(code: 'inscricao.label', default: 'Inscricao')}" />
         <title><g:message code="Editar inscricao" args="[entityName]" /></title>
         
-        <g:if test="${session.usuario.ehAdministrador}">
-            <meta http-equiv="refresh" content="0; 
-			url=http://localhost:8080/COPIN/usuario/perfilAdministrador"/> 
-        </g:if>
-        
-        <g:if test="${session.usuario.ehAvaliador}">
-            <meta http-equiv="refresh" content="0; 
-			url=http://localhost:8080/COPIN/usuario/perfilAvaliador"/> 
-        </g:if>
+        <g:if test="${session.usuario}">
+		
+			<g:if test="${session.usuario.ehAvaliador}">
+				<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfilAvaliador')}"/>
+			</g:if>
+				
+			<g:if test="${session.usuario.ehAdministrador}">
+				<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfilAdministrador')}"/>
+			</g:if>
+			
+		</g:if>
+		
+		<g:else>
+			<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'index')}"/>
+		</g:else>
         
     </head>
     <body>
