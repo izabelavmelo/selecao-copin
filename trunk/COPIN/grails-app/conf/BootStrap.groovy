@@ -3,8 +3,10 @@ import java.util.Calendar;
 import copin.Usuario 
 
 class BootStrap {
+	
 
     def init = { servletContext ->
+		
 		def userGod = new Usuario(
 			login :'administrador',
 			nome :'Administrador do sistema',

@@ -4,30 +4,39 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />        
-    
-  		<g:if test="${!session.usuario.ehAdministrador}">   
-        	<g:if test="${session.usuario.ehAvaliador}">
-        		<meta http-equiv="refresh" content="0; 
-				url=perfilAvaliador/"/> 
-        	</g:if>
-        	<g:else>
-        		<meta http-equiv="refresh" content="0; 
-				url=perfil/"/> 
-        	</g:else>    
-        </g:if>
-    
+  		
+  		<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfilAvaliador')}"/>
+ 		
+		<g:if test="${session.usuario}">
+			<g:if test="${!session.usuario.ehAdministrador}">
+
+				<g:if test="${session.usuario.ehAvaliador}">
+					<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfilAvaliador')}"/>
+				</g:if>
+				
+				<g:else>
+					<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfil')}"/>
+				</g:else>
+			</g:if>
+			
+		</g:if>
+		<g:else>
+			<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'index')}"/>
+		</g:else>
+		
     </head>
     <body>
        
         <div class="body">
         	
             <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
+            	<div class="message">${flash.message}</div>
             </g:if>
+            
             <g:hasErrors bean="${usuarioInstance}">
-            <div class="errors">
-                <g:renderErrors bean="${usuarioInstance}" as="list" />
-            </div>
+            	<div class="errors">
+                	<g:renderErrors bean="${usuarioInstance}" as="list" />
+            	</div>
             </g:hasErrors>
         	
         	<h1> Ola, ${session.getAt("usuario").nome}. O que voce deseja fazer no sistema?</h1><br/>
