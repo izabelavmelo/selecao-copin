@@ -47,10 +47,11 @@ class InscricaoController {
     def create = {
         def usuarioInstance = session.usuario
 		def chamadaInstance = Chamada.get(params.id)
+		params.max = Math.min(params.max ? params.int('max') : 10, 100)
 		if (usuarioInstance && chamadaInstance) {
 			def inscricaoInstance = new Inscricao()
 			inscricaoInstance.properties = params
-			return [inscricaoInstance: inscricaoInstance, usuarioInstance: usuarioInstance, chamadaInstance: chamadaInstance]
+			return [inscricaoInstanceList: Inscricao.list(params), inscricaoInstance: inscricaoInstance, usuarioInstance: usuarioInstance, chamadaInstance: chamadaInstance]
 		}
 		else {
 			redirect(url:"http://localhost:8080/COPIN/usuario/perfil")

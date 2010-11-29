@@ -69,6 +69,7 @@
                        		</g:if>
                         	<g:else>
             					<g:form controller="inscricao">
+            						           					
             	    		    	<g:if test="${Calendar.getInstance().after(chamadaInstance.dataInicialInscricoes) && Calendar.getInstance().before(chamadaInstance.dataFinalInscricoes)}">
             	    		    		<g:hiddenField name="id" value="${chamadaInstance?.id}" />
             	        				<span class="button"><g:actionSubmit class="edit" action="create" value="Inscricao"></g:actionSubmit></span></br>
