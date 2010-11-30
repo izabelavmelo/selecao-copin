@@ -36,27 +36,38 @@ class AtribuicaoController {
     }
 
     def save = {
-		def chamadaInstance = Chamada.get(params.idChamada)
+		def chamadaInstance = Chamada.get(params.get("idChamada"))
+		
         def atribuicaoInstance = new Atribuicao(params)
 		
 		atribuicaoInstance.chamada = chamadaInstance
 		
+		if (!atribuicaoInstance.save(flush: true)) {
+			
+			render(view: "create", model: [atribuicaoInstance: atribuicaoInstance])
+	
+		}
+		
 		def avaliadoresDefinidosList = Atribuicao.findWhere(chamada:chamadaInstance)
 		
-		def usuario = avaliadoresDefinidosList.findWhere(usuarios:atribuicaoInstance.usuarios)
+		def usuarioList = avaliadoresDefinidosList.findAll(usuarios:atribuicaoInstance.usuarios)
 		
-		if(!usuario){
-			if (atribuicaoInstance.save(flush: true)) {
-				flash.message = "${message(code: 'default.define.avaliador', args: [message(code: 'atribuicao.label', default: 'Atribuicao'), atribuicaoInstance.id])}"
-				redirect(action: "list", id: chamadaInstance.id)
-			}
-			else {
-				render(view: "create", model: [atribuicaoInstance: atribuicaoInstance])
-			}
-		}else{
-			flash.message = "${message(code: 'default.err.ja.definiu.avaliador', args: [message(code: 'atribuicao.label', default: 'Atribuicao'), atribuicaoInstance.id])}"
-			redirect(action: "list", id: chamadaInstance.id)
+		int v = 0
+		
+		for (Object obj : usuarioList) { 
+			v = v + 1
 		}
+		
+		if(v > 1){
+			atribuicaoInstance.delete(flush: true)
+			flash.message = "${message(code: 'default.err.ja.definiu.avaliador', args: [message(code: 'atribuicao.label', default: 'Atribuicao'), atribuicaoInstance.id])}"
+			
+		}else{
+			flash.message = "${message(code: 'default.define.avaliador', args: [message(code: 'atribuicao.label', default: 'Atribuicao'), atribuicaoInstance.id])}"
+		
+		}
+		
+		redirect(action: "list", id: chamadaInstance.id)
 		
 		
 		
