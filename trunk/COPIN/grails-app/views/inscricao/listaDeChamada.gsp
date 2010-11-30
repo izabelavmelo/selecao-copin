@@ -61,7 +61,9 @@
                         
                         </g:if>
                         <g:else>
-                            <g:sortableColumn property="idAvaliacao" title="${message(code: 'avaliacao.id.label', default: 'Avaliacao')}" />
+                        
+                            <g:sortableColumn property="idAvalicao" title="${message(code: 'inscricao.id.label', default: 'O que fazer?')}" />
+                        
                         
                             <g:sortableColumn property="id" title="${message(code: 'inscricao.id.label', default: 'Candidato')}" />
                         
@@ -88,15 +90,17 @@
                         	</g:if>
                         	<g:else>
                         	
-                        		<td><g:form controller="avaliacao">
-        							<g:hiddenField name="id" value="${inscricaoInstance?.id}" />
+                        		<td>
+                        		<g:form controller="avaliacao">
+        							<g:hiddenField name="idInscricao" value="${inscricaoInstance?.id}" />
             		        		<span class="button"><g:actionSubmit class="edit" action="create" value="Avaliar candidato"></g:actionSubmit></span></br>
 			
             		    		</g:form>
                         		</td>
-                        	    <td>Candidato ${fieldValue(bean: inscricaoInstance, field: "id")}</td>
-                        
-                        	
+                        		
+                        		
+                        		<td><g:link action="show" id="${inscricaoInstance.id}">Candidato ${fieldValue(bean: inscricaoInstance, field: "id")}</g:link></td>
+                                                	
                         	</g:else>
                         
                         </g:if>

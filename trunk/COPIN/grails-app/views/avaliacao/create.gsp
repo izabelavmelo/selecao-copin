@@ -313,7 +313,7 @@
                                     <label for="estudoTempoIntegral"><g:message code="avaliacao.inscricao.estudoTempoIntegral.label" default="Deseja estudar em tempo integral?" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'estudoTempoIntegral', 'errors')}">
-                                    <g:select name="estudoTempoIntegral" from="${['Sim', 'Nao']}" value="${inscricaoInstance?.inscricao?.estudoTempoIntegral}" />
+                                    <g:select name="estudoTempoIntegral" from="${['Sim', 'Nao']}" value="${avaliacaoInstance?.inscricao?.estudoTempoIntegral}" />
                                 </td>
                             </tr>
                             
