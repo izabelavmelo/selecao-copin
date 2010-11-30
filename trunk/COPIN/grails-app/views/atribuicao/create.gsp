@@ -69,7 +69,7 @@
                                     <label for="usuarios"><g:message code="atribuicao.usuarios.label" default="Avaliador" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: atribuicaoInstance, field: 'usuarios', 'errors')}">
-                                    <g:select name="usuarios.id" from="${copin.Usuario.list()}" optionKey="id" value="${atribuicaoInstance?.usuarios?.id}"  />
+                                    <g:select name="usuarios.id" from="${avaliadoresList}" optionValue="nome" optionKey="id" value="${atribuicaoInstance?.usuarios?.id}"  />
                                 </td>
                             </tr>
                         
@@ -78,7 +78,9 @@
                 </div>
                 <div class="buttons">
                 	<g:hiddenField name="idChamada" value="${chamadaInstance?.id}" />
-                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
+                	
+                	<span class="button"><g:submitButton name="create" class="save" value="${message(code: 'Definir', default: 'Create')}" /></span>
+                	
                 </div>
             </g:form>
         </div>
