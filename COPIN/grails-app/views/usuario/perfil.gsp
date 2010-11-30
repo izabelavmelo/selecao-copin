@@ -7,7 +7,6 @@
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
         <g:set var="paginaInicial" value="${"http://localhost:8080/"}" escope="session" />        
   			
-    	
     	<g:if test="${session.usuario}">
 		
 			<g:if test="${session.usuario.ehAvaliador}">
@@ -19,11 +18,12 @@
 			</g:if>
 			
 		</g:if>
-		
 		<g:else>
 			<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'index')}"/>
 		</g:else>
-        
+    	
+		
+		
     </head>
     
     <body>
