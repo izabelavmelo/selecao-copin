@@ -84,6 +84,13 @@
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "cpf")}</td>
                             
                         </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.ehAvaliador.label" default="ehAvaliador" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "ehAvaliador")}</td>
+                            
+                        </tr>
                     
                     </tbody>
                 </table>

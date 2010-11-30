@@ -21,9 +21,12 @@ class AtribuicaoController {
     def create = {
         def atribuicaoInstance = new Atribuicao()
 		def chamadaInstance = Chamada.get(params.id)
+		def avaliadoresList = Usuario.findAllByEhAvaliador("true")
+		
+		
 		if(chamadaInstance){
 			atribuicaoInstance.properties = params
-			return [atribuicaoInstance: atribuicaoInstance, chamadaInstance:chamadaInstance]
+			return [atribuicaoInstance: atribuicaoInstance, chamadaInstance:chamadaInstance, avaliadoresList:avaliadoresList]
 		}
 		else{
 			redirect(url:"http://localhost:8080/COPIN/usuario/perfil")
@@ -36,13 +39,26 @@ class AtribuicaoController {
 		
 		atribuicaoInstance.chamada = chamadaInstance
 		
-        if (atribuicaoInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.define.avaliador', args: [message(code: 'atribuicao.label', default: 'Atribuicao'), atribuicaoInstance.id])}"
-            redirect(action: "list", id: chamadaInstance.id)
-        }
-        else {
-            render(view: "create", model: [atribuicaoInstance: atribuicaoInstance])
-        }
+		def avaliadoresDefinidosList = Atribuicao.findWhere(chamada:chamadaInstance)
+		
+		def usuario = avaliadoresDefinidosList.findWhere(usuarios:atribuicaoInstance.usuarios)
+		
+		if(!usuario){
+			if (atribuicaoInstance.save(flush: true)) {
+				flash.message = "${message(code: 'default.define.avaliador', args: [message(code: 'atribuicao.label', default: 'Atribuicao'), atribuicaoInstance.id])}"
+				redirect(action: "list", id: chamadaInstance.id)
+			}
+			else {
+				render(view: "create", model: [atribuicaoInstance: atribuicaoInstance])
+			}
+		}else{
+			flash.message = "${message(code: 'default.err.ja.definiu.avaliador', args: [message(code: 'atribuicao.label', default: 'Atribuicao'), atribuicaoInstance.id])}"
+			redirect(action: "list", id: chamadaInstance.id)
+		}
+		
+		
+		
+        
     }
 	
 	
@@ -102,7 +118,7 @@ class AtribuicaoController {
         if (atribuicaoInstance && chamadaInstance) {
             try {
                 atribuicaoInstance.delete(flush: true)
-                flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'atribuicao.label', default: 'Atribuicao'), params.id])}"
+                flash.message = "${message(code: 'default.deletou.definicao.avaliador', args: [message(code: 'atribuicao.label', default: 'Atribuicao'), params.id])}"
 				redirect(action: "list", id:chamadaInstance.id)
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
