@@ -52,6 +52,7 @@
             </g:form>
             
             <g:form controller="chamada">
+            		<g:hiddenField name="idUsuario" value="${usuarioInstance?.id}" />
             		<span class="button"><g:actionSubmit class="edit" action="list" value="Verificar chamadas ativas" /></span></br>
             </g:form>
             

@@ -48,6 +48,7 @@
             
             <g:form controller="chamada">
             		<span class="button"><g:actionSubmit class="edit" action="create" value="Criar uma chamada" /></span></br>
+                    <g:hiddenField name="idUsuario" value="${usuarioInstance?.id}" />
                     <span class="button"><g:actionSubmit class="edit" action="list" value="Listar chamadas criadas" /></span></br>
             </g:form>
             <g:form controller="usuario" method="post">

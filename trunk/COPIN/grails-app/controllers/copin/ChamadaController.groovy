@@ -9,8 +9,10 @@ class ChamadaController {
     }
 
     def list = {
+		def usuarioInstance = Usuario.get(params.idUsuario)
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [chamadaInstanceList: Chamada.list(params), chamadaInstanceTotal: Chamada.count()]
+		def atribuicoesList = Atribuicao.findWhere(usuarios:usuarioInstance)
+        [chamadaInstanceList: Chamada.list(params), chamadaInstanceTotal: Chamada.count(), atribuicoesList:atribuicoesList]
     }
 	
 	/**def estaAtivo = {

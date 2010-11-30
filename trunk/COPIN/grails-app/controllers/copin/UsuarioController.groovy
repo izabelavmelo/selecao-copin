@@ -16,6 +16,11 @@ class UsuarioController {
         [usuarioInstanceList: Usuario.list(params), usuarioInstanceTotal: Usuario.count()]
     }
 	
+	def listaParaAvaliar = {
+		params.max = Math.min(params.max ? params.int('max') : 10, 100)
+		[usuarioInstanceList: Usuario.list(params), usuarioInstanceTotal: Usuario.count()]
+	}
+	
 	def login = {
 		
 		def loginUsuario = params.username
