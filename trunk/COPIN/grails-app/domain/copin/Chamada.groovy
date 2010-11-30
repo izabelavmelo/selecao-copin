@@ -4,8 +4,6 @@ import java.util.LinkedList;
 import com.primalworld.math.ExpressionException;
 import com.primalworld.math.MathEvaluator;
 
-import com.japisoft.formula.Formula 
-
 class Chamada {
 	
 	String tipoDeChamada

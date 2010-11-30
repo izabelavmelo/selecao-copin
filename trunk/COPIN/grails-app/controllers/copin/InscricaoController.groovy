@@ -8,6 +8,8 @@ class InscricaoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+	static redirecionar = "http://localhost:8080/COPIN/usuario/perfil"
+	
     def index = {
         redirect(action: "list", params: params)
     }
@@ -18,7 +20,7 @@ class InscricaoController {
 			params.max = Math.min(params.max ? params.int('max') : 10, 100)
 			[inscricaoInstanceList: Inscricao.list(params), inscricaoInstanceTotal: Inscricao.count(), usuarioInstance:usuarioInstance.id]
 		}else {
-			redirect(url:"http://localhost:8080/COPIN/usuario/perfil")
+			redirect(url:redirecionar)
 		}
         
     }
@@ -30,7 +32,7 @@ class InscricaoController {
 			params.max = Math.min(params.max ? params.int('max') : 10, 100)
 			[inscricaoInstanceList: Inscricao.list(params), inscricaoInstanceTotal: Inscricao.count(), usuarioInstance:usuarioInstance, chamadaInstance: chamadaInstance]
 		}else {
-			redirect(url:"http://localhost:8080/COPIN/usuario/perfil")
+			redirect(url:redirecionar)
 		}
 		
 	}
@@ -63,7 +65,7 @@ class InscricaoController {
 			return [inscricaoInstanceList: Inscricao.list(params), inscricaoInstance: inscricaoInstance, usuarioInstance: usuarioInstance, chamadaInstance: chamadaInstance]
 		}
 		else {
-			redirect(url:"http://localhost:8080/COPIN/usuario/perfil")
+			redirect(url:redirecionar)
 		}
     }
 

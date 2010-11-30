@@ -4,6 +4,8 @@ class AtribuicaoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+	static redirecionar = "http://localhost:8080/COPIN/usuario/perfil"
+	
     def index = {
         redirect(action: "list", params: params)
     }
@@ -14,7 +16,7 @@ class AtribuicaoController {
 			params.max = Math.min(params.max ? params.int('max') : 10, 100)
 			[atribuicaoInstanceList: Atribuicao.list(params), atribuicaoInstanceTotal: Atribuicao.count(), chamadaInstance: chamadaInstance]
 		}else {
-			redirect(url:"http://localhost:8080/COPIN/usuario/perfil")
+			redirect(url:redirecionar)
 		}
     }
 
@@ -29,7 +31,7 @@ class AtribuicaoController {
 			return [atribuicaoInstance: atribuicaoInstance, chamadaInstance:chamadaInstance, avaliadoresList:avaliadoresList]
 		}
 		else{
-			redirect(url:"http://localhost:8080/COPIN/usuario/perfil")
+			redirect(url:redirecionar)
 		}
     }
 
