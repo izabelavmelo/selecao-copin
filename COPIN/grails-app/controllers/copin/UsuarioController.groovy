@@ -7,8 +7,10 @@ class UsuarioController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	static horasPraConfirmar = 2
 
+	static homepage = "http://localhost:8080/COPIN"
+	
     def index = {
-        redirect(url:"http://localhost:8080/COPIN")
+        redirect(url: homepage)
     }
 
     def list = {
@@ -52,11 +54,11 @@ class UsuarioController {
 				
 			}else{
 				flash.message = "${message(code: 'usuario.login.inativo', args: [message(code: 'usuario.label', default: 'Usuario'), usuario.nome])}"
-				redirect(url:"http://localhost:8080/COPIN")
+				redirect(action:"index")
 			}
 		}else{
 			flash.message = "${message(code: 'usuario.login.invalido')}"
-			redirect(url:"http://localhost:8080/COPIN")
+			redirect(action:"index")
 		}
 		
 	}
@@ -64,7 +66,7 @@ class UsuarioController {
 	def logout = {
 		
 		session["usuario"] = null
-		redirect(url:"http://localhost:8080/COPIN")
+		redirect(action:"index")
 		
 	}
 	
@@ -168,7 +170,7 @@ class UsuarioController {
 		if(usuarioInstance){
 			[usuarioInstance: usuarioInstance]
 		}else{
-			redirect(url:"http://localhost:8080/COPIN")
+			redirect(action:"index")
 		}	
 	}
 	
@@ -179,7 +181,7 @@ class UsuarioController {
 		if(usuarioInstance) {
 			[usuarioInstance: usuarioInstance]
 		}else{
-			redirect(url:"http://localhost:8080/COPIN")
+			redirect(action:"index")
 		}
 	}
 	
@@ -189,7 +191,7 @@ class UsuarioController {
 		if(usuarioInstance) {
 			[usuarioInstance: usuarioInstance]
 		}else{
-			redirect(url:"http://localhost:8080/COPIN")
+			redirect(action:"index")
 		}
 	}
 	
