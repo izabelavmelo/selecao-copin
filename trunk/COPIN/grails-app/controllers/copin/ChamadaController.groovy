@@ -37,7 +37,7 @@ class ChamadaController {
 
     def save = {
         def chamadaInstance = new Chamada(params)
-        if (chamadaInstance.save(flush: true)) {
+        if (Chamada.formulaValida(params.formula) && chamadaInstance.save(flush: true)) {
 			if(chamadaInstance.getDataInicialInscricoes().compareTo(chamadaInstance.getDataFinalInscricoes()) < 0) {
 				flash.message = "${message(code: 'default.message.chamada', args: [message(code: 'chamada.label', default: 'Chamada'), chamadaInstance.id])}"				
 				redirect(action: "perfil", controller: "usuario")
@@ -46,7 +46,13 @@ class ChamadaController {
         }
         else {
 			chamadaInstance.delete(flush: true)
-			flash.message = "${message(code: 'default.invalid.chamada.naoCriada.message', args: [message(code: 'chamada.label', default: 'Chamada'), chamadaInstance.id])}"
+			if(Chamada.formulaValida(params.formula)){
+				flash.message = "${message(code: 'default.invalid.chamada.naoCriada.message', args: [message(code: 'chamada.label', default: 'Chamada'), chamadaInstance.id])}"
+			}else{
+				flash.message = "${message(code: 'default.invalid.chamada.formulaInvalida.message', args: [message(code: 'chamada.label', default: 'Chamada'), chamadaInstance.id])}"
+			}
+			
+			
             render(view: "create", model: [chamadaInstance: chamadaInstance])
         }
     }

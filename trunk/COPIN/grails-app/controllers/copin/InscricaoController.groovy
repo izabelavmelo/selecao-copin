@@ -1,5 +1,6 @@
 package copin
 
+import org.springframework.web.multipart.MultipartFile 
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
@@ -43,6 +44,14 @@ class InscricaoController {
 		   todo.associatedFile = file.bytes
 		}
   }
+	
+	def downloadFile = {
+		def inscricaoInstance = Inscricao.get(params.id)
+		MultipartFile file = request.getFile(inscricaoInstance.documentos)
+		response.setContentType( "application-xdownload")
+		response.setHeader("Content-Disposition", "attachment;filename=${file.getOriginalFilename()}")
+		response.getOutputStream() << new ByteArrayInputStream( inscricaoInstance.documentos )
+	}
 	
     def create = {
         def usuarioInstance = session.usuario
