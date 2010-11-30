@@ -49,9 +49,7 @@ class InscricaoController {
 	
 	def downloadFile = {
 		def inscricaoInstance = Inscricao.get(params.id)
-		MultipartFile file = request.getFile(inscricaoInstance.documentos)
 		response.setContentType( "application-xdownload")
-		response.setHeader("Content-Disposition", "attachment;filename=${file.getOriginalFilename()}")
 		response.getOutputStream() << new ByteArrayInputStream( inscricaoInstance.documentos )
 	}
 	
