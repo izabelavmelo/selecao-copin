@@ -14,11 +14,7 @@
 				<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfilAdministrador')}"/>
 			</g:if>
 			
-		</g:if>
-		
-		<g:else>
-			<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'index')}"/>
-		</g:else>       
+		</g:if>      
         
 
     </head>
