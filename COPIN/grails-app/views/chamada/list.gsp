@@ -52,13 +52,14 @@
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
                         <td>
-                    		<g:form controller="chamada">
-                   				<g:hiddenField name="id" value="${chamadaInstance?.id}" />
-            					<span class="button"><g:actionSubmit action="show" value="Visualizar" ></g:actionSubmit></span></br>
-      
-            	    		</g:form>
       
                         	<g:if test="${session.usuario.ehAdministrador}">
+                        	
+                        		<g:form controller="chamada">
+                   					<g:hiddenField name="id" value="${chamadaInstance?.id}" />
+            						<span class="button"><g:actionSubmit action="show" value="Visualizar" ></g:actionSubmit></span></br>
+      
+            	    			</g:form>
       
       							<g:form controller="atribuicao">
             		    			<g:hiddenField name="id" value="${chamadaInstance?.id}" />
@@ -76,21 +77,69 @@
                 
                        		</g:if>
                         	<g:else>
-            					<g:form controller="inscricao">
+                        		<g:if test="${session.usuario.ehAvaliador }">
+                        		
+                        		</g:if>
+                        		<g:else>
+                        			<g:form controller="chamada">
+                   					<g:hiddenField name="id" value="${chamadaInstance?.id}" />
+            						<span class="button"><g:actionSubmit action="show" value="Visualizar" ></g:actionSubmit></span></br>
+      
+            	    				</g:form>
+                        			
+            	            		<g:form controller="inscricao">
             						           					
-            	    		    	<g:if test="${Calendar.getInstance().after(chamadaInstance.dataInicialInscricoes) && Calendar.getInstance().before(chamadaInstance.dataFinalInscricoes)}">
-            	    		    		<g:hiddenField name="id" value="${chamadaInstance?.id}" />
-            	        				<span class="button"><g:actionSubmit class="edit" action="create" value="Inscricao"></g:actionSubmit></span></br>
-					            	</g:if>
-					            	<g:else>
-					            		<span class="button"><g:actionSubmit disabled="true" class="edit" action="create" value="Inscricao"></g:actionSubmit></span></br>
-					            	</g:else>
-            	    			</g:form>        
+            		    		    	<g:if test="${Calendar.getInstance().after(chamadaInstance.dataInicialInscricoes) && Calendar.getInstance().before(chamadaInstance.dataFinalInscricoes)}">
+            	    			    		<g:hiddenField name="id" value="${chamadaInstance?.id}" />
+            	        					<span class="button"><g:actionSubmit class="edit" action="create" value="Inscricao"></g:actionSubmit></span></br>
+					        	    	</g:if>
+					            		<g:else>
+					            			<span class="button"><g:actionSubmit disabled="true" class="edit" action="create" value="Inscricao"></g:actionSubmit></span></br>
+					            		</g:else>
+            	    				</g:form>        
+            
+                        		</g:else>
                         	</g:else>   	    
             
             	    	</td>
-            	    
-                            <td>${fieldValue(bean: chamadaInstance, field: "tituloDaChamada")}</td>
+            	    	
+            	    	<g:if test="${session.usuario.ehAvaliador }">
+      						<g:set var="ehParaAvaliar" value="${false}"/>
+      						
+      						<g:each in="${atribuicoesList}" status="j" var="atribuicaoInstance">
+                        		<tr class="${(j % 2) == 0 ? 'odd' : 'even'}">
+                        			<g:if test="${atribuicaoInstance?.chamada?.id == chamadaInstance.id}">
+                        				<g:set var="ehParaAvaliar" value="${true}"/>
+      								
+                        			</g:if>
+                        		
+                        		</tr>
+                        	</g:each>
+                        	
+                        	<g:if test="${ehParaAvaliar }">
+      		                  	<td><g:form controller="chamada">
+                   					<g:hiddenField name="id" value="${chamadaInstance?.id}" />
+            						<span class="button"><g:actionSubmit action="show" value="Visualizar" ></g:actionSubmit></span></br>
+      
+            	    			</g:form></td>
+      
+      							<td>${fieldValue(bean: chamadaInstance, field: "tituloDaChamada")}</td>
+                        
+                        	    <td>${fieldValue(bean: chamadaInstance, field: "tipoDeChamada")}</td>
+      	
+        	                    <td>${fieldValue(bean: chamadaInstance, field: "vagasDisponiveis")}</td>
+            	            
+                	        	<td><g:formatDate date="${chamadaInstance.dataInicialInscricoes}" /></td>
+                        
+                    	        <td><g:formatDate date="${chamadaInstance.dataFinalInscricoes}" /></td>
+                        	
+                        	</g:if>
+      
+      
+            	    	
+            	    	</g:if>
+            	    	<g:else>
+            	            <td>${fieldValue(bean: chamadaInstance, field: "tituloDaChamada")}</td>
                         
                             <td>${fieldValue(bean: chamadaInstance, field: "tipoDeChamada")}</td>
       
@@ -99,7 +148,10 @@
                         	<td><g:formatDate date="${chamadaInstance.dataInicialInscricoes}" /></td>
                         
                             <td><g:formatDate date="${chamadaInstance.dataFinalInscricoes}" /></td>
-                        
+      	
+            	    	</g:else>
+            	    
+                                      
                         </tr>
                     </g:each>
                     </tbody>
