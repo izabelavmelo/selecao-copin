@@ -10,13 +10,10 @@
         <g:if test="${session.usuario}">
 		
 			<g:if test="${!session.usuario.ehAdministrador}">
-				<g:if test="${session.usuario.ehAvaliador}">
-					<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfilAvaliador')}"/>
+				<g:if test="${!session.usuario.ehAvaliador}">
+					<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfil')}"/>
 				</g:if>
 				
-				<g:else>
-					<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfil')}"/>
-				</g:else>
 			</g:if>
 			
 		</g:if>
@@ -53,12 +50,24 @@
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="id" title="${message(code: 'inscricao.id.label', default: 'Id')}" />
+                        <g:if test="${session.usuario.ehAdministrador }">
+                            <g:sortableColumn property="id" title="${message(code: 'inscricao.id.label', default: 'Numero da inscricao')}" />
                         
                             <g:sortableColumn property="nome" title="${message(code: 'inscricao.usuario.nome.label', default: 'Nome')}" />
                         
                         	
                             <g:sortableColumn property="tipoDeChamada" title="${message(code: 'inscricao.usuario.email.label', default: 'Email')}" />
+                        
+                        
+                        </g:if>
+                        <g:else>
+                            <g:sortableColumn property="idAvaliacao" title="${message(code: 'avaliacao.id.label', default: 'Avaliacao')}" />
+                        
+                            <g:sortableColumn property="id" title="${message(code: 'inscricao.id.label', default: 'Candidato')}" />
+                        
+                        
+                        </g:else>
+                        
                         
                         </tr>
                     </thead>
@@ -67,12 +76,28 @@
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
                         <g:if test="${inscricaoInstance.chamada.id == chamadaInstance.id}">
+                        	<g:if test="${session.usuario.ehAdministrador }">
+                        		
+                        	    <td><g:link action="show" id="${inscricaoInstance.id}">${fieldValue(bean: inscricaoInstance, field: "id")}</g:link></td>
                         
-                            <td><g:link action="show" id="${inscricaoInstance.id}">${fieldValue(bean: inscricaoInstance, field: "id")}</g:link></td>
+                            	<td>${fieldValue(bean: inscricaoInstance, field: "usuario.nome")}</td>
                         
-                            <td>${fieldValue(bean: inscricaoInstance, field: "usuario.nome")}</td>
+                            	<td>${fieldValue(bean: inscricaoInstance, field: "usuario.email")}</td>
+                        	
+                        	
+                        	</g:if>
+                        	<g:else>
+                        	
+                        		<td><g:form controller="avaliacao">
+        							<g:hiddenField name="id" value="${inscricaoInstance?.id}" />
+            		        		<span class="button"><g:actionSubmit class="edit" action="create" value="Avaliar candidato"></g:actionSubmit></span></br>
+			
+            		    		</g:form>
+                        		</td>
+                        	    <td>Candidato ${fieldValue(bean: inscricaoInstance, field: "id")}</td>
                         
-                            <td>${fieldValue(bean: inscricaoInstance, field: "usuario.email")}</td>
+                        	
+                        	</g:else>
                         
                         </g:if>
                         </tr>

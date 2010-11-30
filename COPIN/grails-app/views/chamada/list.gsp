@@ -117,11 +117,21 @@
                         	</g:each>
                         	
                         	<g:if test="${ehParaAvaliar }">
-      		                  	<td><g:form controller="chamada">
+      		                  	<td>
+      		                  	
+      		                  	<g:form controller="chamada">
                    					<g:hiddenField name="id" value="${chamadaInstance?.id}" />
             						<span class="button"><g:actionSubmit action="show" value="Visualizar" ></g:actionSubmit></span></br>
-      
-            	    			</g:form></td>
+            	    			</g:form>
+            	    			
+            	    			<g:form controller="inscricao">
+        							<g:hiddenField name="id" value="${chamadaInstance?.id}" />
+            		        		<span class="button"><g:actionSubmit class="list" action="listaDeChamada" value="Lista de inscricoes"></g:actionSubmit></span></br>
+			
+            		    		</g:form>
+            	    			
+            	    			
+            	    			</td>
       
       							<td>${fieldValue(bean: chamadaInstance, field: "tituloDaChamada")}</td>
                         
