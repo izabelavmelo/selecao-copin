@@ -42,6 +42,7 @@ class UsuarioController {
 					redirect(action:"perfil")
 				}*/
 				
+				
 				redirect(action:"perfil")
 				
 			}else{

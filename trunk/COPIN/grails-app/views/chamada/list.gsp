@@ -10,12 +10,12 @@
     <body>
         <div class="nav">
             <g:if test="${session.usuario.ehAdministrador}">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfilAdministrador')}"><g:message code="default.home.label"/></a></span>
-        	<span class="menuButton"><g:link class="create" action="create"><g:message code="Nova chamada" args="[entityName]" /></g:link></span>
+            	<span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfilAdministrador')}"><g:message code="default.home.label"/></a></span>
+        		<span class="menuButton"><g:link class="create" action="create"><g:message code="Nova chamada" args="[entityName]" /></g:link></span>
       
             </g:if>
             <g:else>
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
+            	<span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
             </g:else>
           
          </div>
@@ -59,12 +59,20 @@
             	    		</g:form>
       
                         	<g:if test="${session.usuario.ehAdministrador}">
-                        
+      
+      							<g:form controller="atribuicao">
+            		    			<g:hiddenField name="id" value="${chamadaInstance?.id}" />
+            		        		<span class="button"><g:actionSubmit class="edit" action="create" value="Definir avaliador"></g:actionSubmit></span></br>
+									<span class="button"><g:actionSubmit class="list" action="list" value="Mostrar avaliadores"></g:actionSubmit></span></br>
+			
+            		    		</g:form>
+            		    	                  
         	    	    		<g:form controller="inscricao">
         							<g:hiddenField name="id" value="${chamadaInstance?.id}" />
             		        		<span class="button"><g:actionSubmit class="list" action="listaDeChamada" value="Lista de inscricoes"></g:actionSubmit></span></br>
 			
             		    		</g:form>
+            		    		
                 
                        		</g:if>
                         	<g:else>
