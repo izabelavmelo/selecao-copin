@@ -134,7 +134,7 @@ public class MathEvaluator
         }
         catch (Exception e)
         {
-        	throw new ExpressionException("Formula Inválida");
+        	throw new ExpressionException("Formula Invalida");
         }
     }
 
