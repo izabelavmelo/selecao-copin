@@ -4,7 +4,7 @@ class AtribuicaoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-	static redirecionar = "http://localhost:8080/COPIN/usuario/perfil"
+	static redirecionar =  UsuarioController.homepage+"/usuario/perfil"
 	
     def index = {
         redirect(action: "list", params: params)

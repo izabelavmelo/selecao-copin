@@ -7,6 +7,25 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'avaliacao.label', default: 'Avaliacao')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
+    	
+    	<g:if test="${session.usuario}">
+			<g:if test="${!session.usuario.ehAvaliador}">
+				<g:if test="${session.usuario.ehAdministrador}">
+
+					<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfilAdministrador')}"/>
+				</g:if>
+				
+				<g:else>
+					<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfil')}"/>
+				</g:else>
+			</g:if>
+
+		</g:if>
+		
+		<g:else>	
+			<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'index')}"/>
+		</g:else>
+    
     </head>
     
     <body>
