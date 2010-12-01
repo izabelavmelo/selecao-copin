@@ -545,8 +545,6 @@
                 <div class="buttons">
                 	<g:set var="jaAvaliou" value="${false}"/>
                 
-                <g:hiddenField name="idInscricao" value="${inscricaoInstance?.id}" />
-                
                 	<g:each in="${avaliacaoInstanceList}" status="i" var="avaliacaoInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         		<g:if test="${avaliacaoInstance.inscricao.usuario.id == session.usuario.id && inscricaoInstance?.id == avaliacaoInstance.inscricao.chamada.id }">
@@ -567,11 +565,13 @@
                     </table>
                     
                     <g:hiddenField name="idInscricao" value="${inscricaoInstance?.id}" />
+                    <g:hiddenField name="idAvaliador" value="${session.usuario?.id}" />
                     <span class="button"><g:submitButton disabled="true" name="create" class="save" value="${message(code: 'Submeter', default: 'Submeter')}" /></span>
                 
                 </g:if>
                 <g:else>
                     <g:hiddenField name="idInscricao" value="${inscricaoInstance?.id}" />
+                    <g:hiddenField name="idAvaliador" value="${session.usuario?.id}" />
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'Submeter', default: 'Submeter')}" /></span>
                 
                 </g:else>

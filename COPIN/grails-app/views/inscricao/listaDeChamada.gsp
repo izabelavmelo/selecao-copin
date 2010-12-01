@@ -89,12 +89,12 @@
                         	
                         	</g:if>
                         	<g:else>
-                        	
+                        		
+                        		
                         		<td>
                         		<g:form controller="avaliacao">
         							<g:hiddenField name="idInscricao" value="${inscricaoInstance?.id}" />
-            		        		<span class="button"><g:actionSubmit class="edit" action="create" value="Avaliar candidato"></g:actionSubmit></span></br>
-			
+									<span class="button"><g:actionSubmit class="edit" action="create" value="Avaliar candidato"></g:actionSubmit></span></br>
             		    		</g:form>
                         		</td>
                         		

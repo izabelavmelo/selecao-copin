@@ -6,24 +6,6 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'avaliacao.label', default: 'Avaliacao')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
-    
-    	<g:if test="${session.usuario}">
-			<g:if test="${!session.usuario.ehAdministrador}">
-
-				<g:if test="${session.usuario.ehAvaliador}">
-					<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfilAvaliador')}"/>
-				</g:if>
-				
-				<g:else>
-					<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'perfil')}"/>
-				</g:else>
-			</g:if>
-			
-		</g:if>
-		<g:else>
-			<meta http-equiv="refresh" content="0; url = ${createLink(controller:'usuario', action:'index')}"/>
-		</g:else>
-    
     </head>
     <body>
         <div class="nav">
@@ -42,15 +24,15 @@
                         
                             <g:sortableColumn property="id" title="${message(code: 'avaliacao.id.label', default: 'Id')}" />
                         
-                            <g:sortableColumn property="enade" title="${message(code: 'avaliacao.enade.label', default: 'Enade')}" />
+                            <g:sortableColumn property="mediaGeral" title="${message(code: 'avaliacao.mediaGeral.label', default: 'Media Geral')}" />
                         
-                            <g:sortableColumn property="mediaEscolar" title="${message(code: 'avaliacao.mediaEscolar.label', default: 'Media Escolar')}" />
+                            <g:sortableColumn property="cartasDeRecomendacao" title="${message(code: 'avaliacao.cartasDeRecomendacao.label', default: 'Cartas De Recomendacao')}" />
                         
-                            <g:sortableColumn property="enadeMestrado" title="${message(code: 'avaliacao.enadeMestrado.label', default: 'Enade Mestrado')}" />
+                            <g:sortableColumn property="curriculo" title="${message(code: 'avaliacao.curriculo.label', default: 'Curriculo')}" />
                         
-                            <g:sortableColumn property="mediaEscolarMestrado" title="${message(code: 'avaliacao.mediaEscolarMestrado.label', default: 'Media Escolar Mestrado')}" />
+                            <g:sortableColumn property="cartaDeIntencoes" title="${message(code: 'avaliacao.cartaDeIntencoes.label', default: 'Carta De Intencoes')}" />
                         
-                            <g:sortableColumn property="numeroInscricaoPoscomp" title="${message(code: 'avaliacao.numeroInscricaoPoscomp.label', default: 'Numero Inscricao Poscomp')}" />
+                            <g:sortableColumn property="planoDeTrabalho" title="${message(code: 'avaliacao.planoDeTrabalho.label', default: 'Plano De Trabalho')}" />
                         
                         </tr>
                     </thead>
@@ -60,15 +42,15 @@
                         
                             <td><g:link action="show" id="${avaliacaoInstance.id}">${fieldValue(bean: avaliacaoInstance, field: "id")}</g:link></td>
                         
-                            <td>${fieldValue(bean: avaliacaoInstance, field: "enade")}</td>
+                            <td>${fieldValue(bean: avaliacaoInstance, field: "mediaGeral")}</td>
                         
-                            <td>${fieldValue(bean: avaliacaoInstance, field: "mediaEscolar")}</td>
+                            <td>${fieldValue(bean: avaliacaoInstance, field: "cartasDeRecomendacao")}</td>
                         
-                            <td>${fieldValue(bean: avaliacaoInstance, field: "enadeMestrado")}</td>
+                            <td>${fieldValue(bean: avaliacaoInstance, field: "curriculo")}</td>
                         
-                            <td>${fieldValue(bean: avaliacaoInstance, field: "mediaEscolarMestrado")}</td>
+                            <td>${fieldValue(bean: avaliacaoInstance, field: "cartaDeIntencoes")}</td>
                         
-                            <td>${fieldValue(bean: avaliacaoInstance, field: "numeroInscricaoPoscomp")}</td>
+                            <td>${fieldValue(bean: avaliacaoInstance, field: "planoDeTrabalho")}</td>
                         
                         </tr>
                     </g:each>

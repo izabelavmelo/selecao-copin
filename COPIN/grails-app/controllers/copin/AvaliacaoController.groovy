@@ -18,14 +18,16 @@ class AvaliacaoController {
 		def inscricaoInstance = Inscricao.get(params.get("idInscricao"))
 		avaliacaoInstance.inscricao = inscricaoInstance
         avaliacaoInstance.properties = params
-        return [avaliacaoInstance: avaliacaoInstance, inscricaoInstance:inscricaoInstance]
+        return [avaliacaoInstance: avaliacaoInstance, inscricaoInstance:inscricaoInstance, avaliacaoList:Avaliacao.list()]
     }
 
     def save = {
         def avaliacaoInstance = new Avaliacao(params)
 		def inscricaoInstance = Inscricao.get(params.get("idInscricao"))
+		def avaliadorInstance = Usuario.get(params.get("idAvaliador"))
+		avaliacaoInstance.avaliador = avaliadorInstance
+		inscricaoInstance.properties = params
 		avaliacaoInstance.inscricao = inscricaoInstance
-        avaliacaoInstance.properties = params
 		if (avaliacaoInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'avaliacao.label', default: 'Avaliacao'), avaliacaoInstance.id])}"
             redirect(action: "show", id: avaliacaoInstance.id)
@@ -70,6 +72,7 @@ class AvaliacaoController {
                 }
             }
             avaliacaoInstance.properties = params
+			avaliacaoInstance.inscricao.properties = params
             if (!avaliacaoInstance.hasErrors() && avaliacaoInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'avaliacao.label', default: 'Avaliacao'), avaliacaoInstance.id])}"
                 redirect(action: "show", id: avaliacaoInstance.id)
