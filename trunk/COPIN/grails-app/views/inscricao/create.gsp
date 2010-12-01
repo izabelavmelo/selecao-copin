@@ -40,7 +40,7 @@
                 <g:renderErrors bean="${inscricaoInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form action="save" >
+            <g:form action="save" enctype="multipart/form-data">
                 <div class="dialog">
                 
                 <table>

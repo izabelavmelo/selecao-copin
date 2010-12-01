@@ -41,7 +41,7 @@
                 <g:renderErrors bean="${inscricaoInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form method="post" >
+            <g:form method="post" action="update" enctype="multipart/form-data">
                 <g:hiddenField name="id" value="${inscricaoInstance?.id}" />
                 <g:hiddenField name="version" value="${inscricaoInstance?.version}" />
                 <div class="dialog">
