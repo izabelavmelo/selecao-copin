@@ -7,15 +7,12 @@
         <g:layoutHead />
         <g:javascript library="application" />
         
-        <g:set var="paginaInicial" value="${"http://localhost:8080/"}" escope="session" />        
-  		
-        
     </head>
     <body>
         <div id="spinner" class="spinner" style="display:none;">
             <img src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt',default:'Loading...')}" />
         </div>
-        <div id="grailsLogo"><a href="http://sites.google.com/site/selecaocopin/"><img src="${resource(dir:'images',file:'logonovo.png')}" width="150" height="70" alt="Site do projeto" border="0" /></a></div>
+        <div id="grailsLogo"><a href="http://http://150.165.85.189:8081/COPIN/"><img src="${resource(dir:'images',file:'logonovo.png')}" width="150" height="70" alt="Site do projeto" border="0" /></a></div>
         <g:layoutBody />
     </body>
 </html>
