@@ -414,7 +414,22 @@
                 <g:form>
                 
                     <g:hiddenField name="id" value="${inscricaoInstance?.id}" />
+                    
+                    <g:set var="tamanho" value="${0}"/>
+                
+                
+                	<g:each in="${inscricaoInstance.documentos}" status="j" var="inscricaoInstance">
+                    		<g:set var="tamanho" value="${tamanho + 1}"/>
+                    	
+                    </g:each>
+                    <g:if test="${tamanho < 1 }">
+                    <span class="button"><g:actionSubmit disabled="true" class="edit" action="downloadFile" value="Download File" /></span>
+                    
+                    </g:if>
+                    <g:else>
                     <span class="button"><g:actionSubmit class="edit" action="downloadFile" value="Download File" /></span>
+                    
+                    </g:else>
                     <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>

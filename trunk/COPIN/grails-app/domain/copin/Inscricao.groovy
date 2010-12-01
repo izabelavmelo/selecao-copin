@@ -118,6 +118,6 @@ class Inscricao {
 		universidadePICD(blank:false, nullable:false)
 		linguagens(blank:false, nullable:false)
 		
-		documentos(size:1..5024000)
+		documentos(size:0..5024000)
     }
 }
