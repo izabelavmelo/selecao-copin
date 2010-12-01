@@ -53,7 +53,7 @@
                         </tr>
                     </g:each>
                     
-                     <g:if test="${jaSeInscreveu }">
+                    <g:if test="${jaSeInscreveu }">
                 	
                 	<table>
                         <tbody>

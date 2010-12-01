@@ -47,9 +47,32 @@
             </g:hasErrors>
             
             <g:form action="save" >
-                
+                         
                 <div class="dialog">
+            
+            	<g:set var="jaAvaliou" value="${false}"/>
                 
+                	<g:each in="${avaliacaoList}" status="i" var="avaliacaoInstance">
+                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
+                        		<g:if test="${avaliacaoInstance.inscricao.usuario.id == session.usuario.id && inscricaoInstance?.id == avaliacaoInstance.inscricao.chamada.id }">
+                        			<g:set var="jaAvaliou" value="${true}"/> </br>
+                        		</g:if>
+                        </tr>
+                    </g:each>
+                    
+                    <g:if test="${jaAvaliou }">
+                	
+                	<table>
+                        <tbody>
+                        
+                        	<tr class="prop">
+                        	<td><h1><g:message code="Atencao! Voce ja avaliou essa inscricao!"/></h1></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </g:if>
+                    <g:else>
+                    
                 	<table>
                         <tbody>
                         	<h1><g:message code="Atencao!"/></h1>
@@ -539,30 +562,15 @@
                             </tr>
                         </tbody>
                 	</table>
-                	<br></br>
+            
+                    </g:else>
             
                 </div>
+                
                 <div class="buttons">
-                	<g:set var="jaAvaliou" value="${false}"/>
-                
-                	<g:each in="${avaliacaoInstanceList}" status="i" var="avaliacaoInstance">
-                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                        		<g:if test="${avaliacaoInstance.inscricao.usuario.id == session.usuario.id && inscricaoInstance?.id == avaliacaoInstance.inscricao.chamada.id }">
-                        			<g:set var="jaAvaliou" value="${true}"/> </br>
-                        		</g:if>
-                        </tr>
-                    </g:each>
-                
+                	                
                 <g:if test="${jaAvaliou}">
                 	
-                	<table>
-                        <tbody>
-                        <h1><g:message code="Atencao!"/></h1>
-                        	<tr class="prop">
-                        	<td>Voce ja avaliou este candidato!</td>
-                            </tr>
-                        </tbody>
-                    </table>
                     
                     <g:hiddenField name="idInscricao" value="${inscricaoInstance?.id}" />
                     <g:hiddenField name="idAvaliador" value="${session.usuario?.id}" />
