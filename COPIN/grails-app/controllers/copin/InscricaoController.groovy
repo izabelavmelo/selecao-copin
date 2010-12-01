@@ -84,7 +84,7 @@ class InscricaoController {
             redirect(action: "show", id: inscricaoInstance.id)
         }
         else {
-            render(view: "create", model: [inscricaoInstance: inscricaoInstance])
+            render(view: "create", model: [inscricaoInstance: inscricaoInstance, chamadaInstance:chamadaInstance])
         }
     }
 
