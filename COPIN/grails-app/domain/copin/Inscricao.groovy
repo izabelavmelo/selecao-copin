@@ -58,6 +58,7 @@ class Inscricao {
 	int semestresPET
 	
 	/** Documentos */
+	String fileName
 	byte[] documentos
 	/**byte[] historicosEscolares
 	byte[] diplomaDeGraduacao
@@ -117,5 +118,6 @@ class Inscricao {
 		universidadePICD(blank:false, nullable:false)
 		linguagens(blank:false, nullable:false)
 		
+		documentos(size:1..5024000)
     }
 }

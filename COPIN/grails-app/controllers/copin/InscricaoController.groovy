@@ -36,6 +36,7 @@ class InscricaoController {
 		}
 		
 	}
+	/*
 	def uploadFileData = { todo ->
 		if (request instanceof MultipartHttpServletRequest) {
 		   MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest)request;
@@ -46,11 +47,13 @@ class InscricaoController {
 		   todo.associatedFile = file.bytes
 		}
   }
+  */
 	
 	def downloadFile = {
 		def inscricaoInstance = Inscricao.get(params.id)
-		response.setContentType( "application-xdownload")
-		response.getOutputStream() << new ByteArrayInputStream( inscricaoInstance.documentos )
+		response.setContentType("application-xdownload")
+		response.setHeader("Content-Disposition", "attachment; filename=${inscricaoInstance.fileName}")
+		response.getOutputStream() << inscricaoInstance.documentos
 	}
 	
     def create = {
@@ -71,6 +74,8 @@ class InscricaoController {
 		def chamadaInstance = Chamada.get(params.idChamada)
 		def inscricaoInstance = new Inscricao(params)
 		
+		MultipartFile f = request.getFile( 'documentos' )
+		inscricaoInstance.setFileName(f.getOriginalFilename());
 		inscricaoInstance.usuario = session.usuario
 		inscricaoInstance.chamada = chamadaInstance
 		
@@ -107,6 +112,9 @@ class InscricaoController {
 
     def update = {
         def inscricaoInstance = Inscricao.get(params.id)
+		
+		MultipartFile f = request.getFile( 'documentos' )
+		inscricaoInstance.setFileName(f.getOriginalFilename());
         if (inscricaoInstance) {
             if (params.version) {
                 def version = params.version.toLong()
