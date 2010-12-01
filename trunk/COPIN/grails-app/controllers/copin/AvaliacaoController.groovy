@@ -23,7 +23,10 @@ class AvaliacaoController {
 
     def save = {
         def avaliacaoInstance = new Avaliacao(params)
-        if (avaliacaoInstance.save(flush: true)) {
+		def inscricaoInstance = Inscricao.get(params.get("idInscricao"))
+		avaliacaoInstance.inscricao = inscricaoInstance
+        avaliacaoInstance.properties = params
+		if (avaliacaoInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'avaliacao.label', default: 'Avaliacao'), avaliacaoInstance.id])}"
             redirect(action: "show", id: avaliacaoInstance.id)
         }

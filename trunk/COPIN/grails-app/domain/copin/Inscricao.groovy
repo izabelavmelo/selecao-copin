@@ -77,8 +77,8 @@ class Inscricao {
 	/**byte[] arquivosDiferencais 
 	*/
 	
-	Chamada chamada
-	Usuario usuario
+	Chamada chamada = null
+	Usuario usuario = null
 	
 	static belongsTo = {chamada: Chamada ; usuario: Usuario}
 	
