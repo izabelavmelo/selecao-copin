@@ -54,10 +54,11 @@
                         <tbody>
                         	<h1><g:message code="Atencao!"/></h1>
                         	<tr class="prop">
-                        		<td>MUDAR ISSO.</td>
+                        		<td>Nem todos os campos podem ser editados. Alguns deles nao farao parte da composicao da media do candidato.</td>
                             </tr>
                         </tbody>
                 	</table>
+                	<br></br>
                     
                     <table>
                         <tbody>                       
@@ -137,7 +138,7 @@
                                     <label for="instituicao"><g:message code="avaliacao.inscricao.instituicao.label" default="Instituicao" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'instituicao', 'errors')}">
-                                    <g:textField name="instituicao" value="${avaliacaoInstance?.inscricao?.instituicao}"/>
+                                    <g:textField name="instituicao" value="${avaliacaoInstance?.inscricao?.instituicao}" disabled="true"/>
                                 </td>
                             </tr>
                             
@@ -146,7 +147,7 @@
                                     <label for="curso"><g:message code="avaliacao.inscricao.curso.label" default="Curso" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'curso', 'errors')}">
-                                    <g:textField name="curso" value="${avaliacaoInstance?.inscricao?.curso}"/>
+                                    <g:textField name="curso" value="${avaliacaoInstance?.inscricao?.curso}" disabled="true"/>
                                 </td>
                             </tr>
                             
@@ -164,7 +165,7 @@
                                     <label for="anoDeConclusao"><g:message code="avaliacao.inscricao.anoDeConclusao.label" default="Ano de conclusao do curso" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'anoDeConclusao', 'errors')}">
-                                    <g:datePicker name="anoDeConclusao" precision="year" value="${avaliacaoInstance?.inscricao?.anoDeConclusao}"  />
+                                    <g:datePicker name="anoDeConclusao" precision="year" value="${avaliacaoInstance?.inscricao?.anoDeConclusao}" disabled="true"/>
                                 </td>
                             </tr>
                             
@@ -189,7 +190,7 @@
                                     <label for="instituicaoMestrado"><g:message code="avaliacao.inscricao.instituicaoMestrado.label" default="Instituicao" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'instituicaoMestrado', 'errors')}">
-                                    <g:textField name="instituicaoMestrado" value="${avaliacaoInstance?.inscricao?.instituicaoMestrado}" />
+                                    <g:textField name="instituicaoMestrado" value="${avaliacaoInstance?.inscricao?.instituicaoMestrado}" disabled="true"/>
                                 </td>
                             </tr>
                         
@@ -198,7 +199,7 @@
                                     <label for="cursoMestrado"><g:message code="avaliacao.inscricao.cursoMestrado.label" default="Curso" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'cursoMestrado', 'errors')}">
-                                    <g:textField name="cursoMestrado" value="${avaliacaoInstance?.inscricao?.cursoMestrado}" />
+                                    <g:textField name="cursoMestrado" value="${avaliacaoInstance?.inscricao?.cursoMestrado}" disabled="true"/>
                                 </td>
                             </tr>
                             
@@ -216,7 +217,7 @@
                                     <label for="anoDeConclusaoMestrado"><g:message code="avaliacao.inscricao.anoDeConclusaoMestrado.label" default="Ano de conclusao do mestrado" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'anoDeConclusaoMestrado', 'errors')}">
-                                    <g:datePicker name="anoDeConclusaoMestrado" precision="year" value="${avaliacaoInstance?.inscricao?.anoDeConclusaoMestrado}"  />
+                                    <g:datePicker name="anoDeConclusaoMestrado" precision="year" value="${avaliacaoInstance?.inscricao?.anoDeConclusaoMestrado}" disabled="true" />
                                 </td>
                             </tr>
                             
@@ -242,7 +243,7 @@
                                     <label for="vinculoEmpregaticio"><g:message code="avaliacao.inscricao.vinculoEmpregaticio.label" default="Possui vinculo empregaticio?" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'vinculoEmpregaticio', 'errors')}">
-                                    <g:select name="vinculoEmpregaticio" from="${['Sim', 'Nao']}" value="${avaliacaoInstance?.inscricao?.vinculoEmpregaticio}" />
+                                    <g:select name="vinculoEmpregaticio" from="${['Sim', 'Nao']}" value="${avaliacaoInstance?.inscricao?.vinculoEmpregaticio}" disabled="true" />
                                 </td>
                             </tr>
                             
@@ -251,7 +252,7 @@
                                     <label for="nomeEmpresa"><g:message code="avaliacao.inscricao.nomeEmpresa.label" default="Nome da empresa" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'nomeEmpresa', 'errors')}">
-                                    <g:textField name="nomeEmpresa" value="${avaliacaoInstance?.inscricao?.nomeEmpresa}" />
+                                    <g:textField name="nomeEmpresa" value="${avaliacaoInstance?.inscricao?.nomeEmpresa}" disabled="true" />
                                 </td>
                             </tr>
                             
@@ -269,7 +270,7 @@
                                     <label for="vinculoPICD"><g:message code="avaliacao.inscricao.vinculoPICD.label" default="Vinculo PICD?" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'vinculoPICD', 'errors')}">
-                                    <g:select name="vinculoPICD" from="${['Sim', 'Nao']}" value="${avaliacaoInstance?.inscricao?.vinculoPICD}" />
+                                    <g:select name="vinculoPICD" from="${['Sim', 'Nao']}" value="${avaliacaoInstance?.inscricao?.vinculoPICD}" disabled="true" />
                                 </td>
                             </tr>
                             
@@ -278,7 +279,7 @@
                                     <label for="universidadePICD"><g:message code="avaliacao.inscricao.universidadePICD.label" default="Universidade do PICD" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'universidadePICD', 'errors')}">
-                                    <g:textField name="universidadePICD" value="${avaliacaoInstance?.inscricao?.universidadePICD}" />
+                                    <g:textField name="universidadePICD" value="${avaliacaoInstance?.inscricao?.universidadePICD}" disabled="true" />
                                 </td>
                             </tr>
                             
@@ -296,7 +297,7 @@
                                     <label for="linguagens"><g:message code="avaliacao.inscricao.linguagens.label" default="Em que linguagens?" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'linguagens', 'errors')}">
-                                    <g:textField name="linguagens" value="${avaliacaoInstance?.inscricao?.linguagens}" />
+                                    <g:textField name="linguagens" value="${avaliacaoInstance?.inscricao?.linguagens}" disabled="true" />
                                 </td>
                             </tr>
                             
@@ -305,7 +306,7 @@
                                     <label for="numeroInscricaoPoscomp"><g:message code="avaliacao.inscricao.numeroInscricaoPoscomp.label" default="Numero de inscricao do POSCOMP" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'numeroInscricaoPoscomp', 'errors')}">
-                                    <g:textField name="numeroInscricaoPoscomp" value="${fieldValue(bean: avaliacaoInstance.inscricao, field: 'numeroInscricaoPoscomp')}" />
+                                    <g:textField name="numeroInscricaoPoscomp" value="${fieldValue(bean: avaliacaoInstance.inscricao, field: 'numeroInscricaoPoscomp')}" disabled="true" />
                                 </td>
                             </tr>
                             
@@ -323,7 +324,7 @@
                                     <label for="anoPoscomp"><g:message code="avaliacao.inscricao.anoPoscomp.label" default="Ano de realizacao do POSCOMP?" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'anoPoscomp', 'errors')}">
-                                    <g:datePicker name="anoPoscomp" precision="year" value="${avaliacaoInstance?.inscricao?.anoPoscomp}"  />
+                                    <g:datePicker name="anoPoscomp" precision="year" value="${avaliacaoInstance?.inscricao?.anoPoscomp}" disabled="true" />
                                 </td>
                             </tr>
                             
@@ -332,7 +333,7 @@
                                     <label for="estudoTempoIntegral"><g:message code="avaliacao.inscricao.estudoTempoIntegral.label" default="Deseja estudar em tempo integral?" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'estudoTempoIntegral', 'errors')}">
-                                    <g:select name="estudoTempoIntegral" from="${['Sim', 'Nao']}" value="${avaliacaoInstance?.inscricao?.estudoTempoIntegral}" />
+                                    <g:select name="estudoTempoIntegral" from="${['Sim', 'Nao']}" value="${avaliacaoInstance?.inscricao?.estudoTempoIntegral}" disabled="true" />
                                 </td>
                             </tr>
                             
@@ -341,7 +342,7 @@
                                     <label for="alunoEspecial"><g:message code="avaliacao.inscricao.alunoEspecial.label" default="Ja cursou disciplinas do programa como aluno especial?" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'alunoEspecial', 'errors')}">
-                                    <g:select name="alunoEspecial" from="${['Sim', 'Nao']}" value="${avaliacaoInstance?.inscricao?.alunoEspecial}" />
+                                    <g:select name="alunoEspecial" from="${['Sim', 'Nao']}" value="${avaliacaoInstance?.inscricao?.alunoEspecial}" disabled="true" />
                                 </td>
                             </tr>
                             
@@ -350,7 +351,7 @@
                                     <label for="quantasDisciplinasEspeciais"><g:message code="avaliacao.inscricao.quantasDisciplinasEspeciais.label" default="Quantas disciplinas?" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'quantasDisciplinasEspeciais', 'errors')}">
-                                    <g:select from="${0..100}" name="quantasDisciplinasEspeciais" value="${fieldValue(bean: avaliacaoInstance.inscricao, field: 'quantasDisciplinasEspeciais')}" />
+                                    <g:select from="${0..100}" name="quantasDisciplinasEspeciais" value="${fieldValue(bean: avaliacaoInstance.inscricao, field: 'quantasDisciplinasEspeciais')}" disabled="true" />
                                 </td>
                             </tr>
                             
@@ -490,12 +491,55 @@
                      </table>
                      
                      <table>
-                     	<tbody>
+                        <tbody>
                      		</br>
-                     		<h1><g:message code="Documentos"/></h1>                     		
-                     		   <tr>Fazer upload dos arquivos do candidato AQUI.</tr>      
-						</tbody>
-					 </table>
+                     		<h1><g:message code="Notas gerais dos documentos recebidos"/></h1>
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="cartasDeRecomendacao"><g:message code="avaliacao.cartasDeRecomendacao.label" default="Cartas de Recomendacao" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'cartasDeRecomendacao', 'errors')}">
+                                    <g:textField name="cartasDeRecomendacao" value="${fieldValue(bean: avaliacaoInstance, field: 'cartasDeRecomendacao')}" /></td>
+                            </tr>
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="curriculo"><g:message code="avaliacao.curriculo.label" default="Curriculum Vitae" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'curriculo', 'errors')}">
+                                    <g:textField name="curriculo" value="${fieldValue(bean: avaliacaoInstance, field: 'curriculo')}" /></td>
+                            </tr>
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="cartaDeIntencoes"><g:message code="avaliacao.cartaDeIntencoes.label" default="Carta de Intencoes (apenas para candidatos a mestrado)" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'cartaDeIntencoes', 'errors')}">
+                                    <g:textField name="cartaDeIntencoes" value="${fieldValue(bean: avaliacaoInstance, field: 'cartaDeIntencoes')}" /></td>
+                            </tr>
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="planoDeTrabalho"><g:message code="avaliacao.planoDeTrabalho.label" default="Plano de Trabalho (apenas para candidatos a doutorado)" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: avaliacaoInstance, field: 'planoDeTrabalho', 'errors')}">
+                                    <g:textField name="planoDeTrabalho" value="${fieldValue(bean: avaliacaoInstance, field: 'planoDeTrabalho')}" /></td>
+                            </tr>
+                            
+                        </tbody>
+                     </table>
+                     <br/>
+                     
+                     <table>
+                        <tbody>
+                        	<h1><g:message code="Download de documentos"/></h1>
+                        	<tr class="prop">
+                        		<td>Fazer download dos arquivos enviados pelo candidato aqui.</td>
+                            </tr>
+                        </tbody>
+                	</table>
+                	<br></br>
             
                 </div>
                 <div class="buttons">
@@ -522,11 +566,13 @@
                         </tbody>
                     </table>
                     
-                    <span class="button"><g:submitButton disabled="true" name="create" class="save" value="${message(code: 'Submeter', default: 'Create')}" /></span>
+                    <g:hiddenField name="idInscricao" value="${inscricaoInstance?.id}" />
+                    <span class="button"><g:submitButton disabled="true" name="create" class="save" value="${message(code: 'Submeter', default: 'Submeter')}" /></span>
                 
                 </g:if>
                 <g:else>
-                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'Submeter', default: 'Create')}" /></span>
+                    <g:hiddenField name="idInscricao" value="${inscricaoInstance?.id}" />
+                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'Submeter', default: 'Submeter')}" /></span>
                 
                 </g:else>
                 </div>

@@ -78,8 +78,13 @@ class Avaliacao {
 	/**byte[] arquivosDiferencais
 	*/
 	
-	/*Média*/
+	/**Média*/
 	double mediaGeral
+	
+	double cartasDeRecomendacao
+	double curriculo
+	double cartaDeIntencoes
+	double planoDeTrabalho
 	
 	Inscricao inscricao
 	
@@ -108,6 +113,10 @@ class Avaliacao {
 		especializacaoLatuSensu(min:0)
 		semestresPET(min:0)
 		mediaGeral(min:0d, max:10d)
+		cartasDeRecomendacao(min:0d, max:10d)
+		curriculo(min:0d, max:10d)
+		cartaDeIntencoes(min:0d, max:10d)
+		planoDeTrabalho(min:0d, max:10d)
 
 		primeiraOpcaoProjeto(blank:false, nullable:false)
 		segundaOpcaoProjeto(blank:false, nullable:false)

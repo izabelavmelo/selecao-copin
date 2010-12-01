@@ -29,7 +29,7 @@ class Chamada {
 		MathEvaluator f = new MathEvaluator(formula);
 		
 		//Adiciona variaves
-		for(int i = 1; i<=10; i++){
+		for(int i = 1; i<=14; i++){
 			f.addVariable("n" + i, 1.0);
 		}
 		
