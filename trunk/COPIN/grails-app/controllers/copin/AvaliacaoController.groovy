@@ -16,9 +16,10 @@ class AvaliacaoController {
     def create = {
         def avaliacaoInstance = new Avaliacao()
 		def inscricaoInstance = Inscricao.get(params.get("idInscricao"))
+		params.max = Math.min(params.max ? params.int('max') : 10, 100)
 		avaliacaoInstance.inscricao = inscricaoInstance
         avaliacaoInstance.properties = params
-        return [avaliacaoInstance: avaliacaoInstance, inscricaoInstance:inscricaoInstance, avaliacaoList:Avaliacao.list()]
+        return [avaliacaoInstance: avaliacaoInstance, inscricaoInstance:inscricaoInstance, avaliacaoList: Avaliacao.list(params)]
     }
 
     def save = {
