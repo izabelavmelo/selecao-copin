@@ -30,7 +30,7 @@ class InscricaoController {
 		def chamadaInstance = Chamada.get(params.id)
 		if(usuarioInstance && chamadaInstance){
 			params.max = Math.min(params.max ? params.int('max') : 10, 100)
-			[inscricaoInstanceList: Inscricao.list(params), inscricaoInstanceTotal: Inscricao.count(), usuarioInstance:usuarioInstance, chamadaInstance: chamadaInstance]
+			[inscricaoInstanceList: Inscricao.list(params), inscricaoInstanceTotal: Inscricao.count(), usuarioInstance:usuarioInstance, chamadaInstance: chamadaInstance, avaliacaoList: Avaliacao.list(params)]
 		}else {
 			redirect(url:redirecionar)
 		}

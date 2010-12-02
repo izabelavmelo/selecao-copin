@@ -10,6 +10,8 @@ class Avaliacao {
 	double curriculo
 	double cartaDeIntencoes
 	double planoDeTrabalho
+	boolean mestradoCCAfins
+	double mediaPosCOMP
 	
 	Inscricao inscricao
 	Usuario avaliador
