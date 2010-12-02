@@ -11,18 +11,30 @@ class AvaliacaoController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [avaliacaoInstanceList: Avaliacao.list(params), avaliacaoInstanceTotal: Avaliacao.count()]
+		def chamadaInstance = Chamada.get(params.get("idChamada"))
+        if(chamadaInstance){
+			params.max = Math.min(params.max ? params.int('max') : 10, 100)
+			
+			[avaliacaoInstanceList: Avaliacao.list(params), avaliacaoInstanceTotal: Avaliacao.count(), chamadaInstance:chamadaInstance]
+		}else{
+			redirect(url:redirecionar)
+		}
     }
 
     def create = {
-        def avaliacaoInstance = new Avaliacao()
 		def inscricaoInstance = Inscricao.get(params.get("idInscricao"))
 		params.max = Math.min(params.max ? params.int('max') : 10, 100)
-		avaliacaoInstance.inscricao = inscricaoInstance
-        avaliacaoInstance.properties = params
-        return [avaliacaoInstance: avaliacaoInstance, inscricaoInstance:inscricaoInstance, avaliacaoList: Avaliacao.list(params)]
-    }
+		
+		if(inscricaoInstance){
+			def avaliacaoInstance = new Avaliacao()
+			avaliacaoInstance.inscricao = inscricaoInstance
+			avaliacaoInstance.properties = params
+			return [avaliacaoInstance: avaliacaoInstance, inscricaoInstance:inscricaoInstance, avaliacaoList: Avaliacao.list(params)]
+	   
+		}else{
+			redirect(url:redirecionar)
+		}
+	}
 
     def save = {
         def avaliacaoInstance = new Avaliacao(params)
@@ -49,7 +61,7 @@ class AvaliacaoController {
 	*/
 		
 		if (avaliacaoInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'avaliacao.label', default: 'Avaliacao'), avaliacaoInstance.id])}"
+            flash.message = "${message(code: 'default.avaliacao.criada', args: [message(code: 'avaliacao.label', default: 'Avaliacao'), avaliacaoInstance.id])}"
             redirect(action: "show", id: avaliacaoInstance.id)
         }
         else {

@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'avaliacao.label', default: 'Avaliacao')}" />
-        <title><g:message code="default.show.label" args="[entityName]" /></title>
+        <title><g:message code="Avaliacao" args="[entityName]" /></title>
         <g:if test="${session.usuario}">
 			<g:if test="${!session.usuario.ehAdministrador}">
 
@@ -84,14 +84,14 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="avaliacao.inscricao.label" default="Inscricao" /></td>
                             
-                            <td valign="top" class="value"><g:link controller="inscricao" action="show" id="${avaliacaoInstance?.inscricao?.id}">${avaliacaoInstance?.inscricao?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="inscricao" action="show" id="${avaliacaoInstance?.inscricao?.id}"> Numero ${avaliacaoInstance?.inscricao?.id}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="avaliacao.avaliador.label" default="Avaliador" /></td>
                             
-                            <td valign="top" class="value"><g:link controller="usuario" action="show" id="${avaliacaoInstance?.avaliador?.id}">${avaliacaoInstance?.avaliador?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="usuario" action="show" id="${avaliacaoInstance?.avaliador?.id}">Avaliador ${avaliacaoInstance?.avaliador?.id}</g:link></td>
                             
                         </tr>
                     
@@ -101,8 +101,17 @@
             <div class="buttons">
                 <g:form>
                     <g:hiddenField name="id" value="${avaliacaoInstance?.id}" />
-                    <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
+                
+                <g:if test="${session.usuario.ehAdministrador }">
+                	<span class="button"><g:actionSubmit disabled="true" class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
+                    <span class="button"><g:actionSubmit disabled="true" class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+                
+                </g:if>
+                <g:else>
+                	<span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+                
+                </g:else>
                 </g:form>
             </div>
         </div>

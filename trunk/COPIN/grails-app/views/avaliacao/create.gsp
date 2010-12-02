@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'avaliacao.label', default: 'Avaliacao')}" />
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <title><g:message code="Avaliacao" args="[entityName]" /></title>
     	
     	<g:if test="${session.usuario}">
 			<g:if test="${!session.usuario.ehAvaliador}">
@@ -31,7 +31,7 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(controller:'usuario' , action:'perfil')}"><g:message code="default.home.label"/></a></span>
-        	<span class="menuButton"><a class="list" href="${createLink(controller:'inscricao' , action:'index')}"><g:message code="Lista de Inscricoes"/></a></span>
+        
         </div>
         <div class="body">
             <h2 align="center" size="1"><g:message code="Avaliacao de um candidato" args="[entityName]" /></h2>
@@ -54,7 +54,8 @@
                 
                 	<g:each in="${avaliacaoList}" status="i" var="avaliacaoInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                        		<g:if test="${avaliacaoInstance.inscricao.usuario.id == session.usuario.id && inscricaoInstance?.id == avaliacaoInstance.inscricao.chamada.id }">
+                        		<g:if test="${avaliacaoInstance.avaliador.id == session.usuario.id && inscricaoInstance?.id == avaliacaoInstance.inscricao.id }">
+                        			
                         			<g:set var="jaAvaliou" value="${true}"/> </br>
                         		</g:if>
                         </tr>
@@ -571,11 +572,6 @@
                 	                
                 <g:if test="${jaAvaliou}">
                 	
-                    
-                    <g:hiddenField name="idInscricao" value="${inscricaoInstance?.id}" />
-                    <g:hiddenField name="idAvaliador" value="${session.usuario?.id}" />
-                    <span class="button"><g:submitButton disabled="true" name="create" class="save" value="${message(code: 'Submeter', default: 'Submeter')}" /></span>
-                
                 </g:if>
                 <g:else>
                     <g:hiddenField name="idInscricao" value="${inscricaoInstance?.id}" />
