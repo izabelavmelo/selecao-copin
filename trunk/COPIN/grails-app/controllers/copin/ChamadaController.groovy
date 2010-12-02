@@ -7,6 +7,16 @@ class ChamadaController {
     def index = {
         redirect(action: "list", params: params)
     }
+	
+	static void calculaTodasAsMedias(Chamada chamadaInstance){
+		def listaInscricao = Inscricao.findAllByChamada(chamadaInstance)
+		for(Inscricao i : listaInscricao){
+			def listaAvaliacao = Avaliacao.findAllByInscricao(i)
+			for(Avaliacao a : listaAvaliacao){
+				AvaliacaoController.calculaMedia a
+			}
+		}
+	}
 
     def list = {
 		def usuarioInstance = Usuario.get(params.idUsuario)
@@ -92,6 +102,7 @@ class ChamadaController {
                 }
             }
             chamadaInstance.properties = params
+			calculaTodasAsMedias chamadaInstance
             if (!chamadaInstance.hasErrors() && chamadaInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'chamada.label', default: 'Chamada'), chamadaInstance.id])}"
                 redirect(action: "show", id: chamadaInstance.id)

@@ -89,12 +89,27 @@
                         	
                         	</g:if>
                         	<g:else>
+                        		<g:set var="jaAvaliou" value="${false}"/>
+                        		<g:set var="idAvaliacao" value="${0}"/>
+                
+			                	<g:each in="${avaliacaoList}" status="j" var="avaliacaoInstance">
+		                        		<g:if test="${avaliacaoInstance.avaliador.id == session.usuario.id && inscricaoInstance?.id == avaliacaoInstance.inscricao.id }">
+		                        			<g:set var="jaAvaliou" value="${true}"/> </br>
+		                        			<g:set var="idAvaliacao" value="${avaliacaoInstance?.id}"/>
+		                        		</g:if>
+			                    </g:each>
                         		
                         		
                         		<td>
                         		<g:form controller="avaliacao">
-        							<g:hiddenField name="idInscricao" value="${inscricaoInstance?.id}" />
-									<span class="button"><g:actionSubmit class="edit" action="create" value="Avaliar candidato"></g:actionSubmit></span></br>
+        							<g:if test="${jaAvaliou }">
+        								<g:hiddenField name="id" value="${idAvaliacao}" />
+										<span class="button"><g:actionSubmit class="edit" action="edit" value="Editar Avaliacao"></g:actionSubmit></span></br>
+									</g:if>
+									<g:else>
+										<g:hiddenField name="idInscricao" value="${inscricaoInstance?.id}" />
+										<span class="button"><g:actionSubmit class="edit" action="create" value="Avaliar candidato"></g:actionSubmit></span></br>
+									</g:else>
             		    		</g:form>
                         		</td>
                         		
