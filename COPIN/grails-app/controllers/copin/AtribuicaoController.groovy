@@ -48,14 +48,14 @@ class AtribuicaoController {
 	
 		}
 		
-		def avaliadoresDefinidosList = Atribuicao.findWhere(chamada:chamadaInstance)
-		
-		def usuarioList = avaliadoresDefinidosList.findAll(usuarios:atribuicaoInstance.usuarios)
+		def avaliadoresDefinidosList = Atribuicao.findAllByChamada(chamadaInstance)
 		
 		int v = 0
 		
-		for (Object obj : usuarioList) { 
-			v = v + 1
+		for (Atribuicao atr : avaliadoresDefinidosList){
+			if(atr.usuarios.id == atribuicaoInstance.usuarios.id){
+				v = v + 1
+			}	
 		}
 		
 		if(v > 1){
