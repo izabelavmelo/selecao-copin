@@ -12,6 +12,12 @@
             float:left;
 
         }
+        
+        table {
+    border: 1px solid #ccc;
+    width: 35%;
+}
+        
         .homePagePanel * {
             margin:0px;
         }
@@ -46,8 +52,8 @@
             font-size:1.2em;
         }
         #pageBody {
-            margin-left:20px;
-            margin-right:20px;
+            margin-left:240px;
+            margin-right:800px;
         }
         </style>
         
@@ -71,9 +77,7 @@
     <body>
         
         <div id="pageBody">
-            <h1>SeleçãoCOPIN: um sistema para automatizar o processo de seleção da COPIN</h1>
-            <p>O projeto visa o desenvolvimento de um software para gerenciar o processo de seleção da COPIN (Programa de Pós-Graduação em Computação), desde o processo de submissão da documentação on-line pelos candidatos, até a definição do resultado da seleção de acordo com dados inseridos por professores durante a avaliação dos candidatos. O software é importante para agilizar o processo de divulgação de resultados, assim como facilita o acesso à informação por parte dos docentes da instituição.</p>
-
+            
 			<h1>LOGIN</h1>
 			
 			<g:if test="${flash.message}">
@@ -112,10 +116,12 @@
             </div>
         	</g:form>
 
-            <div id="controllerList" class="dialog">
+        </div>
+
+			<div id="controllerList" class="dialog" align="center">
                 <h2>Para o usuario se cadastrar no sistema, clicar <g:link controller="usuario" action="create">aqui</g:link></h2>
             </div>
-        </div>
+
                 
     </body>
 </html>
