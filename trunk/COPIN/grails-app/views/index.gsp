@@ -14,8 +14,30 @@
         }
         
         table {
-    border: 1px solid #ccc;
-    width: 35%;
+    		border: 3px solid #ccc;
+    		width: 35%;
+		}
+		
+		.buttons {
+    		background: #fff;
+    		border: 1px #ccc;
+    		color: #666;
+    		font-size: 10px;
+    		margin-top: 10px;
+    		overflow: hidden;
+    		padding: 0;
+		}
+        
+        .buttons input {
+    background: #fff;
+    border: 20px #ccc;
+    color: #333;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 3px;
+    overflow: visible;
+    padding: 2px 6px;
 }
         
         .homePagePanel * {
@@ -52,8 +74,8 @@
             font-size:1.2em;
         }
         #pageBody {
-            margin-left:240px;
-            margin-right:800px;
+            margin-left:20px;
+            margin-right:20px;
         }
         </style>
         
@@ -76,7 +98,7 @@
     </head>
     <body>
         
-        <div id="pageBody">
+        <div id="pageBody" align="center">
             
 			<h1>LOGIN</h1>
 			
@@ -111,7 +133,7 @@
                     </table>
               </div>
         	
-        	<div class="buttons">
+        	<div class="buttons" align="center">
                     <span class="button"><g:submitButton name="login" class="login" value="${message(code: 'default.button.login.label', default: 'Entrar')}" /></span>
             </div>
         	</g:form>
