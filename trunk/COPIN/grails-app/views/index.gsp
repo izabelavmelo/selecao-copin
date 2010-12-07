@@ -17,28 +17,6 @@
     		border: 3px solid #ccc;
     		width: 35%;
 		}
-		
-		.buttons {
-    		background: #fff;
-    		border: 1px #ccc;
-    		color: #666;
-    		font-size: 10px;
-    		margin-top: 10px;
-    		overflow: hidden;
-    		padding: 0;
-		}
-        
-        .buttons input {
-    background: #fff;
-    border: 20px #ccc;
-    color: #333;
-    cursor: pointer;
-    font-size: 10px;
-    font-weight: bold;
-    margin-left: 3px;
-    overflow: visible;
-    padding: 2px 6px;
-}
         
         .homePagePanel * {
             margin:0px;
