@@ -281,6 +281,14 @@ th.desc a {
     background: transparent url(../images/skin/chamadas2.png) 5px 50% no-repeat;
     padding-left: 28px;
 }
+.buttons input.criarChamada {
+    background: transparent url(../images/skin/database_add2.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+.buttons input.criarAvaliador {
+    background: transparent url(../images/skin/addAvaliador.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
 .buttons input.listaInscricao {
     background: transparent url(../images/skin/listaInscricao.png) 5px 50% no-repeat;
     padding-left: 28px;
