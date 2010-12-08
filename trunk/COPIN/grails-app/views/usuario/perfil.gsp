@@ -4,8 +4,20 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
+        
+        
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
-        <g:set var="paginaInicial" value="${"http://localhost:8080/"}" escope="session" />        
+        <g:set var="paginaInicial" value="${"http://localhost:8080/"}" escope="session" />
+        
+        <div align="right">
+        
+        
+        <g:form class="buttons" controller="usuario" method="post">
+        			<g:hiddenField name="id" value="${usuarioInstance?.id}" />
+					<span class="button"><g:actionSubmit controller="usuario" class="logout" action="logout" value="Logout" /></span></br>
+        </g:form>
+        
+        </div>      
   			
     	<g:if test="${session.usuario}">
 		
@@ -27,6 +39,10 @@
     </head>
     
     <body>
+    
+      <div class="nav">
+            <span class="menuButton"><a class="home" href="${createLink(controller:'usuario', action:'perfil')}"><g:message code="default.home.label"/></a></span>
+        </div>
         
         <div class="body">
         	
@@ -41,9 +57,9 @@
         	
         	<h1> Ola, ${session.getAt("usuario").nome}. O que voce deseja fazer no sistema?</h1><br/>
 			
-			<g:form controller="usuario" method="post">
+			<g:form class="buttons" controller="usuario" method="post">
                     <g:hiddenField name="id" value="${usuarioInstance?.id}" />
-                    <span class="button"><g:actionSubmit class="edit" action="show" value="Visualizar meus dados" /></span></br>
+                    <span class="button"><g:actionSubmit class="visualizar" action="show" value="Visualizar meus dados" /></span></br>
                     <span class="button"><g:actionSubmit class="edit" action="edit" value="Editar meus dados" /></span></br>                    
             </g:form>
             
@@ -56,10 +72,7 @@
             		<span class="button"><g:actionSubmit class="edit" action="list" value="Verificar chamadas ativas" /></span></br>
             </g:form>
             
-            <g:form controller="usuario" method="post">
-        			<g:hiddenField name="id" value="${usuarioInstance?.id}" />
-					<span class="button"><g:actionSubmit controller="usuario" class="edit" action="logout" value="Logout" /></span></br>
-            </g:form>
+            
         </div>
 
     </body>
