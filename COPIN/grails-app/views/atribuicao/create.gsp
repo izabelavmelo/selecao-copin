@@ -8,6 +8,16 @@
         <g:set var="entityName" value="${message(code: 'atribuicao.label', default: 'Atribuicao')}" />
         <title><g:message code="Definir avaliadores" args="[entityName]" /></title>
     
+    	<div align="right">
+        
+        
+        	<g:form class="buttons" controller="usuario" method="post">
+        			<g:hiddenField name="id" value="${usuarioInstance?.id}" />
+					<span class="button">Ola, ${session.getAt("usuario").nome}!<g:actionSubmit controller="usuario" class="logout" action="logout" value="Logout" /></span></br>
+        	</g:form>
+        
+        </div>  
+        
     	<g:if test="${session.usuario}">
 			<g:if test="${!session.usuario.ehAdministrador}">
 

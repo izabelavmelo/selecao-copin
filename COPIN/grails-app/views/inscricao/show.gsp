@@ -7,6 +7,16 @@
         <g:set var="entityName" value="${message(code: 'inscricao.label', default: 'Inscricao')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
 
+    	<div align="right">
+        
+        
+        	<g:form class="buttons" controller="usuario" method="post">
+        			<g:hiddenField name="id" value="${usuarioInstance?.id}" />
+					<span class="button">Ola, ${session.getAt("usuario").nome}!<g:actionSubmit controller="usuario" class="logout" action="logout" value="Logout" /></span></br>
+        	</g:form>
+        
+        </div>  
+
 		<g:if test="${session.usuario}">
 		
 			<g:if test="${session.usuario.ehAvaliador}">

@@ -18,7 +18,6 @@
     	
     	</style>
     	
-    	
     	<g:if test="${session.usuario}">
 		
 			<g:if test="${session.usuario.ehAvaliador}">

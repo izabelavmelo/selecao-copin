@@ -6,6 +6,18 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'avaliacao.label', default: 'Avaliacao')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
+
+    	<div align="right">
+        
+        
+        	<g:form class="buttons" controller="usuario" method="post">
+        			<g:hiddenField name="id" value="${usuarioInstance?.id}" />
+					<span class="button">Ola, ${session.getAt("usuario").nome}!<g:actionSubmit controller="usuario" class="logout" action="logout" value="Logout" /></span></br>
+        	</g:form>
+        
+        </div>  
+
+
     </head>
     <body>
         <div class="nav">
