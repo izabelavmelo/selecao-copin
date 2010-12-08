@@ -277,6 +277,14 @@ th.desc a {
     background: transparent url(../images/skin/visualizar.png) 5px 50% no-repeat;
     padding-left: 28px;
 }
+.buttons input.chamadas {
+    background: transparent url(../images/skin/chamadas2.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+.buttons input.listaInscricao {
+    background: transparent url(../images/skin/listaInscricao.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
 .buttons input.save {
     background: transparent url(../images/skin/database_save.png) 5px 50% no-repeat;
     padding-left: 28px;
