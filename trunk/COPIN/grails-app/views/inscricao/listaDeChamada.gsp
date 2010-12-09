@@ -121,15 +121,29 @@
                         		
                         		
                         		<td>
-                        		<g:form controller="avaliacao">
-        							<g:if test="${jaAvaliou }">
+                        		<g:form class="buttons" controller="avaliacao">
+                        			<g:if test="${Calendar.getInstance().after(chamadaInstance.dataFinalInscricoes) }"><g:if test="${jaAvaliou }">
         								<g:hiddenField name="id" value="${idAvaliacao}" />
 										<span class="button"><g:actionSubmit class="edit" action="edit" value="Editar Avaliacao"></g:actionSubmit></span></br>
 									</g:if>
 									<g:else>
 										<g:hiddenField name="idInscricao" value="${inscricaoInstance?.id}" />
 										<span class="button"><g:actionSubmit class="edit" action="create" value="Avaliar candidato"></g:actionSubmit></span></br>
+									</g:else></g:if>
+									<g:else>
+									
+									<g:if test="${jaAvaliou }">
+        								<g:hiddenField name="id" value="${idAvaliacao}" />
+										<span class="button"><g:actionSubmit class="edit" disabled="true" action="edit" value="Editar Avaliacao"></g:actionSubmit></span></br>
+									</g:if>
+									<g:else>
+										<g:hiddenField name="idInscricao" value="${inscricaoInstance?.id}" />
+										<span class="button"><g:actionSubmit class="edit" disabled="true" action="create" value="Avaliar candidato"></g:actionSubmit></span></br>
 									</g:else>
+									</g:else>
+                        		
+                        		
+        							
             		    		</g:form>
                         		</td>
                         		

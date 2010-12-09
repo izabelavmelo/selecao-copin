@@ -7,6 +7,14 @@
         <g:set var="entityName" value="${message(code: 'avaliacao.label', default: 'Avaliacao')}" />
         <title><g:message code="Avaliacao" args="[entityName]" /></title>
 
+    	<style type="text/css" media="screen">
+    	
+    		table {
+    			border: 3px solid #ccc;
+    			width: 50%;
+			}
+			
+			</style>
     	<div align="right">
         
         

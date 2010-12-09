@@ -14,8 +14,14 @@
     	
     		table {
     			border: 3px solid #ccc;
-    			width: 50%;
+    			width: 60%;
 			}
+			
+			.menuButton a.list {
+    background: url(../images/skin/listaInscricao2.png) center left no-repeat;
+    color: #333;
+    padding-left: 28px;
+}
 		
     	</style>
         

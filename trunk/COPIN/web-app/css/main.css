@@ -86,7 +86,7 @@ input:focus, select:focus, textarea:focus {
     padding-left: 35px;
 }
 .menuButton a.list {
-    background: url(../images/skin/database_table.png) center left no-repeat;
+    background: url(../images/skin/listaInscricao2.png) center left no-repeat;
     color: #333;
     padding-left: 35px;
 }
@@ -302,5 +302,9 @@ th.desc a {
 }
 .buttons input.save {
     background: transparent url(../images/skin/database_save.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+.buttons input.download {
+    background: transparent url(../images/skin/download.png) 5px 50% no-repeat;
     padding-left: 28px;
 }

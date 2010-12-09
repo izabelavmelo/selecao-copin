@@ -23,7 +23,27 @@
         	</g:form>
         
         </div>  
-        
+        <style type="text/css" media="screen">
+        	
+        	.buttons input {
+        		padding: 15px 6px;
+    			border: 20px #ccc;
+    			color: #333;
+    			cursor: pointer;
+    			font-size: 12px;
+    			font-weight: bold;
+    			margin-left: 30px;
+    			overflow: visible;
+    		
+        	}
+        	
+        	.menuButton a.list {
+    background: url(../images/skin/listaInscricao2.png) center left no-repeat;
+    color: #333;
+    padding-left: 28px;
+}
+        	
+        	</style>
     </head>
     <body>
     	<div class="nav">
@@ -33,8 +53,9 @@
             <g:else>
             <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
             </g:else>
+            <g:if test="${session.usuario.ehAvaliador }"></g:if>
+            <g:else><span class="menuButton"><a class="list" href="${createLink(uri: '/chamada/list')}"><g:message code="Lista de chamadas"/></a></span></g:else>
             
-            <span class="menuButton"><a class="list" href="${createLink(uri: '/chamada/list')}"><g:message code="Lista de chamadas"/></a></span>
         </div>
         <div class="body">
             <h1><g:message code="Chamada" /></h1>
