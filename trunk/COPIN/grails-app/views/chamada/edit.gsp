@@ -7,6 +7,15 @@
         <title><g:message code="Editar chamada" args="[entityName]" /></title>
     	<div align="right">
         
+        <style type="text/css" media="screen">
+    	
+    		table {
+    			border: 3px solid #ccc;
+    			width: 50%;
+			}
+		
+    	</style>
+        
         
         	<g:form class="buttons" controller="usuario" method="post">
         			<g:hiddenField name="id" value="${session.usuario.id}" />

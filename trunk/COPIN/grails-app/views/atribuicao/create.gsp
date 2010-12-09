@@ -9,6 +9,16 @@
         <title><g:message code="Definir avaliadores" args="[entityName]" /></title>
     
     	<div align="right">
+    	
+    	<style type="text/css" media="screen">
+    	
+    		table {
+    			border: 3px solid #ccc;
+    			width: 50%;
+			}
+		
+    	</style>
+        
         
         
         	<g:form class="buttons" controller="usuario" method="post">

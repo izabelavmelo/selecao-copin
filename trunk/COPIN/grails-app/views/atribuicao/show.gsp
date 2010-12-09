@@ -9,6 +9,8 @@
     	<div align="right">
         
         
+        
+        
         	<g:form class="buttons" controller="usuario" method="post">
         			<g:hiddenField name="id" value="${session.usuario.id}" />
 					<span class="button">Ola, ${session.getAt("usuario").nome}!<g:actionSubmit controller="usuario" class="logout" action="logout" value="Logout" /></span></br>

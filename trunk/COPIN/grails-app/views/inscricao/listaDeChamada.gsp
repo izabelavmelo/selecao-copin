@@ -7,6 +7,16 @@
         <g:set var="entityName" value="${message(code: 'inscricao.label', default: 'Inscricao')}" />
         <title><g:message code="Inscricoes de chamada" args="[entityName]" /></title>
 
+		<style type="text/css" media="screen">
+    	
+    		table {
+    			border: 3px solid #ccc;
+    			width: 75%;
+			}
+		
+    	</style>
+        
+		
     	<div align="right">
         
         

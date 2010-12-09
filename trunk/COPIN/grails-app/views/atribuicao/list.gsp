@@ -6,6 +6,16 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'atribuicao.label', default: 'Atribuicao')}" />
         <title><g:message code="Lista de avaliadores" args="[entityName]" /></title>
+    	
+    	<style type="text/css" media="screen">
+    	
+    		table {
+    			border: 3px solid #ccc;
+    			width: 50%;
+			}
+		
+    	</style>
+    
     
     	<div align="right">
         
