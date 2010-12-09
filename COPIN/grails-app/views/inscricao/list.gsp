@@ -6,6 +6,13 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'inscricao.label', default: 'Inscricao')}" />
         <title><g:message code="Minhas inscricoes" args="[entityName]" /></title>
+    	<style type="text/css" media="screen">
+    	.buttons input.visualizar {
+    background: transparent url(../images/skin/visualizar1.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+</style>
+    	
     	<div align="right">
         
         
@@ -58,8 +65,13 @@
                         
                         <g:if test="${inscricaoInstance.usuario.id == usuarioInstance}">
                         
-                            <td><g:link action="show" id="${inscricaoInstance.id}">${fieldValue(bean: inscricaoInstance, field: "id")}</g:link></td>
-                        
+                        	
+                            <td><g:form class="buttons" align="left" controller="inscricao">
+                   					<g:hiddenField name="id" value="${inscricaoInstance?.id}" />
+            						<span class="button"><g:actionSubmit class="visualizar" action="show" value="Visualizar" ></g:actionSubmit></span></br>
+      
+            	    		</g:form>
+            	    		
                             <td>${fieldValue(bean: inscricaoInstance, field: "chamada.tituloDaChamada")}</td>
                         
                             <td>${fieldValue(bean: inscricaoInstance, field: "chamada.tipoDeChamada")}</td>

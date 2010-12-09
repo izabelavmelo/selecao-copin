@@ -7,6 +7,14 @@
         <g:set var="entityName" value="${message(code: 'inscricao.label', default: 'Inscricao')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
 
+		<style type="text/css" media="screen">
+    	
+    		table {
+    			border: 3px solid #ccc;
+    			width: 60%;
+			}
+		
+    	</style>
     	<div align="right">
         
         
@@ -433,11 +441,11 @@
                     	
                     </g:each>
                     <g:if test="${tamanho < 1 }">
-                    <span class="button"><g:actionSubmit disabled="true" class="edit" action="downloadFile" value="Download File" /></span>
+                    <span class="button"><g:actionSubmit disabled="true" class="download" action="downloadFile" value="Download File" /></span>
                     
                     </g:if>
                     <g:else>
-                    <span class="button"><g:actionSubmit class="edit" action="downloadFile" value="Download File" /></span>
+                    <span class="button"><g:actionSubmit class="download" action="downloadFile" value="Download File" /></span>
                     
                     </g:else>
                     <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>

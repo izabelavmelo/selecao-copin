@@ -13,6 +13,12 @@
     			border: 3px solid #ccc;
     			width: 50%;
 			}
+			
+			.menuButton a.list {
+    background: url(../images/skin/listaInscricao2.png) center left no-repeat;
+    color: #333;
+    padding-left: 28px;
+}
 		
     	</style>
     
@@ -93,7 +99,7 @@
                         <g:if test="${atribuicaoInstance.chamada.id == chamadaInstance.id }">
                         
                         <td>
-                        <g:form controller="atribuicao">
+                        <g:form class="buttons" controller="atribuicao">
                         	<g:hiddenField name="id" value="${atribuicaoInstance?.id}" />
                         	<g:hiddenField name="idChamada" value="${chamadaInstance?.id}" />
             	        				

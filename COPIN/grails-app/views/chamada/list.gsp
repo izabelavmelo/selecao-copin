@@ -141,13 +141,13 @@
                         		
                         		</g:if>
                         		<g:else>
-                        			<g:form class="buttons" controller="chamada">
+                        			<g:form class="buttons" align="left" controller="chamada">
                    					<g:hiddenField name="id" value="${chamadaInstance?.id}" />
             						<span class="button"><g:actionSubmit class="visualizar" action="show" value="Visualizar" ></g:actionSubmit></span></br>
       
             	    				</g:form>
                         			
-            	            		<g:form class="buttons" controller="inscricao">
+            	            		<g:form class="buttons" align="left" controller="inscricao">
             						           					
             		    		    	<g:if test="${Calendar.getInstance().after(chamadaInstance.dataInicialInscricoes) && Calendar.getInstance().before(chamadaInstance.dataFinalInscricoes)}">
             	    			    		<g:hiddenField name="id" value="${chamadaInstance?.id}" />
@@ -179,12 +179,12 @@
                         	<g:if test="${ehParaAvaliar }">
       		                  	<td>
       		                  	
-      		                  	<g:form class="buttons" controller="chamada">
+      		                  	<g:form class="buttons" align="left" controller="chamada">
                    					<g:hiddenField name="id" value="${chamadaInstance?.id}" />
             						<span class="button"><g:actionSubmit class="visualizar" action="show" value="Visualizar" ></g:actionSubmit></span></br>
             	    			</g:form>
             	    			
-            	    			<g:form class="buttons" controller="inscricao">
+            	    			<g:form class="buttons" align="left" controller="inscricao">
         							<g:hiddenField name="id" value="${chamadaInstance?.id}" />
             		        		<span class="button"><g:actionSubmit class="listaInscricao" action="listaDeChamada" value="Lista de inscricoes"></g:actionSubmit></span></br>
 			
