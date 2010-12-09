@@ -7,6 +7,15 @@
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
         
+        <style type="text/css" media="screen">
+    	
+    		table {
+    			border: 3px solid #ccc;
+    			width: 50%;
+			}
+		
+    	</style>
+        
         <div align="right">
         
         

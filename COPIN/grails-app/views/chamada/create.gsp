@@ -8,6 +8,15 @@
         <g:set var="entityName" value="${message(code: 'chamada.label', default: 'Chamada')}" />
         <title><g:message code="Criar chamada" args="[entityName]" /></title>
 
+		<style type="text/css" media="screen">
+    	
+    		table {
+    			border: 3px solid #ccc;
+    			width: 50%;
+			}
+		
+    	</style>
+		
     	<div align="right">
         
         
