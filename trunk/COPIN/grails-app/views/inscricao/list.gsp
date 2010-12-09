@@ -66,7 +66,7 @@
                         <g:if test="${inscricaoInstance.usuario.id == usuarioInstance}">
                         
                         	
-                            <td><g:form class="buttons" align="left" controller="inscricao">
+                            <td><g:form class="buttons" controller="inscricao">
                    					<g:hiddenField name="id" value="${inscricaoInstance?.id}" />
             						<span class="button"><g:actionSubmit class="visualizar" action="show" value="Visualizar" ></g:actionSubmit></span></br>
       
