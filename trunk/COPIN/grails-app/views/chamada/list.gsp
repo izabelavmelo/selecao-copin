@@ -7,6 +7,53 @@
         <g:set var="entityName" value="${message(code: 'chamada.label', default: 'Chamada')}" />
         <title><g:message code="Lista de chamadas" args="[entityName]" /></title>
 
+		<style type="text/css" media="screen">
+
+			th a:link, th a:visited, th a:hover {
+				 font-size: 14px;
+			}
+			
+			
+			td, th {
+				font-size: 14px;
+
+			}
+			
+			.buttons input {
+    			background: #fff;
+    			border: 20px #ccc;
+    			color: #333;
+    			cursor: pointer;
+    			font-size: 12px;
+    			font-weight: bold;
+    			margin-left: 3px;
+    			overflow: visible;
+    			padding: 3px 6px;
+			}
+
+			.buttons input.visualizar {
+    			background: transparent url(../images/skin/visualizar1.png) 5px 50% no-repeat;
+    
+    			padding-left: 28px;
+			}
+
+        	.buttons input.criarAvaliador {
+ 				background: transparent url(../images/skin/addAvaliador2.png) 5px 50% no-repeat;
+    			padding-left: 28px;
+    		}
+    		
+    		.buttons input.mostrarAvaliadores {
+    		background: transparent url(../images/skin/mostrarAvaliadores.png) 5px 50% no-repeat;
+    		padding-left: 28px;
+			}
+
+			.buttons input.listaInscricao {
+    		background: transparent url(../images/skin/listaInscricao2.png) 5px 50% no-repeat;
+    		padding-left: 28px;
+			}
+		</style>
+
+
     	<div align="right">
         
         
@@ -40,17 +87,17 @@
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="id" title="${message(code: 'chamada.id.label', default: 'Id')}" />
+                            <g:sortableColumn property="id" title="${message(code: 'chamada.id.label', default: 'O que fazer?')}" />
                         
-                    	    <g:sortableColumn property="tituloDaChamada" title="${message(code: 'chamada.tituloDaChamada.label', default: 'Titulo Da Chamada')}" />
+                    	    <g:sortableColumn property="tituloDaChamada" title="${message(code: 'chamada.tituloDaChamada.label', default: 'Titulo da Chamada')}" />
                     
-                     		<g:sortableColumn property="tipoDeChamada" title="${message(code: 'chamada.tipoDeChamada.label', default: 'Tipo De Chamada')}" />
+                     		<g:sortableColumn property="tipoDeChamada" title="${message(code: 'chamada.tipoDeChamada.label', default: 'Tipo de Chamada')}" />
                         
                        		<g:sortableColumn property="vagasDisponiveis" title="${message(code: 'chamada.vagasDisponiveis.label', default: 'Vagas disponiveis')}" />
                            
-                        	<g:sortableColumn property="dataInicialInscricoes" title="${message(code: 'chamada.dataInicialInscricoes.label', default: 'Data Inicial Inscricoes')}" />
+                        	<g:sortableColumn property="dataInicialInscricoes" title="${message(code: 'chamada.dataInicialInscricoes.label', default: 'Data inicial')}" />
                         
-                            <g:sortableColumn property="dataFinalInscricoes" title="${message(code: 'chamada.dataFinalInscricoes.label', default: 'Data Final Inscricoes')}" />
+                            <g:sortableColumn property="dataFinalInscricoes" title="${message(code: 'chamada.dataFinalInscricoes.label', default: 'Data final')}" />
                         
               				
                            
@@ -66,22 +113,22 @@
       
                         	<g:if test="${session.usuario.ehAdministrador}">
                         	
-                        		<g:form controller="chamada">
+                        		<g:form class="buttons" align="left" controller="chamada">
                    					<g:hiddenField name="id" value="${chamadaInstance?.id}" />
-            						<span class="button"><g:actionSubmit action="show" value="Visualizar" ></g:actionSubmit></span></br>
+            						<span class="button"><g:actionSubmit class="visualizar" action="show" value="Visualizar" ></g:actionSubmit></span></br>
       
             	    			</g:form>
       
-      							<g:form controller="atribuicao">
+      							<g:form class="buttons" align="left" controller="atribuicao">
             		    			<g:hiddenField name="id" value="${chamadaInstance?.id}" />
-            		        		<span class="button"><g:actionSubmit class="edit" action="create" value="Definir avaliador"></g:actionSubmit></span></br>
-									<span class="button"><g:actionSubmit class="list" action="list" value="Mostrar avaliadores"></g:actionSubmit></span></br>
+            		        		<span class="button"><g:actionSubmit class="criarAvaliador" action="create" value="Definir avaliador"></g:actionSubmit></span></br>
+									<span class="button"><g:actionSubmit class="mostrarAvaliadores" action="list" value="Mostrar avaliadores"></g:actionSubmit></span></br>
 			
             		    		</g:form>
             		    	                  
-        	    	    		<g:form controller="inscricao">
+        	    	    		<g:form class="buttons" align="left" controller="inscricao">
         							<g:hiddenField name="id" value="${chamadaInstance?.id}" />
-            		        		<span class="button"><g:actionSubmit class="list" action="listaDeChamada" value="Lista de inscricoes"></g:actionSubmit></span></br>
+            		        		<span class="button"><g:actionSubmit class="listaInscricao" action="listaDeChamada" value="Lista de inscricoes"></g:actionSubmit></span></br>
 			
             		    		</g:form>
             		    		
@@ -92,20 +139,20 @@
                         		
                         		</g:if>
                         		<g:else>
-                        			<g:form controller="chamada">
+                        			<g:form class="buttons" controller="chamada">
                    					<g:hiddenField name="id" value="${chamadaInstance?.id}" />
-            						<span class="button"><g:actionSubmit action="show" value="Visualizar" ></g:actionSubmit></span></br>
+            						<span class="button"><g:actionSubmit class="visualizar" action="show" value="Visualizar" ></g:actionSubmit></span></br>
       
             	    				</g:form>
                         			
-            	            		<g:form controller="inscricao">
+            	            		<g:form class="buttons" controller="inscricao">
             						           					
             		    		    	<g:if test="${Calendar.getInstance().after(chamadaInstance.dataInicialInscricoes) && Calendar.getInstance().before(chamadaInstance.dataFinalInscricoes)}">
             	    			    		<g:hiddenField name="id" value="${chamadaInstance?.id}" />
-            	        					<span class="button"><g:actionSubmit class="edit" action="create" value="Inscricao"></g:actionSubmit></span></br>
+            	        					<span class="button"><g:actionSubmit class="mostrarAvaliadores" action="create" value="Inscricao"></g:actionSubmit></span></br>
 					        	    	</g:if>
 					            		<g:else>
-					            			<span class="button"><g:actionSubmit disabled="true" class="edit" action="create" value="Inscricao"></g:actionSubmit></span></br>
+					            			<span class="button"><g:actionSubmit disabled="true" class="mostrarAvaliadores" action="create" value="Inscricao"></g:actionSubmit></span></br>
 					            		</g:else>
             	    				</g:form>        
             
@@ -130,14 +177,14 @@
                         	<g:if test="${ehParaAvaliar }">
       		                  	<td>
       		                  	
-      		                  	<g:form controller="chamada">
+      		                  	<g:form class="buttons" controller="chamada">
                    					<g:hiddenField name="id" value="${chamadaInstance?.id}" />
-            						<span class="button"><g:actionSubmit action="show" value="Visualizar" ></g:actionSubmit></span></br>
+            						<span class="button"><g:actionSubmit class="visualizar" action="show" value="Visualizar" ></g:actionSubmit></span></br>
             	    			</g:form>
             	    			
-            	    			<g:form controller="inscricao">
+            	    			<g:form class="buttons" controller="inscricao">
         							<g:hiddenField name="id" value="${chamadaInstance?.id}" />
-            		        		<span class="button"><g:actionSubmit class="list" action="listaDeChamada" value="Lista de inscricoes"></g:actionSubmit></span></br>
+            		        		<span class="button"><g:actionSubmit class="listaInscricao" action="listaDeChamada" value="Lista de inscricoes"></g:actionSubmit></span></br>
 			
             		    		</g:form>
             	    			
