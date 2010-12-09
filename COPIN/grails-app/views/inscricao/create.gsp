@@ -37,7 +37,7 @@
     <body>
         <div class="nav">
            <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
-        	<span class="menuButton"><a class="list" href="${createLink(uri: '/chamada/index')}"><g:message code="Lista"/></a></span>
+        	<span class="menuButton"><a class="list" href="${createLink(uri: '/chamada/list')}"><g:message code="Lista"/></a></span>
         </div>
         <div class="body">
            <h2 align="center" size="1"><g:message code="Inscricao" args="[entityName]" /></h2>

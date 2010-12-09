@@ -26,7 +26,7 @@
             <span class="menuButton"><a class="home" href="${createLink(uri: '/usuario/perfil')}"><g:message code="default.home.label"/></a></span>
             </g:else>
             
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/chamada/list')}"><g:message code="Lista de chamadas"/></a></span>
+            <span class="menuButton"><a class="list" href="${createLink(uri: '/chamada/list')}"><g:message code="Lista de chamadas"/></a></span>
         </div>
         <div class="body">
             <h1><g:message code="Chamada" /></h1>

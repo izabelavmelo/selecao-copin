@@ -91,9 +91,9 @@ input:focus, select:focus, textarea:focus {
     padding-left: 35px;
 }
 .menuButton a.create {
-    background: url(../images/skin/database_add.png) center left no-repeat;
+    background: url(../images/skin/database_add2.png) center left no-repeat;
     color: #333;
-    padding-left: 35px;
+    padding-left: 28px;
 }
 
 /* MESSAGES AND ERRORS */
@@ -143,9 +143,10 @@ td, th {
     font: 11px verdana, arial, helvetica, sans-serif;
     line-height: 12px;
     padding: 5px 6px;
-    text-align: left;
-    vertical-align: top;
+    text-align: center;
+    vertical-align: center;
 }
+
 th {
     background: #fff url(../images/skin/shadow.jpg);
     color: #666;
@@ -157,7 +158,7 @@ th {
 th a:link, th a:visited, th a:hover {
     color: #333;
     display: block;
-    font-size: 10px;
+    font-size: 14px;
     text-decoration: none;
     width: 100%;
 }
@@ -173,10 +174,12 @@ th.desc a {
 }
 
 .odd {
-    background: #f7f7f7;
+    background: #fff;
+    border: 1px solid #ccc;
 }
 .even {
     background: #fff;
+    border: 1px solid #ccc;
 }
 
 /* LIST */
@@ -188,7 +191,7 @@ th.desc a {
     border-left: 1px solid #ddd;
 }
 .list th:hover, .list tr:hover {
-    background: #b2d1ff;
+    background: #fff;
 }
 
 /* PAGINATION */
@@ -282,11 +285,15 @@ th.desc a {
     padding-left: 28px;
 }
 .buttons input.criarChamada {
-    background: transparent url(../images/skin/database_add2.png) 5px 50% no-repeat;
+    background: transparent url(../images/skin/database_add.png) 5px 50% no-repeat;
     padding-left: 28px;
 }
 .buttons input.criarAvaliador {
     background: transparent url(../images/skin/addAvaliador.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+.buttons input.mostrarAvaliadores {
+    background: transparent url(../images/skin/mostrarAvaliadores.png) 5px 50% no-repeat;
     padding-left: 28px;
 }
 .buttons input.listaInscricao {
