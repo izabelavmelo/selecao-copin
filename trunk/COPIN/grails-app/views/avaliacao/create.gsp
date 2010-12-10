@@ -536,7 +536,7 @@
                      
                         <tbody>
                         	<h1><g:message code="Download de documentos"/></h1>
-                        	<g:form>
+                        	<g:form class="buttons" align="left">
                 
                     			<g:hiddenField name="id" value="${avaliacaoInstance.inscricao?.id}" />
                     
@@ -548,11 +548,11 @@
                     			</g:each>
                     			
 		             			<g:if test="${tamanho < 1 }">
-                    				<span class="button"><g:actionSubmit disabled="true" class="edit" action="downloadFile" value="Download File" /></span>
+                    				<span class="button"><g:actionSubmit disabled="true" class="download" action="downloadFile" value="Download File" /></span>
                     			</g:if>
                     			
                     			<g:else>
-                    				<span class="button"><g:actionSubmit class="edit" action="downloadFile" value="Download File" /></span>
+                    				<span class="button"><g:actionSubmit class="download" action="downloadFile" value="Download File" /></span>
                     			</g:else>
 		                </g:form>
                       </tbody>

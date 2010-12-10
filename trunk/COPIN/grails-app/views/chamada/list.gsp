@@ -133,13 +133,13 @@
             		        		<span class="button"><g:actionSubmit class="listaInscricao" action="listaDeChamada" value="Lista de inscricoes"></g:actionSubmit></span></br>
             		    		</g:form>
             		    		
-        	    	    		<g:form controller="administrar">
+        	    	    		<g:form class="buttons" align="left" controller="administrar">
         	    	    			<g:if test="${Calendar.getInstance().before(chamadaInstance.dataFinalInscricoes)}">
-	        							<span class="button"><g:actionSubmit disabled="true" class="list" action="media" value="Pontuacao"></g:actionSubmit></span></br>
+	        							<span class="button"><g:actionSubmit disabled="true" class="mostrarAvaliadores" action="media" value="Pontuacao"></g:actionSubmit></span></br>
 	            		        	</g:if>
 	            		        	<g:else>
 	            		        		<g:hiddenField name="idChamada" value="${chamadaInstance?.id}" />
-	            		        		<span class="button"><g:actionSubmit class="list" action="media" value="Pontuacao"></g:actionSubmit></span></br>
+	            		        		<span class="button"><g:actionSubmit class="mostrarAvaliadores" action="media" value="Pontuacao"></g:actionSubmit></span></br>
 	            		        	</g:else>
             		    		</g:form>
             		    		
