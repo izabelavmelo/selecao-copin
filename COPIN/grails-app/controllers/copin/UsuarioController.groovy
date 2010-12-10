@@ -162,16 +162,21 @@ class UsuarioController {
             [usuarioInstance: usuarioInstance]
         }
     }
-
+	
 	def perfil = {
+		
+	}
+
+	
+	def perfilUsuario = {
 		
 		def usuarioInstance = session["usuario"]
 		
-		if(usuarioInstance){
+		if(usuarioInstance) {
 			[usuarioInstance: usuarioInstance]
 		}else{
 			redirect(action:"index")
-		}	
+		}
 	}
 	
 	def perfilAdministrador = {

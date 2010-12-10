@@ -11,21 +11,18 @@ class ChamadaController {
 	static void calculaTodasAsMedias(Chamada chamadaInstance){
 		def listaInscricao = Inscricao.findAllByChamada(chamadaInstance)
 		for(Inscricao i : listaInscricao){
-			def listaAvaliacao = Avaliacao.findAllByInscricao(i)
-			for(Avaliacao a : listaAvaliacao){
-				AvaliacaoController.calculaMedia a
-			}
+			InscricaoController.calculaMediaInscricao i
 		}
 	}
 
     def list = {
 		def usuarioInstance = Usuario.get(params.idUsuario)
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-		def atribuicoesList = Atribuicao.findWhere(usuarios:usuarioInstance)
+		def atribuicoesList = Atribuicao.findAllWhere(usuarios:usuarioInstance)
         [chamadaInstanceList: Chamada.list(params), chamadaInstanceTotal: Chamada.count(), atribuicoesList:atribuicoesList]
     }
 	
-	/**def estaAtivo = {
+	/*def estaAtivo = {
 		def chamadaInstance = new Chamada()
 		if(Calendar.getInstance().after(chamadaInstance.dataInicialInscricoes) && Calendar.getInstance().before(chamadaInstance.dataFinalInscricoes)){
 			chamadaInstance.chamadaAtiva = true;
@@ -102,8 +99,8 @@ class ChamadaController {
                 }
             }
             chamadaInstance.properties = params
-			calculaTodasAsMedias chamadaInstance
             if (!chamadaInstance.hasErrors() && chamadaInstance.save(flush: true)) {
+				calculaTodasAsMedias chamadaInstance
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'chamada.label', default: 'Chamada'), chamadaInstance.id])}"
                 redirect(action: "show", id: chamadaInstance.id)
             }

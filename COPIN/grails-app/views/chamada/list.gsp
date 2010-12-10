@@ -131,7 +131,16 @@
         	    	    		<g:form class="buttons" align="left" controller="inscricao">
         							<g:hiddenField name="id" value="${chamadaInstance?.id}" />
             		        		<span class="button"><g:actionSubmit class="listaInscricao" action="listaDeChamada" value="Lista de inscricoes"></g:actionSubmit></span></br>
-			
+            		    		</g:form>
+            		    		
+        	    	    		<g:form controller="administrar">
+        	    	    			<g:if test="${Calendar.getInstance().before(chamadaInstance.dataFinalInscricoes)}">
+	        							<span class="button"><g:actionSubmit disabled="true" class="list" action="media" value="Pontuacao"></g:actionSubmit></span></br>
+	            		        	</g:if>
+	            		        	<g:else>
+	            		        		<g:hiddenField name="idChamada" value="${chamadaInstance?.id}" />
+	            		        		<span class="button"><g:actionSubmit class="list" action="media" value="Pontuacao"></g:actionSubmit></span></br>
+	            		        	</g:else>
             		    		</g:form>
             		    		
                 
@@ -168,7 +177,7 @@
       						
       						<g:each in="${atribuicoesList}" status="j" var="atribuicaoInstance">
                         		<tr class="${(j % 2) == 0 ? 'odd' : 'even'}">
-                        			<g:if test="${atribuicaoInstance?.chamada?.id == chamadaInstance.id}">
+                        			<g:if test="${atribuicaoInstance.chamada.id == chamadaInstance.id}">
                         				<g:set var="ehParaAvaliar" value="${true}"/>
       								
                         			</g:if>

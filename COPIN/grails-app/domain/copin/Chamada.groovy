@@ -18,7 +18,7 @@ class Chamada {
 	
 	void setFormula(String valor){
 		if(formulaValida(valor)){
-			this.formula = valor;
+			this.formula = valor.toLowerCase();
 		}
 	}
 	

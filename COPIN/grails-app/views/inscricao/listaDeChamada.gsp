@@ -127,8 +127,13 @@
 										<span class="button"><g:actionSubmit class="edit" action="edit" value="Editar Avaliacao"></g:actionSubmit></span></br>
 									</g:if>
 									<g:else>
-										<g:hiddenField name="idInscricao" value="${inscricaoInstance?.id}" />
-										<span class="button"><g:actionSubmit class="edit" action="create" value="Avaliar candidato"></g:actionSubmit></span></br>
+										<g:if test="${Calendar.getInstance().before(chamadaInstance.dataFinalInscricoes)}">
+											<span class="button"><g:actionSubmit disabled="true" class="edit" action="create" value="Avaliar candidato"></g:actionSubmit></span></br>											
+										</g:if>
+										<g:else>
+											<g:hiddenField name="idInscricao" value="${inscricaoInstance?.id}" />
+											<span class="button"><g:actionSubmit class="edit" action="create" value="Avaliar candidato"></g:actionSubmit></span></br>
+										</g:else>
 									</g:else></g:if>
 									<g:else>
 									
