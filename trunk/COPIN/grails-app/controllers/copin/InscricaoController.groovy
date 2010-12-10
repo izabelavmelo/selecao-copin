@@ -10,6 +10,18 @@ class InscricaoController {
 
 	static redirecionar = UsuarioController.homepage+"/usuario/perfil"
 	
+	static void calculaMediaInscricao(Inscricao inscricaoInstance){
+		def listaAvaliacao = Avaliacao.findAllByInscricao(inscricaoInstance)
+		def totalInscricao = 0
+		def totalMedia = 0
+		for(Avaliacao a : listaAvaliacao){
+			AvaliacaoController.calculaMedia a
+			totalMedia += a.mediaGeral
+			totalInscricao++
+		}
+		inscricaoInstance.mediaGeral = totalMedia/totalInscricao
+	}
+	
     def index = {
         redirect(action: "list", params: params)
     }

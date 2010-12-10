@@ -532,7 +532,32 @@
                         </tbody>
                      </table>
                      
-                     <table>
+                     </br>
+                     
+                        <tbody>
+                        	<h1><g:message code="Download de documentos"/></h1>
+                        	<g:form>
+                
+                    			<g:hiddenField name="id" value="${avaliacaoInstance.inscricao?.id}" />
+                    
+                    			<g:set var="tamanho" value="${0}"/>
+                
+                
+                				<g:each in="${avaliacaoInstance.inscricao.documentos}" status="j" var="inscricaoInstance">
+                    				<g:set var="tamanho" value="${tamanho + 1}"/>
+                    			</g:each>
+                    			
+		             			<g:if test="${tamanho < 1 }">
+                    				<span class="button"><g:actionSubmit disabled="true" class="edit" action="downloadFile" value="Download File" /></span>
+                    			</g:if>
+                    			
+                    			<g:else>
+                    				<span class="button"><g:actionSubmit class="edit" action="downloadFile" value="Download File" /></span>
+                    			</g:else>
+		                </g:form>
+                      </tbody>
+                	
+                    <table>
                         <tbody>
                      		</br>
                      		<h1><g:message code="Notas gerais dos documentos recebidos"/></h1>
@@ -572,15 +597,6 @@
                         </tbody>
                      </table>
                      <br/>
-                     
-                     <table>
-                        <tbody>
-                        	<h1><g:message code="Download de documentos"/></h1>
-                        	<tr class="prop">
-                        		<td>Fazer download dos arquivos enviados pelo candidato aqui.</td>
-                            </tr>
-                        </tbody>
-                	</table>
             
                     </g:else>
             

@@ -79,6 +79,7 @@ class Inscricao {
 	
 	Chamada chamada = null
 	Usuario usuario = null
+	double mediaGeral
 	
 	static belongsTo = {chamada: Chamada ; usuario: Usuario}
 	
